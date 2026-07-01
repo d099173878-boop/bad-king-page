@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل اطلاعات BAD KING</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#0a0e1a;color:#e0e8f0;min-height:100vh;padding:20px;direction:rtl}
+        .panel-container{max-width:1000px;margin:0 auto;background:rgba(10,14,30,0.95);backdrop-filter:blur(20px);border:1px solid rgba(0,240,255,0.2);border-radius:25px;padding:30px;box-shadow:0 20px 60px rgba(0,240,255,0.1)}
+        .panel-header{text-align:center;margin-bottom:25px}
+        .panel-header h1{font-size:32px;font-weight:800;background:linear-gradient(135deg,#00f0ff,#7b2ffc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+        .panel-header .subtitle{color:rgba(255,255,255,0.3);font-size:14px;letter-spacing:3px;margin-top:5px}
+        .panel-header .badge{display:inline-block;background:rgba(0,240,255,0.15);color:#00f0ff;padding:2px 12px;border-radius:20px;font-size:12px;margin-top:8px}
+        .login-box{background:rgba(255,255,255,0.05);border-radius:15px;padding:30px;border:1px solid rgba(255,255,255,0.08);max-width:400px;margin:0 auto}
+        .login-box input{width:100%;padding:14px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:#e0e8f0;font-size:16px;margin-bottom:15px;transition:all .3s ease;direction:ltr}
+        .login-box input:focus{outline:none;border-color:#00f0ff;box-shadow:0 0 20px rgba(0,240,255,0.1)}
+        .login-box button{width:100%;padding:14px;background:linear-gradient(135deg,#00f0ff,#7b2ffc);border:none;border-radius:12px;color:#fff;font-size:18px;font-weight:600;cursor:pointer;transition:all .3s ease}
+        .login-box button:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,240,255,0.3)}
+        .login-error{color:#ff6b6b;font-size:14px;text-align:center;margin-top:10px;display:none}
+        .data-container{display:none}
+        .data-container.show{display:block;animation:fadeIn .6s ease-out}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        .stats-bar{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:20px}
+        .stats-item{background:rgba(255,255,255,0.05);border-radius:12px;padding:12px 20px;flex:1;min-width:120px;border:1px solid rgba(255,255,255,0.05)}
+        .stats-item .num{font-size:24px;font-weight:700;color:#00f0ff}
+        .stats-item .label{font-size:12px;color:rgba(255,255,255,0.3)}
+        .search-box{display:flex;gap:10px;margin-bottom:20px}
+        .search-box input{flex:1;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#e0e8f0;font-size:14px}
+        .search-box input:focus{outline:none;border-color:#00f0ff}
+        .search-box button{padding:12px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#e0e8f0;cursor:pointer;transition:all .3s ease}
+        .search-box button:hover{background:rgba(255,255,255,0.1)}
+        .visit-list{display:flex;flex-direction:column;gap:10px;max-height:70vh;overflow-y:auto;padding-right:5px}
+        .visit-list::-webkit-scrollbar{width:5px}
+        .visit-list::-webkit-scrollbar-track{background:rgba(255,255,255,0.05);border-radius:10px}
+        .visit-list::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#00f0ff,#7b2ffc);border-radius:10px}
+        .visit-item{background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(255,255,255,0.06);padding:15px 18px;cursor:pointer;transition:all .3s ease}
+        .visit-item:hover{background:rgba(255,255,255,0.07);border-color:rgba(0,240,255,0.2)}
+        .visit-item .header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+        .visit-item .device-info{display:flex;align-items:center;gap:10px}
+        .visit-item .device-icon{font-size:20px}
+        .visit-item .device-name{font-weight:600;font-size:15px}
+        .visit-item .device-detail{font-size:12px;color:rgba(255,255,255,0.3)}
+        .visit-item .time-info{font-size:12px;color:rgba(255,255,255,0.3)}
+        .visit-item .time-info .badge-new{background:rgba(0,240,255,0.15);color:#00f0ff;padding:0 8px;border-radius:10px;font-size:10px;margin-right:5px}
+        .visit-details{display:none;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.05)}
+        .visit-details.open{display:block;animation:fadeIn .3s ease-out}
+        .category{background:rgba(255,255,255,0.03);border-radius:10px;margin-bottom:8px;border:1px solid rgba(255,255,255,0.05)}
+        .category-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;cursor:pointer;transition:all .3s ease;border-radius:10px}
+        .category-header:hover{background:rgba(255,255,255,0.05)}
+        .category-header .title{font-weight:600;font-size:14px;color:#00f0ff}
+        .category-header .icon{font-size:16px;transition:transform .3s ease}
+        .category-header .icon.open{transform:rotate(180deg)}
+        .category-body{display:none;padding:10px 14px;border-top:1px solid rgba(255,255,255,0.05)}
+        .category-body.open{display:block}
+        .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+        .detail-item{background:rgba(255,255,255,0.02);border-radius:6px;padding:6px 10px}
+        .detail-item .lbl{font-size:10px;color:rgba(255,255,255,0.3);text-transform:uppercase}
+        .detail-item .val{font-size:12px;font-weight:500;margin-top:2px;word-break:break-all}
+        .detail-item .val.green{color:#00d4b8}
+        .detail-item .val.purple{color:#7b2ffc}
+        .detail-item .val.orange{color:#ff9f43}
+        .detail-item .val.pink{color:#ff6b8a}
+        .detail-item .val.yellow{color:#ffd93d}
+        .copy-btn{background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.2);border-radius:6px;color:#00f0ff;padding:2px 8px;font-size:10px;cursor:pointer;transition:all .3s ease;margin-right:6px}
+        .copy-btn:hover{background:rgba(0,240,255,0.2)}
+        .map-link{color:#00f0ff;text-decoration:none;word-break:break-all;font-size:12px}
+        .map-link:hover{text-decoration:underline}
+        .no-data{text-align:center;padding:40px;color:rgba(255,255,255,0.3)}
+        .no-data .icon{font-size:48px;margin-bottom:10px}
+        .refresh-btn{padding:10px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#e0e8f0;cursor:pointer;transition:all .3s ease;font-size:14px}
+        .refresh-btn:hover{background:rgba(255,255,255,0.1)}
+        .header-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+        .loading{text-align:center;padding:40px;color:rgba(255,255,255,0.3)}
+        .loading .spinner{display:inline-block;width:30px;height:30px;border:3px solid rgba(255,255,255,0.1);border-top:3px solid #00f0ff;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:10px}
+        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+        @media(max-width:600px){.panel-container{padding:15px}.detail-grid{grid-template-columns:1fr}.stats-bar{flex-direction:column}.visit-item .header{flex-direction:column;align-items:flex-start}}
+    </style>
+</head>
+<body>
+<div class="panel-container">
+    <div class="panel-header"><h1>👑 BAD KING</h1><div class="subtitle">• پنل اطلاعات •</div><div class="badge" id="visitCount">۰ بازدید</div></div>
+    <div id="loginSection" class="login-box">
+        <input type="password" id="passwordInput" placeholder="رمز عبور را وارد کنید..." />
+        <button onclick="checkPassword()">ورود به پنل</button>
+        <div id="loginError" class="login-error">رمز عبور اشتباه است!</div>
+    </div>
+    <div id="dataSection" class="data-container">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:15px;">
+            <span style="font-size:18px;font-weight:600;">📊 لیست ورودی‌ها</span>
+            <div class="header-actions"><button class="refresh-btn" onclick="loadVisits()">🔄 بروزرسانی</button></div>
+        </div>
+        <div class="stats-bar"><div class="stats-item"><div class="num" id="totalVisits">۰</div><div class="label">کل بازدیدها</div></div><div class="stats-item"><div class="num" id="todayVisits">۰</div><div class="label">بازدید امروز</div></div><div class="stats-item"><div class="num" id="uniqueDevices">۰</div><div class="label">دستگاه‌های منحصر‌به‌فرد</div></div></div>
+        <div class="search-box"><input type="text" id="searchInput" placeholder="جستجو..." onkeyup="filterVisits()" /><button onclick="filterVisits()">🔍</button></div>
+        <div class="visit-list" id="visitList"><div class="loading"><div class="spinner"></div><div>در حال بارگذاری...</div></div></div>
+    </div>
+</div>
+<script>
+    const PANEL_PASSWORD='badking2024';
+    const JSONBIN_BIN_ID='6a4448c0da38895dfe189441';
+    const JSONBIN_API_KEY='$2a$10$YthIkt1Zx8s5gnUrvjXjs0EEm351owZpgd5xhTVe1VQw2lVnY42m';
+
+    function checkPassword(){const i=document.getElementById('passwordInput').value;if(i===PANEL_PASSWORD){document.getElementById('loginSection').style.display='none';document.getElementById('dataSection').classList.add('show');loadVisits();}else{const e=document.getElementById('loginError');e.style.display='block';setTimeout(()=>e.style.display='none',3000);}}
+    document.getElementById('passwordInput').addEventListener('keyup',function(e){if(e.key==='Enter') checkPassword();});
+
+    async function getVisits(){try{const r=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN_ID,{headers:{'X-Master-Key':JSONBIN_API_KEY}});if(!r.ok) throw new Error('خطا');const d=await r.json();return d.record.visits||[];}catch(e){try{const s=localStorage.getItem('badking_visits');if(s) return JSON.parse(s);}catch(e2){}return[];}}
+
+    function getDeviceIcon(t){const icons={'موبایل':'📱','تبلت':'📱','دسکتاپ':'🖥️'};return icons[t]||'💻';}
+
+    function copyText(t,b){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>{b.textContent='✅ کپی شد';setTimeout(()=>{b.textContent='📋 کپی';},2000);}).catch(()=>fallbackCopy(t,b));}else{fallbackCopy(t,b);}}
+    function fallbackCopy(t,b){const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');b.textContent='✅ کپی شد';setTimeout(()=>{b.textContent='📋 کپی';},2000);}catch(e){alert('لینک: '+t);}document.body.removeChild(ta);}
+
+    function toggleCategory(el){const b=el.nextElementSibling;const i=el.querySelector('.icon');b.classList.toggle('open');i.classList.toggle('open');}
+
+    async function loadVisits(){
+        const list=document.getElementById('visitList');
+        const totalEl=document.getElementById('totalVisits');
+        const todayEl=document.getElementById('todayVisits');
+        const uniqueEl=document.getElementById('uniqueDevices');
+        const countEl=document.getElementById('visitCount');
+        list.innerHTML='<div class="loading"><div class="spinner"></div><div>در حال بارگذاری...</div></div>';
+        const visits=await getVisits();
+        totalEl.textContent=visits.length;
+        const today=new Date().toLocaleDateString('fa-IR');
+        const todayVisits=visits.filter(v=>{const d=new Date(v.timeISO);return d.toLocaleDateString('fa-IR')===today;});
+        todayEl.textContent=todayVisits.length;
+        const devices=new Set(visits.map(v=>v.deviceModel+'|'+v.os));
+        uniqueEl.textContent=devices.size;
+        countEl.textContent=visits.length+' بازدید';
+        if(visits.length===0){list.innerHTML='<div class="no-data"><div class="icon">📭</div><div>هنوز اطلاعاتی دریافت نشده</div></div>';return;}
+        let html='';
+        visits.forEach((visit,index)=>{
+            const icon=getDeviceIcon(visit.deviceType);
+            const isNew=index===0;
+            const deviceLabel=visit.deviceModel!=='نامشخص'?visit.deviceModel:visit.deviceType;
+            let mapHtml='';
+            if(visit.mapGoogle&&visit.mapGoogle!=='نامشخص'){
+                mapHtml='<div class="detail-grid">'+
+                    '<div class="detail-item"><div class="lbl">🗺️ گوگل</div><div class="val"><a href="'+visit.mapGoogle+'" target="_blank" class="map-link">'+visit.mapGoogle.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapGoogle+'\', this)">📋 کپی</button></div></div>'+
+                    '<div class="detail-item"><div class="lbl">🗺️ OSM</div><div class="val"><a href="'+visit.mapOSM+'" target="_blank" class="map-link">'+visit.mapOSM.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapOSM+'\', this)">📋 کپی</button></div></div>'+
+                    '<div class="detail-item"><div class="lbl">🗺️ Waze</div><div class="val"><a href="'+visit.mapWaze+'" target="_blank" class="map-link">'+visit.mapWaze.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapWaze+'\', this)">📋 کپی</button></div></div>'+
+                    '<div class="detail-item"><div class="lbl">🗺️ Bing</div><div class="val"><a href="'+visit.mapBing+'" target="_blank" class="map-link">'+visit.mapBing.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapBing+'\', this)">📋 کپی</button></div></div></div>';
+            }
+            const categories=[
+                {title:'🕒 زمان و تاریخ',fields:['time','day','timezone','season','weekNumber','hours','minutes','seconds']},
+                {title:'📱 دستگاه',fields:['deviceType','deviceModel','deviceVendor','isMobile','architecture','cpuType','platform','vendor']},
+                {title:'💻 سیستم‌عامل و مرورگر',fields:['os','browser','browserEngine','cookie','doNotTrack','privateMode','language','languages']},
+                {title:'🖥️ صفحه نمایش',fields:['screen','colorDepth','pixelRatio','refreshRate','orientation','hdrSupport','wideColorGamut','winSize']},
+                {title:'⚡ سخت‌افزار',fields:['memory','cores','vram','gpuVendor','gpuRenderer','hwAcceleration','webgl2Support','maxTextureSize','touch']},
+                {title:'🌐 شبکه',fields:['networkType','networkSpeed','networkRtt','networkSaveData']},
+                {title:'🔋 باتری',fields:['battery','batteryCharging']},
+                {title:'📍 موقعیت مکانی',fields:['gps','gpsAcc','gpsAlt','gpsHeading','gpsSpeed']},
+                {title:'🔗 منبع ورود',fields:['referrer','url','hostname','protocol','port']},
+                {title:'🔄 تعامل با سایت',fields:['loadTime','domLoadTime','navigationType','visibilityState','hasFocus']},
+                {title:'💾 ذخیره‌سازی',fields:['localStorageSize','localStorageCount','sessionStorageSize','sessionStorageCount']},
+                {title:'🎨 اثر انگشت',fields:['fingerprint','webglFingerprint','fontFingerprint']},
+                {title:'🔌 قابلیت‌های مرورگر',fields:['webgl','webgl2','webgpu','webassembly','websocket','serviceWorker','indexedDB','webrtc','webtransport','webcodecs','fileSystemAccess','webBluetooth','webNFC','webUSB','webXR','webSpeech','webAuthn','webMIDI','webHID','webSerial','webShare','webNotification','webPayment','webVR','webAudio','webMedia','webFileAPI','webDragDrop','webFullscreen','webHistory','webLocation','webStorage','webWorker','webFetch','webStreams','webPerformance','webIntersectionObserver','webResizeObserver','webMutationObserver','webProxy','webMap','webSet','webSymbol','webPromise']},
+                {title:'🎵 کدک‌ها',fields:['h264','h264High','h265','vp8','vp9','av1','mp3','aac','ogg','wav','flac','opus','webm','mp4','ogv']}
+            ];
+            let detailsHtml='';
+            categories.forEach(cat=>{
+                let has=false;let items='';
+                cat.fields.forEach(f=>{
+                    if(visit[f]&&visit[f]!=='نامشخص'&&visit[f]!=='خیر'&&visit[f]!==''){
+                        has=true;let val=visit[f];let cc='';
+                        if(f==='gps'&&val!=='نامشخص') cc='green';
+                        if(f==='deviceType') cc='purple';
+                        if(f==='os'||f==='browser') cc='orange';
+                        if(f==='privateMode'&&val==='ناشناس') cc='pink';
+                        if(f==='onLine'&&val==='متصل') cc='green';
+                        if(f==='isMobile'&&val==='بله') cc='yellow';
+                        items+='<div class="detail-item"><div class="lbl">'+f+'</div><div class="val '+cc+'">'+val+'</div></div>';
+                    }
+                });
+                if(has){detailsHtml+='<div class="category"><div class="category-header" onclick="toggleCategory(this)"><span class="title">'+cat.title+'</span><span class="icon">▼</span></div><div class="category-body"><div class="detail-grid">'+items+'</div></div></div>';}
+            });
+            if(visit.mapGoogle&&visit.mapGoogle!=='نامشخص'){detailsHtml+='<div class="category"><div class="category-header" onclick="toggleCategory(this)"><span class="title">🗺️ نقشه‌ها</span><span class="icon">▼</span></div><div class="category-body">'+mapHtml+'</div></div>';}
+            html+='<div class="visit-item" onclick="toggleDetails('+index+')"><div class="header"><div class="device-info"><span class="device-icon">'+icon+'</span><div><div class="device-name">'+deviceLabel+'</div><div class="device-detail">'+(visit.os||'نامشخص')+' • '+(visit.browser||'نامشخص')+'</div></div></div><div class="time-info">'+(visit.time||'نامشخص')+(isNew?'<span class="badge-new">جدید</span>':'')+'</div></div><div class="visit-details" id="details-'+index+'">'+(detailsHtml||'<div style="padding:10px;color:rgba(255,255,255,0.3);">اطلاعات تکمیلی موجود نیست</div>')+'</div></div>';
+        });
+        list.innerHTML=html;
+    }
+    function toggleDetails(index){const el=document.getElementById('details-'+index);if(el) el.classList.toggle('open');}
+    function filterVisits(){const q=document.getElementById('searchInput').value.toLowerCase();document.querySelectorAll('.visit-item').forEach(i=>{i.style.display=i.textContent.toLowerCase().includes(q)?'block':'none';});}
+    console.log('👑 پنل BAD KING آماده است');
+</script>
+</body>
+</html>
