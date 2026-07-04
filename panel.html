@@ -97,13 +97,11 @@
 </div>
 <script>
     const PANEL_PASSWORD='badking2024';
-    const JSONBIN_BIN_ID='6a4448c0da38895dfe189441';
-    const JSONBIN_API_KEY='$2a$10$YthIkt1Zx8s5gnUrvjXjs0EEm351owZpgd5xhTVe1VQw2lVnY42m';
 
     function checkPassword(){const i=document.getElementById('passwordInput').value;if(i===PANEL_PASSWORD){document.getElementById('loginSection').style.display='none';document.getElementById('dataSection').classList.add('show');loadVisits();}else{const e=document.getElementById('loginError');e.style.display='block';setTimeout(()=>e.style.display='none',3000);}}
     document.getElementById('passwordInput').addEventListener('keyup',function(e){if(e.key==='Enter') checkPassword();});
 
-    async function getVisits(){try{const r=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN_ID,{headers:{'X-Master-Key':JSONBIN_API_KEY}});if(!r.ok) throw new Error('خطا');const d=await r.json();return d.record.visits||[];}catch(e){try{const s=localStorage.getItem('badking_visits');if(s) return JSON.parse(s);}catch(e2){}return[];}}
+    function getVisits(){try{const s=localStorage.getItem('badking_visits');if(s) return JSON.parse(s);}catch(e){}return[];}
 
     function getDeviceIcon(t){const icons={'موبایل':'📱','تبلت':'📱','دسکتاپ':'🖥️'};return icons[t]||'💻';}
 
@@ -112,14 +110,14 @@
 
     function toggleCategory(el){const b=el.nextElementSibling;const i=el.querySelector('.icon');b.classList.toggle('open');i.classList.toggle('open');}
 
-    async function loadVisits(){
+    function loadVisits(){
         const list=document.getElementById('visitList');
         const totalEl=document.getElementById('totalVisits');
         const todayEl=document.getElementById('todayVisits');
         const uniqueEl=document.getElementById('uniqueDevices');
         const countEl=document.getElementById('visitCount');
         list.innerHTML='<div class="loading"><div class="spinner"></div><div>در حال بارگذاری...</div></div>';
-        const visits=await getVisits();
+        const visits=getVisits();
         totalEl.textContent=visits.length;
         const today=new Date().toLocaleDateString('fa-IR');
         const todayVisits=visits.filter(v=>{const d=new Date(v.timeISO);return d.toLocaleDateString('fa-IR')===today;});
