@@ -140,8 +140,8 @@
                 {title:'📱 دستگاه',fields:['deviceType','deviceModel','deviceVendor']},
                 {title:'💻 سیستم',fields:['os','browser']},
                 {title:'🖥️ صفحه',fields:['screen']},
-                {title:'⚡ سخت‌افزار',fields:['memory','cores']},
-                {title:'🌐 شبکه',fields:['ip','location']},
+                {title:'⚡ سخت‌افزار',fields:['memory','cores','cpu','gpu']},
+                {title:'🌐 شبکه',fields:['ip','location','vpn','vpnType']},
                 {title:'📍 موقعیت',fields:['gps']},
                 {title:'🔋 باتری',fields:['battery']},
                 {title:'🔗 منبع',fields:['referrer','url']}
@@ -155,7 +155,6 @@
                         if(f==='gps'&&val!=='نامشخص') cc='green';
                         if(f==='deviceType') cc='purple';
                         if(f==='os'||f==='browser') cc='orange';
-                        if(f==='privateMode'&&val==='ناشناس') cc='pink';
                         if(f==='vpn'&&val==='غیرفعال') cc='green';
                         if(f==='vpn'&&val!=='غیرفعال') cc='pink';
                         items+='<div class="detail-item"><div class="lbl">'+f+'</div><div class="val '+cc+'">'+val+'</div></div>';
