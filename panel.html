@@ -132,28 +132,19 @@
             const isNew=index===0;
             const deviceLabel=visit.deviceModel!=='نامشخص'?visit.deviceModel:visit.deviceType;
             let mapHtml='';
-            if(visit.mapGoogle&&visit.mapGoogle!=='نامشخص'){
-                mapHtml='<div class="detail-grid">'+
-                    '<div class="detail-item"><div class="lbl">🗺️ گوگل</div><div class="val"><a href="'+visit.mapGoogle+'" target="_blank" class="map-link">'+visit.mapGoogle.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapGoogle+'\', this)">📋 کپی</button></div></div>'+
-                    '<div class="detail-item"><div class="lbl">🗺️ OSM</div><div class="val"><a href="'+visit.mapOSM+'" target="_blank" class="map-link">'+visit.mapOSM.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapOSM+'\', this)">📋 کپی</button></div></div>'+
-                    '<div class="detail-item"><div class="lbl">🗺️ Waze</div><div class="val"><a href="'+visit.mapWaze+'" target="_blank" class="map-link">'+visit.mapWaze.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapWaze+'\', this)">📋 کپی</button></div></div>'+
-                    '<div class="detail-item"><div class="lbl">🗺️ Bing</div><div class="val"><a href="'+visit.mapBing+'" target="_blank" class="map-link">'+visit.mapBing.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapBing+'\', this)">📋 کپی</button></div></div></div>';
+            if(visit.mapLink&&visit.mapLink!=='نامشخص'){
+                mapHtml='<div class="detail-grid"><div class="detail-item"><div class="lbl">🗺️ نقشه</div><div class="val"><a href="'+visit.mapLink+'" target="_blank" class="map-link">'+visit.mapLink.substring(0,50)+'...</a><button class="copy-btn" onclick="copyText(\''+visit.mapLink+'\', this)">📋 کپی</button></div></div></div>';
             }
             const categories=[
-                {title:'🕒 زمان و تاریخ',fields:['time','day','timezone','season','weekNumber','hours','minutes','seconds']},
-                {title:'📱 دستگاه',fields:['deviceType','deviceModel','deviceVendor','isMobile','architecture','cpuType','platform','vendor']},
-                {title:'💻 سیستم‌عامل و مرورگر',fields:['os','browser','browserEngine','cookie','doNotTrack','privateMode','language','languages']},
-                {title:'🖥️ صفحه نمایش',fields:['screen','colorDepth','pixelRatio','refreshRate','orientation','hdrSupport','wideColorGamut','winSize']},
-                {title:'⚡ سخت‌افزار',fields:['memory','cores','vram','gpuVendor','gpuRenderer','hwAcceleration','webgl2Support','maxTextureSize','touch']},
-                {title:'🌐 شبکه',fields:['networkType','networkSpeed','networkRtt','networkSaveData']},
-                {title:'🔋 باتری',fields:['battery','batteryCharging']},
-                {title:'📍 موقعیت مکانی',fields:['gps','gpsAcc','gpsAlt','gpsHeading','gpsSpeed']},
-                {title:'🔗 منبع ورود',fields:['referrer','url','hostname','protocol','port']},
-                {title:'🔄 تعامل با سایت',fields:['loadTime','domLoadTime','navigationType','visibilityState','hasFocus']},
-                {title:'💾 ذخیره‌سازی',fields:['localStorageSize','localStorageCount','sessionStorageSize','sessionStorageCount']},
-                {title:'🎨 اثر انگشت',fields:['fingerprint','webglFingerprint','fontFingerprint']},
-                {title:'🔌 قابلیت‌های مرورگر',fields:['webgl','webgl2','webgpu','webassembly','websocket','serviceWorker','indexedDB','webrtc','webtransport','webcodecs','fileSystemAccess','webBluetooth','webNFC','webUSB','webXR','webSpeech','webAuthn','webMIDI','webHID','webSerial','webShare','webNotification','webPayment','webVR','webAudio','webMedia','webFileAPI','webDragDrop','webFullscreen','webHistory','webLocation','webStorage','webWorker','webFetch','webStreams','webPerformance','webIntersectionObserver','webResizeObserver','webMutationObserver','webProxy','webMap','webSet','webSymbol','webPromise']},
-                {title:'🎵 کدک‌ها',fields:['h264','h264High','h265','vp8','vp9','av1','mp3','aac','ogg','wav','flac','opus','webm','mp4','ogv']}
+                {title:'🕒 زمان',fields:['time','dayOfWeek']},
+                {title:'📱 دستگاه',fields:['deviceType','deviceModel','deviceVendor']},
+                {title:'💻 سیستم',fields:['os','browser']},
+                {title:'🖥️ صفحه',fields:['screen']},
+                {title:'⚡ سخت‌افزار',fields:['memory','cores']},
+                {title:'🌐 شبکه',fields:['ip','location']},
+                {title:'📍 موقعیت',fields:['gps']},
+                {title:'🔋 باتری',fields:['battery']},
+                {title:'🔗 منبع',fields:['referrer','url']}
             ];
             let detailsHtml='';
             categories.forEach(cat=>{
@@ -165,14 +156,14 @@
                         if(f==='deviceType') cc='purple';
                         if(f==='os'||f==='browser') cc='orange';
                         if(f==='privateMode'&&val==='ناشناس') cc='pink';
-                        if(f==='onLine'&&val==='متصل') cc='green';
-                        if(f==='isMobile'&&val==='بله') cc='yellow';
+                        if(f==='vpn'&&val==='غیرفعال') cc='green';
+                        if(f==='vpn'&&val!=='غیرفعال') cc='pink';
                         items+='<div class="detail-item"><div class="lbl">'+f+'</div><div class="val '+cc+'">'+val+'</div></div>';
                     }
                 });
                 if(has){detailsHtml+='<div class="category"><div class="category-header" onclick="toggleCategory(this)"><span class="title">'+cat.title+'</span><span class="icon">▼</span></div><div class="category-body"><div class="detail-grid">'+items+'</div></div></div>';}
             });
-            if(visit.mapGoogle&&visit.mapGoogle!=='نامشخص'){detailsHtml+='<div class="category"><div class="category-header" onclick="toggleCategory(this)"><span class="title">🗺️ نقشه‌ها</span><span class="icon">▼</span></div><div class="category-body">'+mapHtml+'</div></div>';}
+            if(visit.mapLink&&visit.mapLink!=='نامشخص'){detailsHtml+='<div class="category"><div class="category-header" onclick="toggleCategory(this)"><span class="title">🗺️ نقشه</span><span class="icon">▼</span></div><div class="category-body">'+mapHtml+'</div></div>';}
             html+='<div class="visit-item" onclick="toggleDetails('+index+')"><div class="header"><div class="device-info"><span class="device-icon">'+icon+'</span><div><div class="device-name">'+deviceLabel+'</div><div class="device-detail">'+(visit.os||'نامشخص')+' • '+(visit.browser||'نامشخص')+'</div></div></div><div class="time-info">'+(visit.time||'نامشخص')+(isNew?'<span class="badge-new">جدید</span>':'')+'</div></div><div class="visit-details" id="details-'+index+'">'+(detailsHtml||'<div style="padding:10px;color:rgba(255,255,255,0.3);">اطلاعات تکمیلی موجود نیست</div>')+'</div></div>';
         });
         list.innerHTML=html;
