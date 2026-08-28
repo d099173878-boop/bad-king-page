@@ -75,8 +75,9 @@
         
         /* ===== هدر ===== */
         .header{text-align:center;position:relative}
-        .logo{width:95px;height:95px;border-radius:50%;object-fit:cover;border:2px solid rgba(0,240,255,0.06);display:inline-block;animation:logoFloat 5s infinite;box-shadow:0 0 40px rgba(0,240,255,0.02)}
-        @keyframes logoFloat{0%,100%{transform:translateY(0);box-shadow:0 0 30px rgba(0,240,255,0.02)}50%{transform:translateY(-8px);box-shadow:0 0 60px rgba(0,240,255,0.04)}}
+        .logo{width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,240,255,0.08);display:inline-block;animation:logoFloat 5s infinite;box-shadow:0 0 60px rgba(0,240,255,0.04);transition:all 0.3s ease}
+        .logo:hover{transform:scale(1.04);border-color:rgba(0,240,255,0.15);box-shadow:0 0 80px rgba(0,240,255,0.08)}
+        @keyframes logoFloat{0%,100%{transform:translateY(0);box-shadow:0 0 40px rgba(0,240,255,0.02)}50%{transform:translateY(-8px);box-shadow:0 0 70px rgba(0,240,255,0.05)}}
         
         .title{font-size:32px;font-weight:900;background:linear-gradient(135deg,#00f0ff,#7b2ffc,#ff0066,#00ff88,#00f0ff);background-size:400% 400%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientFlow 6s infinite;letter-spacing:5px;margin-top:5px}
         @keyframes gradientFlow{0%{background-position:0% 50%}25%{background-position:50% 100%}50%{background-position:100% 50%}75%{background-position:50% 0%}100%{background-position:0% 50%}}
@@ -107,8 +108,8 @@
         .link .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;border-radius:10px;transition:all 0.4s}
         .link:hover .icon{transform:scale(1.08) rotate(-5deg)}
         .link .icon.instagram{color:#E4405F;background:rgba(228,64,95,0.08)}
-        .link .icon.telegram{color:#0088cc;background:rgba(0,136,204,0.08)}
         .link .icon.bale{color:#00d4b8;background:rgba(0,212,184,0.08)}
+        .link .icon.email{color:#00f0ff;background:rgba(0,240,255,0.08)}
         
         .link .info{flex:1;padding-right:10px}
         .link .info .platform{font-size:9px;color:rgba(255,255,255,0.08);font-family:'Courier New',monospace;margin-bottom:1px}
@@ -128,8 +129,8 @@
         .footer .secure{color:rgba(0,240,255,0.04);font-size:7px;letter-spacing:4px}
         
         /* ===== ریسپانسیو ===== */
-        @media(max-width:480px){.container{padding:28px 16px 22px;border-radius:24px}.title{font-size:26px}.logo{width:80px;height:80px}.link{padding:9px 13px}.link .info .name{font-size:12px}.link .info .desc{font-size:10px}.footer{font-size:7px;flex-wrap:wrap;gap:6px;justify-content:center}.terminal-header{font-size:8px}.link .icon{width:30px;height:30px;font-size:17px}.link .info .platform{font-size:8px}}
-        @media(max-width:360px){.container{padding:20px 12px 18px}.title{font-size:22px}.logo{width:70px;height:70px}.link .info .name{font-size:11px}.link .icon{width:26px;height:26px;font-size:15px}}
+        @media(max-width:480px){.container{padding:28px 16px 22px;border-radius:24px}.logo{width:100px;height:100px}.title{font-size:26px}.link{padding:9px 13px}.link .info .name{font-size:12px}.link .info .desc{font-size:10px}.footer{font-size:7px;flex-wrap:wrap;gap:6px;justify-content:center}.terminal-header{font-size:8px}.link .icon{width:30px;height:30px;font-size:17px}.link .info .platform{font-size:8px}}
+        @media(max-width:360px){.container{padding:20px 12px 18px}.logo{width:80px;height:80px}.title{font-size:22px}.link .info .name{font-size:11px}.link .icon{width:26px;height:26px;font-size:15px}}
         
         ::-webkit-scrollbar{width:4px}
         ::-webkit-scrollbar-track{background:rgba(0,0,0,0.2)}
@@ -161,7 +162,7 @@
     
     <!-- لوگو و عنوان -->
     <div class="header">
-        <img src="https://cdn.imgurl.ir/uploads/e125412_ChatGPT_Image_Jun_21_2026_09_44_35_PM.png" class="logo" alt="BAD_KING">
+        <img src="https://cdn.imgurl.ir/uploads/p26164_Gemini_Generated_Image_ap6mteap6mteap6m.jpg" class="logo" alt="BAD_KING">
         <div class="title">BAD_KING</div>
         <div class="subtitle">◆ SYS.ONLINE ◆</div>
     </div>
@@ -200,17 +201,6 @@
         <span class="arrow">›</span>
     </a>
     
-    <!-- تلگرام -->
-    <a href="https://t.me/+27rGW8kwLCZjNTE0" target="_blank" class="link">
-        <span class="icon telegram"><i class="fab fa-telegram-plane"></i></span>
-        <div class="info">
-            <div class="platform">تلگرام</div>
-            <div class="name">BAD_KING</div>
-            <div class="desc">کانال رسمی</div>
-        </div>
-        <span class="arrow">›</span>
-    </a>
-    
     <!-- بله -->
     <a href="https://ble.ir/join/2xTEY9XA8z" target="_blank" class="link">
         <span class="icon bale"><i class="fas fa-comment-dots"></i></span>
@@ -218,6 +208,17 @@
             <div class="platform">بله</div>
             <div class="name">BAD_KING</div>
             <div class="desc">پیام‌رسان بله</div>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+    
+    <!-- ایمیل -->
+    <a href="mailto:d099173878@gmail.com" class="link">
+        <span class="icon email"><i class="fas fa-envelope"></i></span>
+        <div class="info">
+            <div class="platform">ایمیل</div>
+            <div class="name">d099173878@gmail.com</div>
+            <div class="desc">ارتباط مستقیم</div>
         </div>
         <span class="arrow">›</span>
     </a>
