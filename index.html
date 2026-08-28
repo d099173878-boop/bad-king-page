@@ -9,137 +9,131 @@
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#06080f;color:#e0e8f0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;display:flex;justify-content:center;align-items:center;direction:rtl;padding:20px;overflow:hidden}
         
-        /* ===== پس‌زمینه ===== */
         .cyber-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:radial-gradient(ellipse at 30% 20%,#0f1a2e,#05080f)}
         
-        /* باران ماتریکس */
-        .matrix-rain{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0.08;pointer-events:none}
+        .matrix-rain{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0.1;pointer-events:none}
         .matrix-rain span{position:absolute;color:#00f0ff;font-size:14px;font-family:'Courier New',monospace;animation:drop linear infinite;text-shadow:0 0 10px rgba(0,240,255,0.05)}
         @keyframes drop{0%{transform:translateY(-100px)}100%{transform:translateY(110vh)}}
         
-        /* نورهای دیسکو */
         .disco-light{position:absolute;border-radius:50%;filter:blur(90px);animation:discoMove 16s infinite;pointer-events:none}
-        .disco-light:nth-child(1){width:400px;height:400px;background:#00f0ff;top:-120px;left:-120px;animation-delay:0s;opacity:0.1}
-        .disco-light:nth-child(2){width:350px;height:350px;background:#7b2ffc;bottom:-100px;right:-100px;animation-delay:4s;opacity:0.09}
-        .disco-light:nth-child(3){width:280px;height:280px;background:#ff0066;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:8s;opacity:0.08}
-        .disco-light:nth-child(4){width:220px;height:220px;background:#00ff88;top:15%;right:5%;animation-delay:12s;opacity:0.07}
-        .disco-light:nth-child(5){width:200px;height:200px;background:#ffaa00;bottom:25%;left:5%;animation-delay:16s;opacity:0.06}
-        @keyframes discoMove{0%,100%{transform:translate(0,0) scale(1)}20%{transform:translate(70px,-60px) scale(1.12)}40%{transform:translate(-60px,70px) scale(0.88)}60%{transform:translate(60px,60px) scale(1.06)}80%{transform:translate(-70px,-50px) scale(0.94)}}
+        .disco-light:nth-child(1){width:500px;height:500px;background:#00f0ff;top:-150px;left:-150px;animation-delay:0s;opacity:0.12}
+        .disco-light:nth-child(2){width:450px;height:450px;background:#7b2ffc;bottom:-120px;right:-120px;animation-delay:4s;opacity:0.1}
+        .disco-light:nth-child(3){width:350px;height:350px;background:#ff0066;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:8s;opacity:0.09}
+        .disco-light:nth-child(4){width:280px;height:280px;background:#00ff88;top:10%;right:5%;animation-delay:12s;opacity:0.08}
+        .disco-light:nth-child(5){width:250px;height:250px;background:#ffaa00;bottom:20%;left:5%;animation-delay:16s;opacity:0.07}
+        @keyframes discoMove{0%,100%{transform:translate(0,0) scale(1)}20%{transform:translate(80px,-70px) scale(1.15)}40%{transform:translate(-70px,80px) scale(0.85)}60%{transform:translate(70px,70px) scale(1.08)}80%{transform:translate(-80px,-60px) scale(0.92)}}
         
-        /* شهر دیجیتال */
-        .city-bg{position:absolute;bottom:0;left:0;width:100%;height:30%;overflow:hidden;pointer-events:none}
-        .building{position:absolute;bottom:0;background:rgba(0,240,255,0.015);border:1px solid rgba(0,240,255,0.008);border-bottom:none;animation:cityPulse 5s infinite}
-        .building:nth-child(1){left:1%;height:50%;animation-delay:0s;width:14px}
-        .building:nth-child(2){left:6%;height:70%;animation-delay:0.5s;width:18px}
-        .building:nth-child(3){left:12%;height:30%;animation-delay:1s;width:12px}
-        .building:nth-child(4){left:18%;height:60%;animation-delay:1.5s;width:20px}
-        .building:nth-child(5){left:25%;height:80%;animation-delay:2s;width:16px}
-        .building:nth-child(6){left:32%;height:40%;animation-delay:0.3s;width:14px}
-        .building:nth-child(7){left:38%;height:65%;animation-delay:0.8s;width:20px}
-        .building:nth-child(8){left:45%;height:35%;animation-delay:1.3s;width:12px}
-        .building:nth-child(9){left:52%;height:75%;animation-delay:1.8s;width:18px}
-        .building:nth-child(10){left:58%;height:45%;animation-delay:2.3s;width:14px}
-        .building:nth-child(11){left:65%;height:55%;animation-delay:0.4s;width:16px}
-        .building:nth-child(12){left:72%;height:60%;animation-delay:0.9s;width:18px}
-        .building:nth-child(13){left:78%;height:30%;animation-delay:1.4s;width:12px}
-        .building:nth-child(14){left:85%;height:65%;animation-delay:1.9s;width:16px}
-        .building:nth-child(15){left:91%;height:50%;animation-delay:2.4s;width:14px}
-        .building:nth-child(16){left:96%;height:40%;animation-delay:2.8s;width:12px}
-        .window{width:2px;height:4px;background:rgba(0,240,255,0.02);margin:3px auto;border-radius:1px;animation:windowBlink 4s infinite}
+        .city-bg{position:absolute;bottom:0;left:0;width:100%;height:35%;overflow:hidden;pointer-events:none}
+        .building{position:absolute;bottom:0;background:rgba(0,240,255,0.02);border:1px solid rgba(0,240,255,0.01);border-bottom:none;animation:cityPulse 5s infinite}
+        .building:nth-child(1){left:1%;height:55%;animation-delay:0s;width:16px}
+        .building:nth-child(2){left:6%;height:75%;animation-delay:0.5s;width:20px}
+        .building:nth-child(3){left:12%;height:35%;animation-delay:1s;width:14px}
+        .building:nth-child(4){left:18%;height:65%;animation-delay:1.5s;width:24px}
+        .building:nth-child(5){left:25%;height:85%;animation-delay:2s;width:18px}
+        .building:nth-child(6){left:32%;height:45%;animation-delay:0.3s;width:16px}
+        .building:nth-child(7){left:38%;height:70%;animation-delay:0.8s;width:22px}
+        .building:nth-child(8){left:45%;height:40%;animation-delay:1.3s;width:14px}
+        .building:nth-child(9){left:52%;height:80%;animation-delay:1.8s;width:20px}
+        .building:nth-child(10){left:58%;height:50%;animation-delay:2.3s;width:16px}
+        .building:nth-child(11){left:65%;height:60%;animation-delay:0.4s;width:18px}
+        .building:nth-child(12){left:72%;height:65%;animation-delay:0.9s;width:20px}
+        .building:nth-child(13){left:78%;height:35%;animation-delay:1.4s;width:14px}
+        .building:nth-child(14){left:85%;height:70%;animation-delay:1.9s;width:18px}
+        .building:nth-child(15){left:91%;height:55%;animation-delay:2.4s;width:16px}
+        .building:nth-child(16){left:96%;height:45%;animation-delay:2.8s;width:14px}
+        .window{width:2px;height:4px;background:rgba(0,240,255,0.025);margin:3px auto;border-radius:1px;animation:windowBlink 4s infinite}
         .window:nth-child(odd){animation-delay:1.5s}
         .window:nth-child(3n){animation-delay:2s}
-        @keyframes windowBlink{0%,100%{opacity:0.2}50%{opacity:0.7}}
-        @keyframes cityPulse{0%,100%{opacity:0.3}50%{opacity:0.6}}
+        @keyframes windowBlink{0%,100%{opacity:0.2}50%{opacity:0.8}}
+        @keyframes cityPulse{0%,100%{opacity:0.35}50%{opacity:0.65}}
         
-        /* خطوط گرید */
-        .grid-lines{position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(0,240,255,0.008) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,0.008) 1px,transparent 1px);background-size:50px 50px;pointer-events:none}
+        .grid-lines{position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(0,240,255,0.01) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,0.01) 1px,transparent 1px);background-size:50px 50px;pointer-events:none}
         
-        /* ذرات */
         .particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
-        .particle{position:absolute;width:2px;height:2px;background:#00f0ff;border-radius:50%;box-shadow:0 0 10px rgba(0,240,255,0.05);animation:floatParticle 25s infinite ease-in-out;opacity:0.12}
-        @keyframes floatParticle{0%,100%{transform:translate(0,0)}25%{transform:translate(100px,-80px)}50%{transform:translate(-60px,100px)}75%{transform:translate(80px,60px)}}
+        .particle{position:absolute;width:3px;height:3px;background:#00f0ff;border-radius:50%;box-shadow:0 0 15px rgba(0,240,255,0.05);animation:floatParticle 25s infinite ease-in-out;opacity:0.15}
+        @keyframes floatParticle{0%,100%{transform:translate(0,0)}25%{transform:translate(120px,-90px)}50%{transform:translate(-70px,120px)}75%{transform:translate(90px,70px)}}
         
-        /* ===== کارت اصلی ===== */
-        .container{position:relative;z-index:2;max-width:480px;width:100%;background:rgba(6,8,15,0.75);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(0,240,255,0.05);border-radius:30px;padding:40px 22px 28px;box-shadow:0 30px 80px rgba(0,0,0,0.6),inset 0 1px 0 rgba(0,240,255,0.02)}
+        .container{position:relative;z-index:2;max-width:500px;width:100%;background:rgba(6,8,15,0.7);backdrop-filter:blur(50px);-webkit-backdrop-filter:blur(50px);border:1px solid rgba(0,240,255,0.06);border-radius:35px;padding:45px 25px 30px;box-shadow:0 40px 100px rgba(0,0,0,0.7),inset 0 1px 0 rgba(0,240,255,0.03)}
         
-        /* هاله نئونی */
-        .container::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;border-radius:32px;background:linear-gradient(135deg,#00f0ff,#7b2ffc,#ff0066,#00ff88,#00f0ff);background-size:500% 500%;z-index:-1;animation:borderGlow 10s ease-in-out infinite;opacity:0.12}
-        @keyframes borderGlow{0%{background-position:0% 50%}25%{background-position:50% 100%}50%{background-position:100% 50%}75%{background-position:50% 0%}100%{background-position:0% 50%}}
+        .container::before{content:'';position:absolute;top:-3px;left:-3px;right:-3px;bottom:-3px;border-radius:38px;background:linear-gradient(135deg,#00f0ff,#7b2ffc,#ff0066,#00ff88,#ffaa00,#00f0ff);background-size:600% 600%;z-index:-1;animation:borderGlow 12s ease-in-out infinite;opacity:0.15}
+        @keyframes borderGlow{0%{background-position:0% 50%}20%{background-position:50% 100%}40%{background-position:100% 50%}60%{background-position:50% 0%}80%{background-position:0% 50%}100%{background-position:100% 50%}}
         
-        /* ===== ترمینال هدر ===== */
-        .terminal-header{display:flex;justify-content:space-between;align-items:center;font-size:9px;color:rgba(0,240,255,0.08);font-family:'Courier New',monospace;padding:5px 10px;background:rgba(0,240,255,0.01);border-radius:6px;margin-bottom:14px;border:1px solid rgba(0,240,255,0.02)}
-        .terminal-header .dots span{display:inline-block;width:6px;height:6px;border-radius:50%;margin-left:3px}
-        .terminal-header .dots span:nth-child(1){background:#ff4444;box-shadow:0 0 10px rgba(255,68,68,0.05)}
-        .terminal-header .dots span:nth-child(2){background:#ffbb33;box-shadow:0 0 10px rgba(255,187,51,0.05)}
-        .terminal-header .dots span:nth-child(3){background:#00ff41;box-shadow:0 0 10px rgba(0,255,65,0.05)}
+        .terminal-header{display:flex;justify-content:space-between;align-items:center;font-size:9px;color:rgba(0,240,255,0.1);font-family:'Courier New',monospace;padding:6px 12px;background:rgba(0,240,255,0.01);border-radius:8px;margin-bottom:16px;border:1px solid rgba(0,240,255,0.025)}
+        .terminal-header .dots span{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:3px;animation:dotPulse 1.5s infinite}
+        .terminal-header .dots span:nth-child(1){background:#ff4444;box-shadow:0 0 15px rgba(255,68,68,0.1);animation-delay:0s}
+        .terminal-header .dots span:nth-child(2){background:#ffbb33;box-shadow:0 0 15px rgba(255,187,51,0.1);animation-delay:0.3s}
+        .terminal-header .dots span:nth-child(3){background:#00ff41;box-shadow:0 0 15px rgba(0,255,65,0.1);animation-delay:0.6s}
+        @keyframes dotPulse{0%,100%{opacity:0.4;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
         
-        /* ===== هدر ===== */
         .header{text-align:center;position:relative}
-        .logo{width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,240,255,0.08);display:inline-block;animation:logoFloat 5s infinite;box-shadow:0 0 60px rgba(0,240,255,0.04);transition:all 0.3s ease}
-        .logo:hover{transform:scale(1.04);border-color:rgba(0,240,255,0.15);box-shadow:0 0 80px rgba(0,240,255,0.08)}
-        @keyframes logoFloat{0%,100%{transform:translateY(0);box-shadow:0 0 40px rgba(0,240,255,0.02)}50%{transform:translateY(-8px);box-shadow:0 0 70px rgba(0,240,255,0.05)}}
+        .logo{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,240,255,0.1);display:inline-block;animation:logoFloat 6s infinite;box-shadow:0 0 80px rgba(0,240,255,0.04);transition:all 0.4s ease;filter:drop-shadow(0 0 30px rgba(0,240,255,0.02))}
+        .logo:hover{transform:scale(1.05) rotate(-3deg);border-color:rgba(0,240,255,0.2);box-shadow:0 0 100px rgba(0,240,255,0.08)}
+        @keyframes logoFloat{0%,100%{transform:translateY(0);box-shadow:0 0 50px rgba(0,240,255,0.02)}50%{transform:translateY(-10px);box-shadow:0 0 80px rgba(0,240,255,0.05)}}
         
-        .title{font-size:32px;font-weight:900;background:linear-gradient(135deg,#00f0ff,#7b2ffc,#ff0066,#00ff88,#00f0ff);background-size:400% 400%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientFlow 6s infinite;letter-spacing:5px;margin-top:5px}
-        @keyframes gradientFlow{0%{background-position:0% 50%}25%{background-position:50% 100%}50%{background-position:100% 50%}75%{background-position:50% 0%}100%{background-position:0% 50%}}
+        .title{font-size:36px;font-weight:900;background:linear-gradient(135deg,#00f0ff,#7b2ffc,#ff0066,#00ff88,#ffaa00,#00f0ff);background-size:400% 400%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientFlow 8s infinite;letter-spacing:6px;margin-top:8px;text-shadow:0 0 60px rgba(0,240,255,0.02)}
+        @keyframes gradientFlow{0%{background-position:0% 50%}16%{background-position:25% 75%}33%{background-position:50% 100%}50%{background-position:75% 75%}66%{background-position:100% 50%}83%{background-position:75% 25%}100%{background-position:0% 50%}}
         
-        .subtitle{font-size:10px;color:rgba(255,255,255,0.04);letter-spacing:14px;margin:2px 0;font-family:'Courier New',monospace}
+        .subtitle{font-size:11px;color:rgba(255,255,255,0.05);letter-spacing:16px;margin:4px 0;font-family:'Courier New',monospace}
         
-        /* ===== جداکننده ===== */
-        .divider-custom{display:flex;align-items:center;gap:10px;margin:14px 0 16px}
-        .divider-custom .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.08),transparent);position:relative;overflow:hidden}
-        .divider-custom .line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.05),transparent);animation:lineScan 3s infinite}
+        .divider-custom{display:flex;align-items:center;gap:10px;margin:16px 0 18px}
+        .divider-custom .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.1),transparent);position:relative;overflow:hidden}
+        .divider-custom .line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.06),transparent);animation:lineScan 3s infinite}
         @keyframes lineScan{0%{left:-100%}100%{left:100%}}
-        .divider-custom .icon{color:rgba(0,240,255,0.04);font-size:12px;animation:spin 12s linear infinite;display:inline-block}
+        .divider-custom .icon{color:rgba(0,240,255,0.05);font-size:14px;animation:spin 15s linear infinite;display:inline-block}
         @keyframes spin{to{transform:rotate(360deg)}}
         
-        /* ===== بیو ===== */
-        .bio{text-align:center;font-size:13px;color:rgba(255,255,255,0.15);margin-bottom:16px;line-height:1.8;font-family:'Courier New',monospace}
-        .bio span{color:#00f0ff}
-        .bio .prompt{color:rgba(0,240,255,0.15);margin-left:4px;animation:blink 1s infinite}
-        @keyframes blink{0%,100%{opacity:0.3}50%{opacity:0.8}}
+        .bio{text-align:center;font-size:14px;color:rgba(255,255,255,0.12);margin-bottom:18px;line-height:2;font-family:'Courier New',monospace}
+        .bio span{color:#00f0ff;text-shadow:0 0 30px rgba(0,240,255,0.02)}
+        .bio .prompt{color:rgba(0,240,255,0.15);margin-left:5px;animation:blink 1s infinite}
+        @keyframes blink{0%,100%{opacity:0.3}50%{opacity:0.9}}
         
-        /* ===== لینک‌ها ===== */
-        .link{display:flex;align-items:center;padding:11px 16px;margin-bottom:5px;background:rgba(255,255,255,0.01);border-radius:12px;border:1px solid rgba(255,255,255,0.015);text-decoration:none;color:#e0e8f0;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);position:relative;overflow:hidden;cursor:pointer}
-        .link::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.03),transparent);transition:0.6s}
+        .link{display:flex;align-items:center;padding:13px 18px;margin-bottom:6px;background:rgba(255,255,255,0.008);border-radius:14px;border:1px solid rgba(255,255,255,0.01);text-decoration:none;color:#e0e8f0;transition:all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);position:relative;overflow:hidden;cursor:pointer}
+        .link::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.04),transparent);transition:0.8s}
         .link:hover::before{left:100%}
-        .link:hover{background:rgba(255,255,255,0.02);border-color:rgba(0,240,255,0.04);transform:translateX(-5px) scale(1.01);box-shadow:0 5px 30px rgba(0,0,0,0.2)}
-        .link:active{transform:scale(0.97)}
+        .link:hover{background:rgba(255,255,255,0.02);border-color:rgba(0,240,255,0.05);transform:translateX(-6px) scale(1.01);box-shadow:0 8px 40px rgba(0,0,0,0.3)}
+        .link:active{transform:scale(0.96)}
         
-        .link .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;border-radius:10px;transition:all 0.4s}
-        .link:hover .icon{transform:scale(1.08) rotate(-5deg)}
-        .link .icon.instagram{color:#E4405F;background:rgba(228,64,95,0.08)}
-        .link .icon.bale{color:#00d4b8;background:rgba(0,212,184,0.08)}
-        .link .icon.email{color:#00f0ff;background:rgba(0,240,255,0.08)}
+        .link .icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;border-radius:12px;transition:all 0.5s}
+        .link:hover .icon{transform:scale(1.1) rotate(-5deg)}
+        .link.insta1 .icon{color:#E4405F;background:rgba(228,64,95,0.08)}
+        .link.insta1:hover .icon{background:rgba(228,64,95,0.15);box-shadow:0 0 40px rgba(228,64,95,0.05)}
+        .link.insta2 .icon{color:#ff6b8a;background:rgba(255,107,138,0.08)}
+        .link.insta2:hover .icon{background:rgba(255,107,138,0.15);box-shadow:0 0 40px rgba(255,107,138,0.05)}
+        .link.bale-link .icon{color:#00d4b8;background:rgba(0,212,184,0.08)}
+        .link.bale-link:hover .icon{background:rgba(0,212,184,0.15);box-shadow:0 0 40px rgba(0,212,184,0.05)}
+        .link.email-link .icon{color:#ffd93d;background:rgba(255,217,61,0.08)}
+        .link.email-link:hover .icon{background:rgba(255,217,61,0.15);box-shadow:0 0 40px rgba(255,217,61,0.05)}
         
-        .link .info{flex:1;padding-right:10px}
-        .link .info .platform{font-size:9px;color:rgba(255,255,255,0.08);font-family:'Courier New',monospace;margin-bottom:1px}
-        .link .info .name{font-weight:700;font-size:14px;font-family:'Courier New',monospace;letter-spacing:1px;color:#e0e8f0;transition:color 0.3s}
-        .link:hover .info .name{color:#00f0ff;text-shadow:0 0 20px rgba(0,240,255,0.05)}
-        .link .info .desc{font-size:11px;color:rgba(255,255,255,0.15);font-family:'Courier New',monospace;margin-top:2px;transition:color 0.3s}
+        .link .info{flex:1;padding-right:12px}
+        .link .info .platform{font-size:9px;color:rgba(255,255,255,0.06);font-family:'Courier New',monospace;margin-bottom:2px;letter-spacing:2px}
+        .link .info .name{font-weight:700;font-size:15px;font-family:'Courier New',monospace;letter-spacing:1px;color:#e0e8f0;transition:color 0.4s}
+        .link:hover .info .name{color:#00f0ff;text-shadow:0 0 30px rgba(0,240,255,0.05)}
+        .link .info .desc{font-size:11px;color:rgba(255,255,255,0.12);font-family:'Courier New',monospace;margin-top:2px;transition:color 0.4s}
         .link:hover .info .desc{color:rgba(255,255,255,0.25)}
-        .link .arrow{color:rgba(255,255,255,0.04);font-size:14px;transition:all 0.3s}
-        .link:hover .arrow{color:rgba(0,240,255,0.1);transform:translateX(-6px)}
+        .link .arrow{font-size:16px;transition:all 0.4s;opacity:0.3}
+        .link:hover .arrow{opacity:0.8;transform:translateX(-8px)}
+        .link.insta1 .arrow{color:#E4405F}
+        .link.insta2 .arrow{color:#ff6b8a}
+        .link.bale-link .arrow{color:#00d4b8}
+        .link.email-link .arrow{color:#ffd93d}
         
-        /* ===== فوتر ===== */
-        .footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.008);font-size:8px;color:rgba(255,255,255,0.04);font-family:'Courier New',monospace;letter-spacing:2px}
-        .footer .ping{display:inline-block;width:5px;height:5px;background:#00f0ff;border-radius:50%;animation:ping 2.5s infinite;margin-left:4px;vertical-align:middle;box-shadow:0 0 15px rgba(0,240,255,0.08)}
-        @keyframes ping{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(3)}}
-        .footer .cursor{display:inline-block;width:6px;height:12px;background:rgba(0,240,255,0.08);animation:blink 1s infinite;vertical-align:middle;margin-right:4px}
-        .footer .status{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.04)}
-        .footer .secure{color:rgba(0,240,255,0.04);font-size:7px;letter-spacing:4px}
+        .footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.006);font-size:8px;color:rgba(255,255,255,0.03);font-family:'Courier New',monospace;letter-spacing:2px}
+        .footer .ping{display:inline-block;width:6px;height:6px;background:#00f0ff;border-radius:50%;animation:ping 2.5s infinite;margin-left:5px;vertical-align:middle;box-shadow:0 0 20px rgba(0,240,255,0.08)}
+        @keyframes ping{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(3.5)}}
+        .footer .cursor{display:inline-block;width:7px;height:14px;background:rgba(0,240,255,0.08);animation:blink 1s infinite;vertical-align:middle;margin-right:5px;border-radius:1px}
+        .footer .status{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.04);font-size:8px}
+        .footer .secure{color:rgba(0,240,255,0.04);font-size:7px;letter-spacing:4px;text-shadow:0 0 20px rgba(0,240,255,0.01)}
         
-        /* ===== ریسپانسیو ===== */
-        @media(max-width:480px){.container{padding:28px 16px 22px;border-radius:24px}.logo{width:100px;height:100px}.title{font-size:26px}.link{padding:9px 13px}.link .info .name{font-size:12px}.link .info .desc{font-size:10px}.footer{font-size:7px;flex-wrap:wrap;gap:6px;justify-content:center}.terminal-header{font-size:8px}.link .icon{width:30px;height:30px;font-size:17px}.link .info .platform{font-size:8px}}
-        @media(max-width:360px){.container{padding:20px 12px 18px}.logo{width:80px;height:80px}.title{font-size:22px}.link .info .name{font-size:11px}.link .icon{width:26px;height:26px;font-size:15px}}
+        @media(max-width:480px){.container{padding:30px 16px 24px;border-radius:28px}.logo{width:110px;height:110px}.title{font-size:28px}.link{padding:11px 14px}.link .info .name{font-size:13px}.link .info .desc{font-size:10px}.footer{font-size:7px;flex-wrap:wrap;gap:8px;justify-content:center}.terminal-header{font-size:8px}.link .icon{width:34px;height:34px;font-size:18px}.subtitle{font-size:10px;letter-spacing:12px}}
+        @media(max-width:360px){.container{padding:22px 12px 18px}.logo{width:90px;height:90px}.title{font-size:24px}.link .info .name{font-size:12px}.link .icon{width:28px;height:28px;font-size:16px}}
         
         ::-webkit-scrollbar{width:4px}
         ::-webkit-scrollbar-track{background:rgba(0,0,0,0.2)}
-        ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#00f0ff,#7b2ffc);border-radius:10px}
+        ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#00f0ff,#7b2ffc);border-radius:10px)
     </style>
 </head>
 <body>
 
-<!-- ===== پس‌زمینه ===== -->
 <div class="cyber-bg">
     <div class="grid-lines"></div>
     <div class="particles" id="particles"></div>
@@ -152,36 +146,28 @@
     <div class="city-bg" id="cityBg"></div>
 </div>
 
-<!-- ===== کارت اصلی ===== -->
 <div class="container">
-    <!-- ترمینال هدر -->
     <div class="terminal-header">
         <span>root@BAD_KING:~#</span>
         <div class="dots"><span></span><span></span><span></span></div>
     </div>
     
-    <!-- لوگو و عنوان -->
     <div class="header">
         <img src="https://cdn.imgurl.ir/uploads/p26164_Gemini_Generated_Image_ap6mteap6mteap6m.jpg" class="logo" alt="BAD_KING">
         <div class="title">BAD_KING</div>
         <div class="subtitle">◆ SYS.ONLINE ◆</div>
     </div>
     
-    <!-- جداکننده -->
     <div class="divider-custom">
         <span class="line"></span>
         <span class="icon">✦</span>
         <span class="line"></span>
     </div>
     
-    <!-- بیو -->
     <div class="bio"><span class="prompt">➜</span> به صفحه رسمی <span>BAD_KING</span> خوش آمدید</div>
     
-    <!-- ===== لینک‌ها ===== -->
-    
-    <!-- اینستاگرام ۱ - DANIAL__ZEUS -->
-    <a href="https://www.instagram.com/danial__zeus/" target="_blank" class="link">
-        <span class="icon instagram"><i class="fab fa-instagram"></i></span>
+    <a href="https://www.instagram.com/danial__zeus/" target="_blank" class="link insta1">
+        <span class="icon"><i class="fab fa-instagram"></i></span>
         <div class="info">
             <div class="platform">اینستاگرام</div>
             <div class="name">@DANIAL__ZEUS</div>
@@ -190,20 +176,18 @@
         <span class="arrow">›</span>
     </a>
     
-    <!-- اینستاگرام ۲ - c404_EDITOR -->
-    <a href="https://www.instagram.com/c404_editor/" target="_blank" class="link">
-        <span class="icon instagram"><i class="fab fa-instagram"></i></span>
+    <a href="https://www.instagram.com/c404_editor/" target="_blank" class="link insta2">
+        <span class="icon"><i class="fas fa-scroll"></i></span>
         <div class="info">
-            <div class="platform">اینستاگرام</div>
+            <div class="platform">ادیت و ادمینی</div>
             <div class="name">@c404_EDITOR</div>
             <div class="desc">ادیت حرفه‌ای • رشد پیج • ادمینی</div>
         </div>
         <span class="arrow">›</span>
     </a>
     
-    <!-- بله -->
-    <a href="https://ble.ir/join/2xTEY9XA8z" target="_blank" class="link">
-        <span class="icon bale"><i class="fas fa-comment-dots"></i></span>
+    <a href="https://ble.ir/join/2xTEY9XA8z" target="_blank" class="link bale-link">
+        <span class="icon"><i class="fas fa-comment-dots"></i></span>
         <div class="info">
             <div class="platform">بله</div>
             <div class="name">BAD_KING</div>
@@ -212,9 +196,8 @@
         <span class="arrow">›</span>
     </a>
     
-    <!-- ایمیل -->
-    <a href="mailto:d099173878@gmail.com" class="link">
-        <span class="icon email"><i class="fas fa-envelope"></i></span>
+    <a href="mailto:d099173878@gmail.com" class="link email-link">
+        <span class="icon"><i class="fas fa-envelope"></i></span>
         <div class="info">
             <div class="platform">ایمیل</div>
             <div class="name">d099173878@gmail.com</div>
@@ -223,7 +206,6 @@
         <span class="arrow">›</span>
     </a>
     
-    <!-- ===== فوتر ===== -->
     <div class="footer">
         <span class="status"><span class="ping"></span> SYSTEM: ONLINE</span>
         <span class="secure">◈ 256-BIT ENCRYPTED ◈</span>
@@ -232,12 +214,9 @@
 </div>
 
 <script>
-// ================================================================
-// باران ماتریکس
-// ================================================================
 const matrix = document.getElementById('matrixRain');
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-for(let i = 0; i < 60; i++){
+for(let i = 0; i < 70; i++){
     const span = document.createElement('span');
     span.textContent = chars[Math.floor(Math.random() * chars.length)];
     span.style.left = Math.random() * 100 + '%';
@@ -248,11 +227,8 @@ for(let i = 0; i < 60; i++){
     matrix.appendChild(span);
 }
 
-// ================================================================
-// ذرات
-// ================================================================
 const particlesContainer = document.getElementById('particles');
-for(let i = 0; i < 25; i++){
+for(let i = 0; i < 30; i++){
     const p = document.createElement('div');
     p.className = 'particle';
     p.style.left = Math.random() * 100 + '%';
@@ -265,11 +241,8 @@ for(let i = 0; i < 25; i++){
     particlesContainer.appendChild(p);
 }
 
-// ================================================================
-// شهر دیجیتال
-// ================================================================
 const cityBg = document.getElementById('cityBg');
-for(let i = 0; i < 16; i++){
+for(let i = 0; i < 20; i++){
     const building = document.createElement('div');
     building.className = 'building';
     building.style.left = (Math.random() * 94 + 2) + '%';
