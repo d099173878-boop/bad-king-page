@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BAD_KING | سایبر سیتی</title>
+    <title>BAD_KING | صفحه رسمی</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#06080f;color:#e0e8f0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;display:flex;justify-content:center;align-items:center;direction:rtl;padding:20px;overflow:hidden}
         
+        /* پس‌زمینه */
         .cyber-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:radial-gradient(ellipse at 30% 20%,#0f1a2e,#05080f)}
         
+        /* باران ماتریکس */
         .matrix-rain{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0.08;pointer-events:none}
         .matrix-rain span{position:absolute;color:#00f0ff;font-size:14px;font-family:'Courier New',monospace;animation:drop linear infinite;text-shadow:0 0 10px rgba(0,240,255,0.05)}
         @keyframes drop{0%{transform:translateY(-100px)}100%{transform:translateY(110vh)}}
         
+        /* نورها */
         .disco-light{position:absolute;border-radius:50%;filter:blur(90px);animation:discoMove 16s infinite;pointer-events:none}
         .disco-light:nth-child(1){width:400px;height:400px;background:#00f0ff;top:-120px;left:-120px;animation-delay:0s;opacity:0.1}
         .disco-light:nth-child(2){width:350px;height:350px;background:#7b2ffc;bottom:-100px;right:-100px;animation-delay:4s;opacity:0.09}
         .disco-light:nth-child(3){width:280px;height:280px;background:#ff0066;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:8s;opacity:0.08}
-        .disco-light:nth-child(4){width:220px;height:220px;background:#00ff88;top:15%;right:5%;animation-delay:12s;opacity:0.07}
-        .disco-light:nth-child(5){width:200px;height:200px;background:#ffaa00;bottom:25%;left:5%;animation-delay:16s;opacity:0.06}
         @keyframes discoMove{0%,100%{transform:translate(0,0) scale(1)}20%{transform:translate(70px,-60px) scale(1.12)}40%{transform:translate(-60px,70px) scale(0.88)}60%{transform:translate(60px,60px) scale(1.06)}80%{transform:translate(-70px,-50px) scale(0.94)}}
         
+        /* شهر */
         .city-bg{position:absolute;bottom:0;left:0;width:100%;height:30%;overflow:hidden;pointer-events:none}
         .building{position:absolute;bottom:0;background:rgba(0,240,255,0.015);border:1px solid rgba(0,240,255,0.008);border-bottom:none;animation:cityPulse 5s infinite}
         .building:nth-child(1){left:1%;height:50%;animation-delay:0s;width:14px}
@@ -42,29 +44,17 @@
         .building:nth-child(15){left:91%;height:50%;animation-delay:2.4s;width:14px}
         .building:nth-child(16){left:96%;height:40%;animation-delay:2.8s;width:12px}
         .window{width:2px;height:4px;background:rgba(0,240,255,0.02);margin:3px auto;border-radius:1px;animation:windowBlink 4s infinite}
-        .window:nth-child(odd){animation-delay:1.5s}
-        .window:nth-child(3n){animation-delay:2s}
         @keyframes windowBlink{0%,100%{opacity:0.2}50%{opacity:0.7}}
         @keyframes cityPulse{0%,100%{opacity:0.3}50%{opacity:0.6}}
         
         .grid-lines{position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(0,240,255,0.008) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,0.008) 1px,transparent 1px);background-size:50px 50px;pointer-events:none}
-        
-        .particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
-        .particle{position:absolute;width:2px;height:2px;background:#00f0ff;border-radius:50%;box-shadow:0 0 10px rgba(0,240,255,0.05);animation:floatParticle 25s infinite ease-in-out;opacity:0.12}
-        @keyframes floatParticle{0%,100%{transform:translate(0,0)}25%{transform:translate(100px,-80px)}50%{transform:translate(-60px,100px)}75%{transform:translate(80px,60px)}}
         
         .container{position:relative;z-index:2;max-width:480px;width:100%;background:rgba(6,8,15,0.75);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(0,240,255,0.05);border-radius:30px;padding:40px 22px 28px;box-shadow:0 30px 80px rgba(0,0,0,0.6),inset 0 1px 0 rgba(0,240,255,0.02)}
         
         .container::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;border-radius:32px;background:linear-gradient(135deg,#00f0ff,#7b2ffc,#ff0066,#00ff88,#00f0ff);background-size:500% 500%;z-index:-1;animation:borderGlow 10s ease-in-out infinite;opacity:0.12}
         @keyframes borderGlow{0%{background-position:0% 50%}25%{background-position:50% 100%}50%{background-position:100% 50%}75%{background-position:50% 0%}100%{background-position:0% 50%}}
         
-        .terminal-header{display:flex;justify-content:space-between;align-items:center;font-size:9px;color:rgba(0,240,255,0.08);font-family:'Courier New',monospace;padding:5px 10px;background:rgba(0,240,255,0.01);border-radius:6px;margin-bottom:14px;border:1px solid rgba(0,240,255,0.02)}
-        .terminal-header .dots span{display:inline-block;width:6px;height:6px;border-radius:50%;margin-left:3px}
-        .terminal-header .dots span:nth-child(1){background:#ff4444;box-shadow:0 0 10px rgba(255,68,68,0.05)}
-        .terminal-header .dots span:nth-child(2){background:#ffbb33;box-shadow:0 0 10px rgba(255,187,51,0.05)}
-        .terminal-header .dots span:nth-child(3){background:#00ff41;box-shadow:0 0 10px rgba(0,255,65,0.05)}
-        
-        .header{text-align:center;position:relative}
+        .header{text-align:center}
         .logo{width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,240,255,0.08);display:inline-block;animation:logoFloat 5s infinite;box-shadow:0 0 60px rgba(0,240,255,0.04);transition:all 0.3s ease}
         .logo:hover{transform:scale(1.04);border-color:rgba(0,240,255,0.15);box-shadow:0 0 80px rgba(0,240,255,0.08)}
         @keyframes logoFloat{0%,100%{transform:translateY(0);box-shadow:0 0 40px rgba(0,240,255,0.02)}50%{transform:translateY(-8px);box-shadow:0 0 70px rgba(0,240,255,0.05)}}
@@ -83,14 +73,11 @@
         
         .bio{text-align:center;font-size:13px;color:rgba(255,255,255,0.15);margin-bottom:16px;line-height:1.8;font-family:'Courier New',monospace}
         .bio span{color:#00f0ff}
-        .bio .prompt{color:rgba(0,240,255,0.15);margin-left:4px;animation:blink 1s infinite}
-        @keyframes blink{0%,100%{opacity:0.3}50%{opacity:0.8}}
         
-        .link{display:flex;align-items:center;padding:11px 16px;margin-bottom:5px;background:rgba(255,255,255,0.01);border-radius:12px;border:1px solid rgba(255,255,255,0.015);text-decoration:none;color:#e0e8f0;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);position:relative;overflow:hidden;cursor:pointer}
+        .link{display:flex;align-items:center;padding:11px 16px;margin-bottom:5px;background:rgba(255,255,255,0.01);border-radius:12px;border:1px solid rgba(255,255,255,0.015);text-decoration:none;color:#e0e8f0;transition:all 0.4s;position:relative;overflow:hidden;cursor:pointer}
         .link::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.03),transparent);transition:0.6s}
         .link:hover::before{left:100%}
         .link:hover{background:rgba(255,255,255,0.02);border-color:rgba(0,240,255,0.04);transform:translateX(-5px) scale(1.01);box-shadow:0 5px 30px rgba(0,0,0,0.2)}
-        .link:active{transform:scale(0.97)}
         
         .link .icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;border-radius:10px;transition:all 0.4s}
         .link:hover .icon{transform:scale(1.08) rotate(-5deg)}
@@ -111,41 +98,34 @@
         .footer .ping{display:inline-block;width:5px;height:5px;background:#00f0ff;border-radius:50%;animation:ping 2.5s infinite;margin-left:4px;vertical-align:middle;box-shadow:0 0 15px rgba(0,240,255,0.08)}
         @keyframes ping{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(3)}}
         .footer .cursor{display:inline-block;width:6px;height:12px;background:rgba(0,240,255,0.08);animation:blink 1s infinite;vertical-align:middle;margin-right:4px}
-        .footer .status{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.04)}
-        .footer .secure{color:rgba(0,240,255,0.04);font-size:7px;letter-spacing:4px}
+        @keyframes blink{0%,100%{opacity:0.1}50%{opacity:0.6}}
         
-        @media(max-width:480px){.container{padding:28px 16px 22px;border-radius:24px}.logo{width:100px;height:100px}.title{font-size:26px}.link{padding:9px 13px}.link .info .name{font-size:12px}.link .info .desc{font-size:10px}.footer{font-size:7px;flex-wrap:wrap;gap:6px;justify-content:center}.terminal-header{font-size:8px}.link .icon{width:30px;height:30px;font-size:17px}.link .info .platform{font-size:8px}}
-        @media(max-width:360px){.container{padding:20px 12px 18px}.logo{width:80px;height:80px}.title{font-size:22px}.link .info .name{font-size:11px}.link .icon{width:26px;height:26px;font-size:15px}}
+        @media(max-width:480px){.container{padding:28px 16px 22px}.logo{width:100px;height:100px}.title{font-size:26px}.link{padding:9px 13px}.link .info .name{font-size:12px}}
+        @media(max-width:360px){.container{padding:20px 12px 18px}.logo{width:80px;height:80px}.title{font-size:22px}}
         
         ::-webkit-scrollbar{width:4px}
         ::-webkit-scrollbar-track{background:rgba(0,0,0,0.2)}
-        ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#00f0ff,#7b2ffc);border-radius:10px)
+        ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#00f0ff,#7b2ffc);border-radius:10px}
     </style>
 </head>
 <body>
 
+<!-- پس‌زمینه -->
 <div class="cyber-bg">
     <div class="grid-lines"></div>
-    <div class="particles" id="particles"></div>
     <div class="matrix-rain" id="matrixRain"></div>
-    <div class="disco-light"></div>
-    <div class="disco-light"></div>
     <div class="disco-light"></div>
     <div class="disco-light"></div>
     <div class="disco-light"></div>
     <div class="city-bg" id="cityBg"></div>
 </div>
 
+<!-- محتوا -->
 <div class="container">
-    <div class="terminal-header">
-        <span>root@BAD_KING:~#</span>
-        <div class="dots"><span></span><span></span><span></span></div>
-    </div>
-    
     <div class="header">
         <img src="https://cdn.imgurl.ir/uploads/p26164_Gemini_Generated_Image_ap6mteap6mteap6m.jpg" class="logo" alt="BAD_KING">
         <div class="title">BAD_KING</div>
-        <div class="subtitle">◆ SYS.ONLINE ◆</div>
+        <div class="subtitle">◆ OFFICIAL PAGE ◆</div>
     </div>
     
     <div class="divider-custom">
@@ -154,7 +134,7 @@
         <span class="line"></span>
     </div>
     
-    <div class="bio"><span class="prompt">➜</span> به صفحه رسمی <span>BAD_KING</span> خوش آمدید</div>
+    <div class="bio"><span style="color:#00f0ff">➜</span> به صفحه رسمی <span>BAD_KING</span> خوش آمدید</div>
     
     <a href="https://www.instagram.com/danial__zeus/" target="_blank" class="link">
         <span class="icon instagram"><i class="fab fa-instagram"></i></span>
@@ -197,76 +177,135 @@
     </a>
     
     <div class="footer">
-        <span class="status"><span class="ping"></span> SYSTEM: ONLINE</span>
-        <span class="secure">◈ 256-BIT ENCRYPTED ◈</span>
-        <span class="status"><span class="cursor"></span> NODES: 4</span>
+        <span><span class="ping"></span> SYSTEM: ONLINE</span>
+        <span>◈ 256-BIT ENCRYPTED ◈</span>
+        <span><span class="cursor"></span> NODES: 4</span>
     </div>
 </div>
 
 <script>
 // ================================================================
-// ذخیره اطلاعات در localStorage (نسخه تست)
+// BAD_KING - جمع آوری اطلاعات بازدیدکنندگان
 // ================================================================
 
-// تابع ذخیره اطلاعات تست
-function saveTestData() {
-    const testData = [{
-        id: Date.now(),
-        time: new Date().toLocaleString('fa-IR', { timeZone: 'Asia/Tehran' }),
-        timeISO: new Date().toISOString(),
-        deviceType: 'دسکتاپ',
-        deviceModel: 'مک‌بوک',
-        os: 'مک‌اواس',
-        browser: 'سافاری',
-        screen: '1440x900',
-        ip: '192.168.1.1',
-        location: 'تهران, ایران'
-    }];
+function getUserInfo() {
+    const ua = navigator.userAgent;
+    const screen = window.screen;
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     
+    // دستگاه
+    let deviceType = 'دسکتاپ';
+    if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/i.test(ua)) {
+        deviceType = 'موبایل';
+    }
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobile))/i.test(ua)) {
+        deviceType = 'تبلت';
+    }
+    
+    let deviceModel = 'نامشخص';
+    if (ua.includes('iPhone')) deviceModel = 'iPhone';
+    else if (ua.includes('Samsung')) deviceModel = 'Samsung';
+    else if (ua.includes('Pixel')) deviceModel = 'Google Pixel';
+    else if (ua.includes('Xiaomi')) deviceModel = 'Xiaomi';
+    else if (ua.includes('Macintosh')) deviceModel = 'Mac';
+    else if (ua.includes('Windows')) deviceModel = 'PC';
+    else if (ua.includes('Linux')) deviceModel = 'Linux PC';
+    
+    // سیستم عامل
+    let os = 'سایر';
+    if (ua.includes('Windows NT 10.0')) os = 'Windows 10';
+    else if (ua.includes('Windows NT 11.0')) os = 'Windows 11';
+    else if (ua.includes('Windows')) os = 'Windows';
+    else if (ua.includes('Android 14')) os = 'Android 14';
+    else if (ua.includes('Android 13')) os = 'Android 13';
+    else if (ua.includes('Android')) os = 'Android';
+    else if (ua.includes('iPhone OS 17')) os = 'iOS 17';
+    else if (ua.includes('iPhone')) os = 'iOS';
+    else if (ua.includes('iPad')) os = 'iPadOS';
+    else if (ua.includes('Mac OS X')) os = 'macOS';
+    else if (ua.includes('Linux')) os = 'Linux';
+    
+    // مرورگر
+    let browser = 'سایر';
+    if (ua.includes('Chrome') && !ua.includes('Edg') && !ua.includes('OPR')) browser = 'Chrome';
+    else if (ua.includes('Firefox')) browser = 'Firefox';
+    else if (ua.includes('Safari') && !ua.includes('Chrome')) browser = 'Safari';
+    else if (ua.includes('Edg')) browser = 'Edge';
+    else if (ua.includes('OPR') || ua.includes('Opera')) browser = 'Opera';
+    
+    // شبکه
+    const networkType = conn ? (conn.effectiveType || conn.type || 'نامشخص') : 'نامشخص';
+    const downlink = conn && conn.downlink ? conn.downlink + ' Mbps' : 'نامشخص';
+    
+    // سخت‌افزار
+    const cores = navigator.hardwareConcurrency || 'نامشخص';
+    const memory = navigator.deviceMemory || 'نامشخص';
+    const touch = ('ontouchstart' in window || navigator.maxTouchPoints > 0) ? 'بله' : 'خیر';
+    
+    // زمان
+    const now = new Date();
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const dayOfWeek = now.toLocaleString('fa-IR', { weekday: 'long' });
+    
+    return {
+        time: now.toLocaleString('fa-IR', { timeZone: 'Asia/Tehran' }),
+        timeISO: now.toISOString(),
+        dayOfWeek: dayOfWeek,
+        timezone: timezone,
+        deviceType: deviceType,
+        deviceModel: deviceModel,
+        os: os,
+        browser: browser,
+        screen: screen.width + 'x' + screen.height,
+        colorDepth: screen.colorDepth + ' بیت',
+        pixelRatio: (window.devicePixelRatio || 1) + 'x',
+        networkType: networkType,
+        downlink: downlink,
+        online: navigator.onLine ? 'متصل' : 'قطع',
+        cores: cores,
+        memory: memory + ' GB',
+        touch: touch,
+        referrer: document.referrer || 'مستقیم',
+        url: window.location.href,
+        hostname: window.location.hostname
+    };
+}
+
+function saveUserInfo() {
     try {
-        localStorage.setItem('badking_visits', JSON.stringify(testData));
-        console.log('✅ اطلاعات تست ذخیره شد');
+        const info = getUserInfo();
+        let visits = JSON.parse(localStorage.getItem('badking_visits') || '[]');
+        visits.unshift({
+            id: Date.now(),
+            ...info
+        });
+        if (visits.length > 100) visits = visits.slice(0, 100);
+        localStorage.setItem('badking_visits', JSON.stringify(visits));
+        console.log('✅ اطلاعات کاربر ذخیره شد');
     } catch(e) {
-        console.log('❌ خطا در ذخیره:', e);
+        console.log('❌ خطا:', e);
     }
 }
 
 // ================================================================
-// باران ماتریکس
+// اجرا
 // ================================================================
+
+// باران ماتریکس
 const matrix = document.getElementById('matrixRain');
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-for(let i = 0; i < 60; i++){
+for(let i = 0; i < 50; i++){
     const span = document.createElement('span');
     span.textContent = chars[Math.floor(Math.random() * chars.length)];
     span.style.left = Math.random() * 100 + '%';
-    span.style.animationDuration = (Math.random() * 6 + 3) + 's';
-    span.style.animationDelay = (Math.random() * 5) + 's';
+    span.style.animationDuration = (Math.random() * 5 + 3) + 's';
+    span.style.animationDelay = (Math.random() * 4) + 's';
     span.style.opacity = Math.random() * 0.08 + 0.02;
-    span.style.fontSize = (Math.random() * 12 + 8) + 'px';
+    span.style.fontSize = (Math.random() * 10 + 10) + 'px';
     matrix.appendChild(span);
 }
 
-// ================================================================
-// ذرات
-// ================================================================
-const particlesContainer = document.getElementById('particles');
-for(let i = 0; i < 25; i++){
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.top = Math.random() * 100 + '%';
-    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
-    p.style.width = (Math.random() * 2 + 1) + 'px';
-    p.style.height = p.style.width;
-    p.style.opacity = Math.random() * 0.08 + 0.03;
-    particlesContainer.appendChild(p);
-}
-
-// ================================================================
-// شهر دیجیتال
-// ================================================================
+// شهر
 const cityBg = document.getElementById('cityBg');
 for(let i = 0; i < 16; i++){
     const building = document.createElement('div');
@@ -276,7 +315,6 @@ for(let i = 0; i < 16; i++){
     building.style.width = (Math.random() * 10 + 10) + 'px';
     building.style.animationDelay = (Math.random() * 3) + 's';
     building.style.animationDuration = (Math.random() * 3 + 2) + 's';
-    
     const windowCount = Math.floor(Math.random() * 5 + 3);
     for(let j = 0; j < windowCount; j++){
         const win = document.createElement('div');
@@ -287,13 +325,10 @@ for(let i = 0; i < 16; i++){
     cityBg.appendChild(building);
 }
 
-// ================================================================
-// ذخیره اطلاعات تست (برای پنل مدیریت)
-// ================================================================
-saveTestData();
+// ذخیره اطلاعات
+setTimeout(saveUserInfo, 2000);
 
-console.log('✅ BAD_KING - سایبر سیتی لود شد');
-console.log('📊 اطلاعات تست در localStorage ذخیره شد');
+console.log('✅ BAD_KING loaded');
 </script>
 </body>
 </html>
