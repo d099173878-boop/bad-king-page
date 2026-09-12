@@ -9,22 +9,17 @@
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#06080f;color:#e0e8f0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;display:flex;justify-content:center;align-items:center;direction:rtl;padding:20px;overflow:hidden}
         
-        /* پس‌زمینه */
         .cyber-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:radial-gradient(ellipse at 30% 20%,#0f1a2e,#05080f)}
-        
-        /* باران ماتریکس */
         .matrix-rain{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0.08;pointer-events:none}
         .matrix-rain span{position:absolute;color:#00f0ff;font-size:14px;font-family:'Courier New',monospace;animation:drop linear infinite;text-shadow:0 0 10px rgba(0,240,255,0.05)}
         @keyframes drop{0%{transform:translateY(-100px)}100%{transform:translateY(110vh)}}
         
-        /* نورها */
         .disco-light{position:absolute;border-radius:50%;filter:blur(90px);animation:discoMove 16s infinite;pointer-events:none}
         .disco-light:nth-child(1){width:400px;height:400px;background:#00f0ff;top:-120px;left:-120px;animation-delay:0s;opacity:0.1}
         .disco-light:nth-child(2){width:350px;height:350px;background:#7b2ffc;bottom:-100px;right:-100px;animation-delay:4s;opacity:0.09}
         .disco-light:nth-child(3){width:280px;height:280px;background:#ff0066;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:8s;opacity:0.08}
         @keyframes discoMove{0%,100%{transform:translate(0,0) scale(1)}20%{transform:translate(70px,-60px) scale(1.12)}40%{transform:translate(-60px,70px) scale(0.88)}60%{transform:translate(60px,60px) scale(1.06)}80%{transform:translate(-70px,-50px) scale(0.94)}}
         
-        /* شهر */
         .city-bg{position:absolute;bottom:0;left:0;width:100%;height:30%;overflow:hidden;pointer-events:none}
         .building{position:absolute;bottom:0;background:rgba(0,240,255,0.015);border:1px solid rgba(0,240,255,0.008);border-bottom:none;animation:cityPulse 5s infinite}
         .building:nth-child(1){left:1%;height:50%;animation-delay:0s;width:14px}
@@ -101,7 +96,6 @@
         @keyframes blink{0%,100%{opacity:0.1}50%{opacity:0.6}}
         
         @media(max-width:480px){.container{padding:28px 16px 22px}.logo{width:100px;height:100px}.title{font-size:26px}.link{padding:9px 13px}.link .info .name{font-size:12px}}
-        @media(max-width:360px){.container{padding:20px 12px 18px}.logo{width:80px;height:80px}.title{font-size:22px}}
         
         ::-webkit-scrollbar{width:4px}
         ::-webkit-scrollbar-track{background:rgba(0,0,0,0.2)}
@@ -110,7 +104,6 @@
 </head>
 <body>
 
-<!-- پس‌زمینه -->
 <div class="cyber-bg">
     <div class="grid-lines"></div>
     <div class="matrix-rain" id="matrixRain"></div>
@@ -120,12 +113,11 @@
     <div class="city-bg" id="cityBg"></div>
 </div>
 
-<!-- محتوا -->
 <div class="container">
     <div class="header">
-        <img src="https://cdn.imgurl.ir/uploads/p26164_Gemini_Generated_Image_ap6mteap6mteap6m.jpg" class="logo" alt="BAD_KING">
-        <div class="title">BAD_KING</div>
-        <div class="subtitle">◆ OFFICIAL PAGE ◆</div>
+        <img src="https://cdn.imgurl.ir/uploads/p26164_Gemini_Generated_Image_ap6mteap6mteap6m.jpg" class="logo" alt="BAD_KING" id="mainLogo">
+        <div class="title" id="mainTitle">BAD_KING</div>
+        <div class="subtitle" id="mainSubtitle">◆ OFFICIAL PAGE ◆</div>
     </div>
     
     <div class="divider-custom">
@@ -134,47 +126,9 @@
         <span class="line"></span>
     </div>
     
-    <div class="bio"><span style="color:#00f0ff">➜</span> به صفحه رسمی <span>BAD_KING</span> خوش آمدید</div>
+    <div class="bio" id="mainBio">به صفحه رسمی <span>BAD_KING</span> خوش آمدید</div>
     
-    <a href="https://www.instagram.com/danial__zeus/" target="_blank" class="link">
-        <span class="icon instagram"><i class="fab fa-instagram"></i></span>
-        <div class="info">
-            <div class="platform">اینستاگرام</div>
-            <div class="name">@DANIAL__ZEUS</div>
-            <div class="desc">جاوید • داستان • طنز • ضدعرزشی</div>
-        </div>
-        <span class="arrow">›</span>
-    </a>
-    
-    <a href="https://www.instagram.com/c404_editor/" target="_blank" class="link">
-        <span class="icon instagram"><i class="fab fa-instagram"></i></span>
-        <div class="info">
-            <div class="platform">ادیت و ادمینی</div>
-            <div class="name">@c404_EDITOR</div>
-            <div class="desc">ادیت حرفه‌ای • رشد پیج • ادمینی</div>
-        </div>
-        <span class="arrow">›</span>
-    </a>
-    
-    <a href="https://ble.ir/join/2xTEY9XA8z" target="_blank" class="link">
-        <span class="icon bale"><i class="fas fa-comment-dots"></i></span>
-        <div class="info">
-            <div class="platform">بله</div>
-            <div class="name">BAD_KING</div>
-            <div class="desc">پیام‌رسان بله</div>
-        </div>
-        <span class="arrow">›</span>
-    </a>
-    
-    <a href="mailto:d099173878@gmail.com" class="link">
-        <span class="icon email"><i class="fas fa-envelope"></i></span>
-        <div class="info">
-            <div class="platform">ایمیل</div>
-            <div class="name">d099173878@gmail.com</div>
-            <div class="desc">ارتباط مستقیم</div>
-        </div>
-        <span class="arrow">›</span>
-    </a>
+    <div id="linksContainer"></div>
     
     <div class="footer">
         <span><span class="ping"></span> SYSTEM: ONLINE</span>
@@ -185,22 +139,89 @@
 
 <script>
 // ================================================================
-// BAD_KING - جمع آوری اطلاعات بازدیدکنندگان
+// BAD_KING - صفحه اصلی
 // ================================================================
 
+// ===== تنظیمات گیت‌هاب =====
+const GITHUB_USERNAME = 'd099173878-boop';
+const GITHUB_REPO = 'bad-king-page';
+const GITHUB_FILE = 'data.json';
+
+// ===== لود داده‌ها از data.json =====
+async function loadData() {
+    try {
+        const res = await fetch(`https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_REPO}/main/${GITHUB_FILE}?t=${Date.now()}`);
+        if (res.ok) {
+            const data = await res.json();
+            renderData(data);
+        } else {
+            console.log('⚠️ data.json یافت نشد، از داده‌های پیش‌فرض استفاده می‌شود');
+            renderData(getDefaultData());
+        }
+    } catch(e) {
+        console.log('⚠️ خطا در لود:', e);
+        renderData(getDefaultData());
+    }
+}
+
+// ===== داده‌های پیش‌فرض =====
+function getDefaultData() {
+    return {
+        profile: {
+            logo: 'https://cdn.imgurl.ir/uploads/p26164_Gemini_Generated_Image_ap6mteap6mteap6m.jpg',
+            title: 'BAD_KING',
+            subtitle: '◆ OFFICIAL PAGE ◆',
+            bio: 'به صفحه رسمی <span>BAD_KING</span> خوش آمدید'
+        },
+        links: [
+            { name: '@DANIAL__ZEUS', url: 'https://www.instagram.com/danial__zeus/', desc: 'جاوید • داستان • طنز', platform: 'اینستاگرام', icon: 'instagram', iconClass: 'fab fa-instagram' },
+            { name: '@c404_EDITOR', url: 'https://www.instagram.com/c404_editor/', desc: 'ادیت حرفه‌ای • رشد پیج', platform: 'ادیت و ادمینی', icon: 'instagram', iconClass: 'fab fa-instagram' },
+            { name: 'BAD_KING', url: 'https://ble.ir/join/2xTEY9XA8z', desc: 'پیام‌رسان بله', platform: 'بله', icon: 'bale', iconClass: 'fas fa-comment-dots' },
+            { name: 'd099173878@gmail.com', url: 'mailto:d099173878@gmail.com', desc: 'ارتباط مستقیم', platform: 'ایمیل', icon: 'email', iconClass: 'fas fa-envelope' }
+        ]
+    };
+}
+
+// ===== رندر داده‌ها =====
+function renderData(data) {
+    // پروفایل
+    if (data.profile) {
+        if (data.profile.logo) document.getElementById('mainLogo').src = data.profile.logo;
+        if (data.profile.title) document.getElementById('mainTitle').textContent = data.profile.title;
+        if (data.profile.subtitle) document.getElementById('mainSubtitle').textContent = data.profile.subtitle;
+        if (data.profile.bio) document.getElementById('mainBio').innerHTML = data.profile.bio;
+    }
+    
+    // لینک‌ها
+    const container = document.getElementById('linksContainer');
+    if (data.links && data.links.length > 0) {
+        let html = '';
+        data.links.forEach(link => {
+            html += `
+                <a href="${link.url}" target="_blank" class="link">
+                    <span class="icon ${link.icon}"><i class="${link.iconClass}"></i></span>
+                    <div class="info">
+                        <div class="platform">${link.platform || ''}</div>
+                        <div class="name">${link.name}</div>
+                        <div class="desc">${link.desc || ''}</div>
+                    </div>
+                    <span class="arrow">›</span>
+                </a>
+            `;
+        });
+        container.innerHTML = html;
+    }
+}
+
+// ===== جمع‌آوری اطلاعات بازدیدکننده =====
 function getUserInfo() {
     const ua = navigator.userAgent;
     const screen = window.screen;
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     
-    // دستگاه
     let deviceType = 'دسکتاپ';
-    if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/i.test(ua)) {
-        deviceType = 'موبایل';
-    }
-    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobile))/i.test(ua)) {
-        deviceType = 'تبلت';
-    }
+    if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry/i.test(ua)) deviceType = 'موبایل';
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobile))/i.test(ua)) deviceType = 'تبلت';
     
     let deviceModel = 'نامشخص';
     if (ua.includes('iPhone')) deviceModel = 'iPhone';
@@ -209,9 +230,7 @@ function getUserInfo() {
     else if (ua.includes('Xiaomi')) deviceModel = 'Xiaomi';
     else if (ua.includes('Macintosh')) deviceModel = 'Mac';
     else if (ua.includes('Windows')) deviceModel = 'PC';
-    else if (ua.includes('Linux')) deviceModel = 'Linux PC';
     
-    // سیستم عامل
     let os = 'سایر';
     if (ua.includes('Windows NT 10.0')) os = 'Windows 10';
     else if (ua.includes('Windows NT 11.0')) os = 'Windows 11';
@@ -225,33 +244,19 @@ function getUserInfo() {
     else if (ua.includes('Mac OS X')) os = 'macOS';
     else if (ua.includes('Linux')) os = 'Linux';
     
-    // مرورگر
     let browser = 'سایر';
     if (ua.includes('Chrome') && !ua.includes('Edg') && !ua.includes('OPR')) browser = 'Chrome';
     else if (ua.includes('Firefox')) browser = 'Firefox';
     else if (ua.includes('Safari') && !ua.includes('Chrome')) browser = 'Safari';
     else if (ua.includes('Edg')) browser = 'Edge';
-    else if (ua.includes('OPR') || ua.includes('Opera')) browser = 'Opera';
     
-    // شبکه
-    const networkType = conn ? (conn.effectiveType || conn.type || 'نامشخص') : 'نامشخص';
-    const downlink = conn && conn.downlink ? conn.downlink + ' Mbps' : 'نامشخص';
-    
-    // سخت‌افزار
-    const cores = navigator.hardwareConcurrency || 'نامشخص';
-    const memory = navigator.deviceMemory || 'نامشخص';
-    const touch = ('ontouchstart' in window || navigator.maxTouchPoints > 0) ? 'بله' : 'خیر';
-    
-    // زمان
     const now = new Date();
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const dayOfWeek = now.toLocaleString('fa-IR', { weekday: 'long' });
     
     return {
         time: now.toLocaleString('fa-IR', { timeZone: 'Asia/Tehran' }),
         timeISO: now.toISOString(),
-        dayOfWeek: dayOfWeek,
-        timezone: timezone,
+        dayOfWeek: now.toLocaleString('fa-IR', { weekday: 'long' }),
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         deviceType: deviceType,
         deviceModel: deviceModel,
         os: os,
@@ -259,39 +264,32 @@ function getUserInfo() {
         screen: screen.width + 'x' + screen.height,
         colorDepth: screen.colorDepth + ' بیت',
         pixelRatio: (window.devicePixelRatio || 1) + 'x',
-        networkType: networkType,
-        downlink: downlink,
+        networkType: conn ? (conn.effectiveType || conn.type || 'نامشخص') : 'نامشخص',
+        downlink: conn && conn.downlink ? conn.downlink + ' Mbps' : 'نامشخص',
         online: navigator.onLine ? 'متصل' : 'قطع',
-        cores: cores,
-        memory: memory + ' GB',
-        touch: touch,
+        cores: navigator.hardwareConcurrency || 'نامشخص',
+        memory: navigator.deviceMemory || 'نامشخص',
+        touch: ('ontouchstart' in window || navigator.maxTouchPoints > 0) ? 'بله' : 'خیر',
         referrer: document.referrer || 'مستقیم',
-        url: window.location.href,
-        hostname: window.location.hostname
+        url: window.location.href
     };
 }
 
+// ===== ذخیره در localStorage =====
 function saveUserInfo() {
     try {
         const info = getUserInfo();
         let visits = JSON.parse(localStorage.getItem('badking_visits') || '[]');
-        visits.unshift({
-            id: Date.now(),
-            ...info
-        });
-        if (visits.length > 100) visits = visits.slice(0, 100);
+        visits.unshift({ id: Date.now(), ...info });
+        if (visits.length > 200) visits = visits.slice(0, 200);
         localStorage.setItem('badking_visits', JSON.stringify(visits));
-        console.log('✅ اطلاعات کاربر ذخیره شد');
+        console.log('✅ اطلاعات ذخیره شد');
     } catch(e) {
         console.log('❌ خطا:', e);
     }
 }
 
-// ================================================================
-// اجرا
-// ================================================================
-
-// باران ماتریکس
+// ===== باران ماتریکس =====
 const matrix = document.getElementById('matrixRain');
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
 for(let i = 0; i < 50; i++){
@@ -305,7 +303,7 @@ for(let i = 0; i < 50; i++){
     matrix.appendChild(span);
 }
 
-// شهر
+// ===== شهر =====
 const cityBg = document.getElementById('cityBg');
 for(let i = 0; i < 16; i++){
     const building = document.createElement('div');
@@ -319,15 +317,14 @@ for(let i = 0; i < 16; i++){
     for(let j = 0; j < windowCount; j++){
         const win = document.createElement('div');
         win.className = 'window';
-        win.style.animationDelay = (Math.random() * 2) + 's';
         building.appendChild(win);
     }
     cityBg.appendChild(building);
 }
 
-// ذخیره اطلاعات
+// ===== اجرا =====
+loadData();
 setTimeout(saveUserInfo, 2000);
-
 console.log('✅ BAD_KING loaded');
 </script>
 </body>
