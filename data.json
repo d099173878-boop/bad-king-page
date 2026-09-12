@@ -1,0 +1,42 @@
+{
+  "profile": {
+    "logo": "https://cdn.imgurl.ir/uploads/p26164_Gemini_Generated_Image_ap6mteap6mteap6m.jpg",
+    "title": "BAD_KING",
+    "subtitle": "◆ OFFICIAL PAGE ◆",
+    "bio": "به صفحه رسمی <span>BAD_KING</span> خوش آمدید"
+  },
+  "links": [
+    {
+      "name": "@DANIAL__ZEUS",
+      "url": "https://www.instagram.com/danial__zeus/",
+      "desc": "جاوید • داستان • طنز",
+      "platform": "اینستاگرام",
+      "icon": "instagram",
+      "iconClass": "fab fa-instagram"
+    },
+    {
+      "name": "@c404_EDITOR",
+      "url": "https://www.instagram.com/c404_editor/",
+      "desc": "ادیت حرفه‌ای • رشد پیج",
+      "platform": "ادیت و ادمینی",
+      "icon": "instagram",
+      "iconClass": "fab fa-instagram"
+    },
+    {
+      "name": "BAD_KING",
+      "url": "https://ble.ir/join/2xTEY9XA8z",
+      "desc": "پیام‌رسان بله",
+      "platform": "بله",
+      "icon": "bale",
+      "iconClass": "fas fa-comment-dots"
+    },
+    {
+      "name": "d099173878@gmail.com",
+      "url": "mailto:d099173878@gmail.com",
+      "desc": "ارتباط مستقیم",
+      "platform": "ایمیل",
+      "icon": "email",
+      "iconClass": "fas fa-envelope"
+    }
+  ]
+}
